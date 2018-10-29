@@ -149,7 +149,6 @@ public class Student extends Agent {
 			if(msg != null) {
 				
 				if(msg.getPerformative() == ACLMessage.PROPOSE) {
-					
 					timer.cancel();
 					timer.purge();
 					ACLMessage reply = msg.createReply();
