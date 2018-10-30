@@ -6,6 +6,15 @@ import jade.wrapper.StaleProxyException;
 import jade.core.Profile;
 import jade.core.ProfileImpl;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 public class Setup {
 	
 	private static ContainerController studentController, canteenController;
@@ -30,7 +39,23 @@ public class Setup {
 		
 	}
 	
-	public static void agentsSetup(int canteenNumber, int studentNumber) {
+	public static void agentsSetup(int canteenNumber, int studentNumber, String scenarioName) {
+		
+		JSONParser parser = new JSONParser();
+		
+		try {
+			JSONObject obj = (JSONObject) parser.parse(new FileReader("scenarios\\" + scenarioName + ".json"));
+			System.out.println(obj.toJSONString());
+			
+			JSONArray students = (JSONArray) obj.get("students");
+			System.out.println(students.toJSONString());
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
 		
 		for(int i = 0; i < canteenNumber; i++) {
 			AgentController cont;
@@ -61,7 +86,7 @@ public class Setup {
 	public static void main(String[] args) {
 		
 		jadeSetup();
-		agentsSetup(Integer.parseInt(args[0]),Integer.parseInt(args[1]));
+		agentsSetup(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
 		
 	}
 	

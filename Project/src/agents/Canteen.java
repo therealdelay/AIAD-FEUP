@@ -11,7 +11,6 @@ import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
-import jdk.internal.util.xml.impl.Pair;
 
 public class Canteen extends Agent {
 
