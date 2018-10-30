@@ -11,11 +11,10 @@ import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
-import jdk.internal.util.xml.impl.Pair;
 
 public class Canteen extends Agent {
 
-	int quantity = 1;
+	int quantity = 10;
 	int day = 1;
 	HashMap<String, MealPair<String, Integer>> dayMenu = new HashMap<>();
 	ArrayList<String> meatMenus = new ArrayList<>();
@@ -45,7 +44,8 @@ public class Canteen extends Agent {
 		}
 	}
 
-	private void setMenus() { //se calhar depois de ter o parser feito vai receber um array com os pratos e é só fazer this.meatMnus = meatMenus, etc
+	private void setMenus() { // se calhar depois de ter o parser feito vai receber um array com os pratos e é
+								// só fazer this.meatMnus = meatMenus, etc
 		this.meatMenus.add("Meat1");
 		this.meatMenus.add("Meat2");
 		this.meatMenus.add("Meat3");
@@ -94,28 +94,28 @@ public class Canteen extends Agent {
 	private void decMeatMeals() {
 		String meatMenu = dayMenu.get("meat").getMenu();
 		int meatMeals = dayMenu.get("meat").getQuantity();
-		dayMenu.put("meat", new MealPair(meatMenu, meatMeals-1));
+		dayMenu.put("meat", new MealPair(meatMenu, meatMeals - 1));
 		System.out.println(dayMenu.get("meat"));
 	}
 
 	private void decFishMeals() {
 		String fishMenu = dayMenu.get("fish").getMenu();
 		int fishMeals = dayMenu.get("fish").getQuantity();
-		dayMenu.put("fish", new MealPair(fishMenu, fishMeals-1));
+		dayMenu.put("fish", new MealPair(fishMenu, fishMeals - 1));
 		System.out.println(dayMenu.get("fish"));
 	}
 
 	private void decVegMeals() {
 		String vegMenu = dayMenu.get("veg").getMenu();
 		int vegMeals = dayMenu.get("veg").getQuantity();
-		dayMenu.put("veg", new MealPair(vegMenu, vegMeals-1));
+		dayMenu.put("veg", new MealPair(vegMenu, vegMeals - 1));
 		System.out.println(dayMenu.get("veg"));
 	}
 
 	private void decDietMeals() {
 		String dietMenu = dayMenu.get("diet").getMenu();
 		int dietMeals = dayMenu.get("diet").getQuantity();
-		dayMenu.put("diet", new MealPair(dietMenu, dietMeals-1));
+		dayMenu.put("diet", new MealPair(dietMenu, dietMeals - 1));
 		System.out.println(dayMenu.get("diet"));
 	}
 
