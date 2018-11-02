@@ -5,20 +5,20 @@
 			"groupID": 1,
 			"current-university": "FEUP",
 			"favorite-dishes": {
-				"meat": [
-					"meat1",
-					"meat3"
-				],
-				"fish": [
-					"fish3",
-					"fish5"
-				],
-				"veg": [
-					"veg1"
-				],
-				"diet": [
-					"diet3"
-				]
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
 			},
 			"past-experience": {
 				"FEUP": [
@@ -54,20 +54,20 @@
 			"groupID": 1,
 			"current-university": "FEUP",
 			"favorite-dishes": {
-				"meat": [
-					"meat2",
-					"meat4"
-				],
-				"fish": [
-					"fish1",
-					"fish2"
-				],
-				"veg": [
-					"veg2"
-				],
-				"diet": [
-					"diet2"
-				]
+				"meat": {
+					"meat2": 8,
+					"meat4": 10
+				},
+				"fish": {
+					"fish1": 5,
+					"fish2": 6
+				},
+				"veg": {
+					"veg2": 2
+				},
+				"diet": {
+					"diet2": 4
+				}
 			},
 			"past-experience": {
 				"FEUP": [
