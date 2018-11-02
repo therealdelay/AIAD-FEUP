@@ -149,7 +149,7 @@ public class Student extends Agent {
 							double distance = Double.parseDouble(msg.getContent().split(":")[1]);
 							ArrayList<String> menu = (ArrayList<String>) msg.getContentObject();
 							
-							
+							// TODO: calculate heuristic
 						
 						} catch (UnreadableException e) {
 							// TODO Auto-generated catch block

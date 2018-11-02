@@ -1,5 +1,6 @@
 package agents;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -49,7 +50,7 @@ public class Canteen extends Agent {
 			fe.printStackTrace();
 		}
 	}
-	
+
 	private void loadJSON() {
 		Object[] args = getArguments();
 		canteenInfo = (JSONObject) args[0];
@@ -58,23 +59,23 @@ public class Canteen extends Agent {
 	}
 
 	private void setMenus() { // se calhar depois de ter o parser feito vai receber um array com os pratos e é
-								// só fazer this.meatMnus = meatMenus, etc
-		
+		// só fazer this.meatMnus = meatMenus, etc
+
 		JSONArray meatDishes = (JSONArray) ((JSONObject) dishes.get(0)).get("meat");		// [0] -> meat
 		JSONArray fishDishes = (JSONArray) ((JSONObject) dishes.get(1)).get("fish");		// [1] -> fish
 		JSONArray vegDishes = (JSONArray) ((JSONObject) dishes.get(2)).get("veg");			// [2] -> veg
 		JSONArray dietDishes = (JSONArray) ((JSONObject) dishes.get(3)).get("diet");		// [3] -> diet
-		
+
 		for(int i = 0; i < meatDishes.size(); i++) {
 			JSONObject currDish = (JSONObject) meatDishes.get(i);
 			this.meatMenus.add((String) currDish.get("dishname"));
 		}
-		
+
 		for(int i = 0; i < fishDishes.size(); i++) {
 			JSONObject currDish = (JSONObject) fishDishes.get(i);
 			this.fishMenus.add((String) currDish.get("dishname"));
 		}
-		
+
 		for(int i = 0; i < vegDishes.size(); i++) {
 			JSONObject currDish = (JSONObject) vegDishes.get(i);
 			this.vegMenus.add((String) currDish.get("dishname"));
@@ -178,17 +179,52 @@ public class Canteen extends Agent {
 			ACLMessage msg = receive();
 			if (msg != null) {
 				ACLMessage reply = msg.createReply();
-				reply.setPerformative(ACLMessage.INFORM);
-				if (quantity > 0) {
-					reply.setContent("Cantina " + getLocalName() + " OK!");
-					quantity--;
-				} else
-					reply.setContent("Cantina " + getLocalName() + " NO!");
+
+				if(msg.getPerformative() == ACLMessage.REQUEST) {
+
+					reply.setPerformative(ACLMessage.INFORM);
+					
+					//TODO: Get distance from canteen info
+					double distance = 0;
+					reply.setContent("Canteen info:" + distance);
+					
+					try {
+						
+						reply.setContentObject(getCanteenDishes());
+					
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						return;
+					}
+					
+				} else {
+
+					reply.setPerformative(ACLMessage.INFORM);
+					
+					if (quantity > 0) {
+						reply.setContent("Cantina " + getLocalName() + " OK!");
+						quantity--;
+					} else
+						reply.setContent("Cantina " + getLocalName() + " NO!");
+
+				}
+
 				send(reply);
 			} else {
 				block();
 			}
 		}
+
+
+		public ArrayList<String> getCanteenDishes() {
+			ArrayList<String> dishes = new ArrayList();
+
+			//TODO: Get insto dishes all the names of the dishes of the canteen
+
+			return dishes;
+		}
+
 	}
 
 	class MealPair<F, S> {
