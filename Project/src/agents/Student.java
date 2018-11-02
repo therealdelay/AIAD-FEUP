@@ -3,6 +3,7 @@ package agents;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.json.simple.JSONObject;
 
@@ -22,14 +23,7 @@ public class Student extends Agent {
 	DFAgentDescription[] canteens = null;
 	DFAgentDescription[] students = null;
 	int canteenOption = -1;
-	Timer timer;
 
-	boolean sent_proposal = false; // Sender of proposal
-	boolean canteen_chosen = false; // If canteen option has majority of votes
-	boolean waiting_confirm = false; // If after voting, the students are waiting for the proposer verdict
-	boolean declare_proposal = false; // If proposal sender has sent the declaration of the acceptance of said proposal
-	int votes = 0;
-	
 	JSONObject studentInfo;
 
 	protected void setup() {
@@ -37,11 +31,8 @@ public class Student extends Agent {
 		registerOnDF();
 		searchAllCanteens();
 		searchAllStudents();
-		canteenOption = chooseCanteen();
-		addBehaviour(new EatingBehaviour());
-		addBehaviour(new ListeningBehaviour());
-		addBehaviour(new ProposeCanteenBehaviour());
-		addBehaviour(new AnnounceChosenCanteenBehaviour());
+		canteenOption = 0;
+		addBehaviour(new ProposalBehaviour());
 
 	}
 
@@ -49,7 +40,7 @@ public class Student extends Agent {
 		Random r = new Random();
 		return r.nextInt(canteens.length);
 	}
-	
+
 	protected void loadJSON() {
 		Object[] args = getArguments();
 		studentInfo = (JSONObject) args[0];
@@ -94,110 +85,33 @@ public class Student extends Agent {
 			fe.printStackTrace();
 		}
 	}
+
 	
-	
-	class EatingBehaviour extends Behaviour {
+	class ProposalBehaviour extends Behaviour {
+		
+		int step = 0;
+		ACLMessage msg;
+		Timer timer;
+		
+		boolean sent_proposal = false;
+		int votes_in_favor = 0;
+		int votes = 0;
 
 		@Override
 		public void action() {
-			if (canteen_chosen) {
-				ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
-				msg.setContent("1 lunch.");
-				msg.addReceiver(new AID(canteens[canteenOption].getName().getLocalName(), AID.ISLOCALNAME));
-				send(msg);
-				didEat = 1;
-			}
-		}
+			switch(step) {
 
-		public boolean done() {
-			return didEat == 0 ? false : true;
-		}
+			case 0:
 
-	}
-	
-	
-	/**
-	 * 
-	 * Listening Behaviour, responsible for listening all messages and updating the necessary information
-	 *
-	 */
-	class ListeningBehaviour extends CyclicBehaviour {
+				Random timeout = new Random();
+				int timeoutTime = timeout.nextInt(1000);
+				timer = new Timer();
 
-		public void action() {
-			ACLMessage msg = receive();
-			if (msg != null && msg.getSender().getLocalName().contains("canteen") && didEat == 1) {
+				timer.schedule(new TimerTask() {
 
-				String msgCnt = msg.getContent();
-				System.out.println("Resposta da cantina: " + msgCnt);
-				didEat = 2;
-
-			} else if (msg != null) {
-
-				if (msg.getPerformative() == ACLMessage.PROPOSE) {
-					
-					timer.cancel();
-					timer.purge();
-
-					ACLMessage reply = msg.createReply();
-					reply.setPerformative(ACLMessage.ACCEPT_PROPOSAL);
-					send(reply);
-					
-					waiting_confirm = true;
-					
-					System.out.println("Student " + getLocalName() + " accepts");
-					
-				} else if (msg.getPerformative() == ACLMessage.ACCEPT_PROPOSAL && sent_proposal) {
-					
-					votes++;
-					if(students != null) {
+					public void run() {
 						
-						if (votes > students.length / 2) {
-
-							canteen_chosen = true;
-							
-						}
-					}
-					
-					System.out.println("Student " + getLocalName() + " proposal has " + votes + " votes");
-					
-				} else if(msg != null && msg.getPerformative() == ACLMessage.CONFIRM) {
-					
-					canteen_chosen = true;
-					waiting_confirm = false;
-					System.out.println("Student " + getLocalName() + " receives confirmation of canteen");
-					
-				} 
-				
-			} else {
-				block();
-			}
-		}
-
-	}
-	
-	
-	/**
-	 * 
-	 * Propose Canteen Behaviour, responsible for making a proposal to other group students
-	 * with the canteen the user prefers.
-	 * 
-	 * TODO: Chose canteen based on likes and experience
-	 * TODO: Make proposal to same group students
-	 *
-	 */
-	class ProposeCanteenBehaviour extends Behaviour {
-
-		public void action() {
-			Random timeout = new Random();
-			int timeoutTime = timeout.nextInt(10000);
-			timer = new Timer();
-			timer.schedule(new TimerTask() {
-
-				public void run() {
-					if (!sent_proposal && !canteen_chosen && !waiting_confirm && didEat == 0) {
-
-						searchAllStudents();
-						ACLMessage msg = new ACLMessage(ACLMessage.PROPOSE);
+						msg = new ACLMessage(ACLMessage.PROPOSE);
 						msg.setContent("FEUP");
 
 						for (int i = 0; i < students.length; i++) {
@@ -207,37 +121,108 @@ public class Student extends Agent {
 						}
 
 						send(msg);
+						
 						sent_proposal = true;
 
-						System.out.println("Student " + getLocalName() + " proposes");
+						System.out.println("Student " + getLocalName() + " proposes ");
+
 					}
+				}, timeoutTime);
+
+				step = 1;
+
+				break;
+
+			case 1:
+
+				msg = receive();
+
+				if (msg != null && msg.getSender().getLocalName().contains("FMUP") && didEat == 1) {
+
+					String msgCnt = msg.getContent();
+					System.out.println("Resposta da cantina: " + msgCnt);
+					didEat = 2;
+					
+					votes = 0;
+					votes_in_favor = 0;
+					sent_proposal = false;
+					step = 0;
+
+				} else if (msg != null) {
+
+					if (msg.getPerformative() == ACLMessage.PROPOSE) {
+
+						timer.cancel();
+						timer.purge();
+
+						// TODO: Check preferences and decide based on them
+						ACLMessage reply = msg.createReply();
+						reply.setPerformative(ACLMessage.REJECT_PROPOSAL);
+						send(reply);
+
+						System.out.println("Student " + getLocalName() + " accepts");
+
+					} else if (msg.getPerformative() == ACLMessage.ACCEPT_PROPOSAL && sent_proposal) {
+
+						votes++;
+						votes_in_favor++;
+
+						if(students != null) {
+
+							if (votes_in_favor >= students.length / 2) {
+								
+								step = 2;
+								
+							} else if (votes == students.length - 1) {
+
+								// TODO: Change for proposed canteen
+								discardCanteen("FEUP");
+
+							}
+						}
+
+						System.out.println("Student " + getLocalName() + " proposal has " + votes + " votes");
+
+					} else if(msg.getPerformative() == ACLMessage.REJECT_PROPOSAL && sent_proposal) {
+
+						votes++;
+
+						if(students != null) {
+
+							if(votes == students.length - 1) {
+
+								System.out.println("Proposal Rejected");
+								
+								// TODO: Change for proposed canteen
+								discardCanteen("FEUP");
+
+							}
+						}
+
+					} else if(msg.getPerformative() == ACLMessage.CONFIRM) {
+
+						System.out.println("Student " + getLocalName() + " receives confirmation of canteen");
+						//TODO: get canteen option
+
+						step = 3;
+
+
+					} else if(msg.getPerformative() == ACLMessage.DISCONFIRM) {
+
+						step = 1;
+
+					}
+
+				} else {
+					block();
 				}
-			}, timeoutTime);
-
-		}
-
-		public boolean done() {
-			return canteen_chosen;
-		}
-	}
-	
-	/**
-	 * 
-	 * Announce Chosen Canteen behaviour, responsible for informing other students of same group
-	 * that the voted canteen had makority of votes and is the one they will go to.
-	 * 
-	 * TODO: Confirm to same group students
-	 *
-	 */
-	class AnnounceChosenCanteenBehaviour extends Behaviour {
-
-		@Override
-		public void action() {
-			if(sent_proposal && canteen_chosen) {
+				break;
+			
+			case 2: 
 				
 				System.out.println("Student " + getLocalName() + " sending canteen choice confirmation!");
 				ACLMessage msg = new ACLMessage(ACLMessage.CONFIRM);
-				msg.setContent("Chosen Canteen-" + "FEUP");
+				msg.setContent("Chosen Canteen-" + "ISEP");
 
 				for (int i = 0; i < students.length; i++) {
 					if (!students[i].getName().getLocalName().equals(getLocalName())) {
@@ -246,15 +231,62 @@ public class Student extends Agent {
 				}
 
 				send(msg);
+				
+				step = 3;
+				
+				break;
+				
+			case 3:
+								
+				msg = new ACLMessage(ACLMessage.INFORM);
+				msg.setContent("1 lunch.");
+				msg.addReceiver(new AID(canteens[canteenOption].getName().getLocalName(), AID.ISLOCALNAME));
+				send(msg);
+				didEat = 1;
+				
+				step = 1;
+				
+				break;
 
-				declare_proposal = true;
+			default:
+				break;
+
 			}
 
 		}
 
 		@Override
 		public boolean done() {
-			return declare_proposal;
+			return didEat == 2 ? true : false;
+		}
+
+		public void discardCanteen(String canteen) {
+
+			ACLMessage msg = new ACLMessage(ACLMessage.DISCONFIRM);
+
+			msg.setContent("Discarded Canteen-" + canteen);
+
+			for (int i = 0; i < students.length; i++) {
+				if (!students[i].getName().getLocalName().equals(getLocalName())) {
+					msg.addReceiver(students[i].getName());
+				}
+			}
+
+			send(msg);
+
+			try {
+				Thread.sleep(200);
+				
+				sent_proposal = false;
+				votes = 0;
+				votes_in_favor = 0;
+				step = 0;
+
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 
 	}

@@ -35,7 +35,7 @@ public class Setup {
 
 	}
 
-	public static void agentsSetup(int canteenNumber, int studentNumber, String scenarioName) {
+	public static void agentsSetup(String scenarioName) {
 
 		JSONParser parser = new JSONParser();
 
@@ -86,7 +86,7 @@ public class Setup {
 	public static void main(String[] args) {
 
 		jadeSetup();
-		agentsSetup(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
+		agentsSetup(args[0]);
 
 	}
 
