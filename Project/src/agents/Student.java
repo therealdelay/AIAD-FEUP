@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.json.simple.JSONObject;
+
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
@@ -27,8 +29,11 @@ public class Student extends Agent {
 	boolean waiting_confirm = false; // If after voting, the students are waiting for the proposer verdict
 	boolean declare_proposal = false; // If proposal sender has sent the declaration of the acceptance of said proposal
 	int votes = 0;
+	
+	JSONObject studentInfo;
 
 	protected void setup() {
+		loadJSON();
 		registerOnDF();
 		searchAllCanteens();
 		searchAllStudents();
@@ -43,6 +48,12 @@ public class Student extends Agent {
 	protected int chooseCanteen() {
 		Random r = new Random();
 		return r.nextInt(canteens.length);
+	}
+	
+	protected void loadJSON() {
+		Object[] args = getArguments();
+		studentInfo = (JSONObject) args[0];
+		// System.out.println("estudante: " + studentInfo.toJSONString());
 	}
 
 	protected void searchAllCanteens() {

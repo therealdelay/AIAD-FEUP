@@ -34,47 +34,51 @@ public class Setup {
 		canteenController = runtime.createAgentContainer(profileCanteen);
 
 	}
-	
+
 	public static void agentsSetup(int canteenNumber, int studentNumber, String scenarioName) {
-		
+
 		JSONParser parser = new JSONParser();
-		
+
 		try {
 			JSONObject obj = (JSONObject) parser.parse(new FileReader("scenarios/" + scenarioName + ".json"));
-			System.out.println(obj.toJSONString());
-			
 			JSONArray students = (JSONArray) obj.get("students");
-			System.out.println(students.toJSONString());
+			JSONArray canteens = (JSONArray) obj.get("canteens");
+			JSONArray dishes = (JSONArray) obj.get("dishes");
+
+			for(int i = 0; i < canteens.size(); i++) {
+				AgentController cont;
+
+				try {
+					JSONObject canteen = (JSONObject) canteens.get(i);
+					Object[] objs = {(Object) canteen, (Object) dishes};
+					cont = canteenController.createNewAgent((String) canteen.get("name"), "agents.Canteen", objs);
+					cont.start();
+				} catch (StaleProxyException e) {
+					System.out.println("Error creating canteen agents: " + e.getMessage());
+					return;
+				}
+			}
+
+			for (int i = 0; i < students.size(); i++) {
+				AgentController cont;
+
+				try {
+					JSONObject student = (JSONObject) students.get(i);
+					Object[] objs = {(Object) student};
+					cont = studentController.createNewAgent((String) student.get("name"), "agents.Student", objs);
+					cont.start();
+				} catch (StaleProxyException e) {
+					System.out.println("Error creating student agents: " + e.getMessage());
+					return;
+				}
+			}
+
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (ParseException e1) {
 			e1.printStackTrace();
-		}
-		
-		for(int i = 0; i < canteenNumber; i++) {
-			AgentController cont;
-
-			try {
-				cont = canteenController.createNewAgent("canteen -" + i, "agents.Canteen", null);
-				cont.start();
-			} catch (StaleProxyException e) {
-				System.out.println("Error creating canteen agents: " + e.getMessage());
-				return;
-			}
-		}
-
-		for (int i = 0; i < studentNumber; i++) {
-			AgentController cont;
-
-			try {
-				cont = studentController.createNewAgent("student -" + i, "agents.Student", null);
-				cont.start();
-			} catch (StaleProxyException e) {
-				System.out.println("Error creating student agents: " + e.getMessage());
-				return;
-			}
 		}
 
 	}
@@ -83,7 +87,7 @@ public class Setup {
 
 		jadeSetup();
 		agentsSetup(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
-		
+
 	}
 
 }

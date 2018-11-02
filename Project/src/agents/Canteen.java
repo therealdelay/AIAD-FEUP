@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.domain.DFService;
@@ -22,8 +25,11 @@ public class Canteen extends Agent {
 	ArrayList<String> vegMenus = new ArrayList<>();
 	ArrayList<String> dietMenus = new ArrayList<>();
 	ArrayList<String> lastWeekMenus = new ArrayList<>();
+	JSONObject canteenInfo;
+	JSONArray dishes;
 
 	protected void setup() {
+		loadJSON();
 		registerOnDF();
 		setMenus();
 		setDayMenu(5, 5, 5, 5);
@@ -43,52 +49,41 @@ public class Canteen extends Agent {
 			fe.printStackTrace();
 		}
 	}
+	
+	private void loadJSON() {
+		Object[] args = getArguments();
+		canteenInfo = (JSONObject) args[0];
+		dishes = (JSONArray) args[1];
+		// System.out.println("PRATOS: " + dishes.toJSONString());
+	}
 
 	private void setMenus() { // se calhar depois de ter o parser feito vai receber um array com os pratos e é
 								// só fazer this.meatMnus = meatMenus, etc
-		this.meatMenus.add("Meat1");
-		this.meatMenus.add("Meat2");
-		this.meatMenus.add("Meat3");
-		this.meatMenus.add("Meat4");
-		this.meatMenus.add("Meat5");
-		this.meatMenus.add("Meat6");
-		this.meatMenus.add("Meat7");
-		this.meatMenus.add("Meat8");
-		this.meatMenus.add("Meat9");
-		this.meatMenus.add("Meat10");
+		
+		JSONArray meatDishes = (JSONArray) ((JSONObject) dishes.get(0)).get("meat");		// [0] -> meat
+		JSONArray fishDishes = (JSONArray) ((JSONObject) dishes.get(1)).get("fish");		// [1] -> fish
+		JSONArray vegDishes = (JSONArray) ((JSONObject) dishes.get(2)).get("veg");			// [2] -> veg
+		JSONArray dietDishes = (JSONArray) ((JSONObject) dishes.get(3)).get("diet");		// [3] -> diet
+		
+		for(int i = 0; i < meatDishes.size(); i++) {
+			JSONObject currDish = (JSONObject) meatDishes.get(i);
+			this.meatMenus.add((String) currDish.get("dishname"));
+		}
+		
+		for(int i = 0; i < fishDishes.size(); i++) {
+			JSONObject currDish = (JSONObject) fishDishes.get(i);
+			this.fishMenus.add((String) currDish.get("dishname"));
+		}
+		
+		for(int i = 0; i < vegDishes.size(); i++) {
+			JSONObject currDish = (JSONObject) vegDishes.get(i);
+			this.vegMenus.add((String) currDish.get("dishname"));
+		}
 
-		this.fishMenus.add("Fish1");
-		this.fishMenus.add("Fish2");
-		this.fishMenus.add("Fish3");
-		this.fishMenus.add("Fish4");
-		this.fishMenus.add("Fish5");
-		this.fishMenus.add("Fish6");
-		this.fishMenus.add("Fish7");
-		this.fishMenus.add("Fish8");
-		this.fishMenus.add("Fish9");
-		this.fishMenus.add("Fish10");
-
-		this.vegMenus.add("Veg1");
-		this.vegMenus.add("Veg2");
-		this.vegMenus.add("Veg3");
-		this.vegMenus.add("Veg4");
-		this.vegMenus.add("Veg5");
-		this.vegMenus.add("Veg6");
-		this.vegMenus.add("Veg7");
-		this.vegMenus.add("Veg8");
-		this.vegMenus.add("Veg9");
-		this.vegMenus.add("Veg10");
-
-		this.dietMenus.add("Diet1");
-		this.dietMenus.add("Diet2");
-		this.dietMenus.add("Diet3");
-		this.dietMenus.add("Diet4");
-		this.dietMenus.add("Diet5");
-		this.dietMenus.add("Diet6");
-		this.dietMenus.add("Diet7");
-		this.dietMenus.add("Diet8");
-		this.dietMenus.add("Diet9");
-		this.dietMenus.add("Diet10");
+		for(int i = 0; i < dietDishes.size(); i++) {
+			JSONObject currDish = (JSONObject) dietDishes.get(i);
+			this.dietMenus.add((String) currDish.get("dishname"));
+		}
 	}
 
 	private void decMeatMeals() {
