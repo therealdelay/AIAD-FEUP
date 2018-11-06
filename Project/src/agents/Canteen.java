@@ -196,9 +196,10 @@ public class Canteen extends Agent {
 			
 			if (msg != null) {
 				ACLMessage reply = msg.createReply();
-
+				
 				if(msg.getPerformative() == ACLMessage.REQUEST && msg.getContent().contains("Canteen Info")) {
-					
+
+					// Request from student to send distance and menu dishes					
 					int index = msg.getContent().indexOf(":");
 					if(index == -1) {
 						return;
@@ -211,7 +212,6 @@ public class Canteen extends Agent {
 						reply.setPerformative(ACLMessage.INFORM);
 						CanteenAnswer answer = new CanteenAnswer(distance, getCanteenDishes());
 						reply.setContentObject((Serializable) answer);
-						System.out.println("Canteen answer");
 						send(reply);
 					
 					} catch (IOException e) {

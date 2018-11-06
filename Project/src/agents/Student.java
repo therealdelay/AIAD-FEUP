@@ -221,6 +221,7 @@ public class Student extends Agent {
 
 		int step = 0;
 		int currentFaculty = 0;
+		String currentFacultyName = null;
 
 		@Override
 		public void action() {
@@ -234,9 +235,10 @@ public class Student extends Agent {
 
 				ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
 				msg.setContent("Canteen Info : " + faculty);
-
 				msg.addReceiver(canteens[currentFaculty].getName());
 				send(msg);
+				
+				currentFacultyName = canteens[currentFaculty].getName().getLocalName();
 				currentFaculty++;
 				step = 1;
 
@@ -251,13 +253,33 @@ public class Student extends Agent {
 					if(answer.getPerformative() == ACLMessage.INFORM) {
 
 						try {
-							
+
 							CanteenAnswer info = (CanteenAnswer) answer.getContentObject();
 
 							double distance = info.getDistance();
 							ArrayList<String> menu = info.getDishes();
 
-							// TODO: calculate heuristic
+							int dishesHeuristics = 0;
+
+							for(int i = 0; i < menu.size(); i++) {
+								if(favoriteDishes.containsKey(menu.get(i))) {
+									dishesHeuristics += 10 - favoriteDishes.get(menu.get(i));
+								}
+							}
+
+							JSONArray canteenInfo = (JSONArray) ((JSONObject) studentInfo.get("past-experience"))
+									.get(canteens[currentFaculty - 1].getName().getLocalName());
+
+							double pastExperienceHeuristic = 0;
+							for(int i = 0; i < canteenInfo.size(); i++) {
+								pastExperienceHeuristic += (Double) canteenInfo.get(i);
+							}
+
+							pastExperienceHeuristic = pastExperienceHeuristic / canteenInfo.size();
+
+							double heuristic = distance*0.25 + dishesHeuristics*0.45 + pastExperienceHeuristic*0.3;
+							
+							canteenHeuristics.put(currentFacultyName, heuristic);
 
 							step = 0;
 
@@ -281,7 +303,6 @@ public class Student extends Agent {
 
 		@Override
 		public boolean done() {
-			// TODO Auto-generated method stub
 			return currentFaculty >= canteens.length;
 		}
 
