@@ -3,6 +3,7 @@ package agents;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import org.json.simple.JSONObject;
@@ -17,10 +18,12 @@ import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 
 public class Canteen extends Agent {
-
+	
+	String canteenName = "";
 	int quantity = 10;
 	int day = 1;
 	HashMap<String, MealPair<String, Integer>> dayMenu = new HashMap<>();
+	HashMap<String, Double> distances = new HashMap<>();
 	ArrayList<String> meatMenus = new ArrayList<>();
 	ArrayList<String> fishMenus = new ArrayList<>();
 	ArrayList<String> vegMenus = new ArrayList<>();
@@ -32,6 +35,7 @@ public class Canteen extends Agent {
 	protected void setup() {
 		loadJSON();
 		registerOnDF();
+		setDistances();
 		setMenus();
 		setDayMenu(5, 5, 5, 5);
 		addBehaviour(new ListeningBehaviour());
@@ -55,7 +59,6 @@ public class Canteen extends Agent {
 		Object[] args = getArguments();
 		canteenInfo = (JSONObject) args[0];
 		dishes = (JSONArray) args[1];
-		// System.out.println("PRATOS: " + dishes.toJSONString());
 	}
 
 	private void setMenus() { // se calhar depois de ter o parser feito vai receber um array com os pratos e é
@@ -172,35 +175,53 @@ public class Canteen extends Agent {
 	public HashMap<String, MealPair<String, Integer>> getDayMenu() {
 		return dayMenu;
 	}
+	
+	public void setDistances() {
+		canteenName = (String) canteenInfo.get("name");
+		
+		JSONObject distancesObj = (JSONObject) canteenInfo.get("distances");
+		for(Object key : distancesObj.keySet()) {
+			this.distances.put((String) key, (Double) distancesObj.get(key));
+		}
+		
+	}
 
 	class ListeningBehaviour extends CyclicBehaviour {
 
 		public void action() {
 			ACLMessage msg = receive();
+			
 			if (msg != null) {
 				ACLMessage reply = msg.createReply();
 
-				if(msg.getPerformative() == ACLMessage.REQUEST) {
-
-					reply.setPerformative(ACLMessage.INFORM);
+				if(msg.getPerformative() == ACLMessage.REQUEST && msg.getContent().contains("Canteen Info")) {
 					
-					//TODO: Get distance from canteen info
-					double distance = 0;
-					reply.setContent("Canteen info:" + distance);
+					int index = msg.getContent().indexOf(":");
+					if(index == -1) {
+						return;
+					}
+					String studentFaculty = msg.getContent().substring(index + 1, msg.getContent().length()).trim();
+					
+					double distance = distances.get(studentFaculty);
 					
 					try {
 						
+						reply.setPerformative(ACLMessage.INFORM);
+						reply.setContent("Canteen Info:" + distance);
 						reply.setContentObject(getCanteenDishes());
+						System.out.println("Canteen answer");
+						send(reply);
 					
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("An error ocurred in getting canteen info");
 						return;
 					}
 					
 				} else {
 
 					reply.setPerformative(ACLMessage.INFORM);
+					
+					//TODO: make waiting line
 					
 					if (quantity > 0) {
 						reply.setContent("Cantina " + getLocalName() + " OK!");
@@ -220,7 +241,13 @@ public class Canteen extends Agent {
 		public ArrayList<String> getCanteenDishes() {
 			ArrayList<String> dishes = new ArrayList();
 
-			//TODO: Get insto dishes all the names of the dishes of the canteen
+			
+			for (Map.Entry<String, MealPair<String, Integer>> entry : dayMenu.entrySet()) {
+				
+				MealPair<String, Integer> obj = entry.getValue();
+				dishes.add(obj.getMenu());
+				
+			}
 
 			return dishes;
 		}

@@ -29,7 +29,7 @@ public class Student extends Agent {
 	DFAgentDescription[] canteens = null;
 	DFAgentDescription[] students = null;
 	int canteenOption = -1;
-	
+
 	JSONObject studentInfo;
 	String faculty;
 	String groupID;
@@ -37,7 +37,7 @@ public class Student extends Agent {
 	JSONObject pastExperiences;
 
 	HashMap<String, Double> canteenHeuristics;
-	//TODO: Hashmap with colleagues experience
+
 	ConcurrentHashMap<String, ArrayList<Integer>> colleaguesExp;
 
 	protected void setup() {
@@ -60,28 +60,28 @@ public class Student extends Agent {
 	protected void loadJSON() {
 		Object[] args = getArguments();
 		studentInfo = (JSONObject) args[0];
-		this.faculty = (String) studentInfo.get("name");
+		this.faculty = (String) studentInfo.get("current-university");
 		this.groupID = String.valueOf(studentInfo.get("groupID"));
 		this.pastExperiences = (JSONObject) studentInfo.get("past-experience");
 		this.favoriteDishes = new HashMap<String, Integer>();
-		
+
 		JSONObject favoriteDishes = (JSONObject) studentInfo.get("favorite-dishes");
-		
+
 		JSONObject favoriteMeatDishes = (JSONObject) favoriteDishes.get("meat");
 		for(Object key : favoriteMeatDishes.keySet()) {
 			this.favoriteDishes.put((String) key, ((Long) favoriteMeatDishes.get(key)).intValue());
 		}
-		
+
 		JSONObject favoriteFishDishes = (JSONObject) favoriteDishes.get("fish");
 		for(Object key : favoriteFishDishes.keySet()) {
 			this.favoriteDishes.put((String) key, ((Long) favoriteFishDishes.get(key)).intValue());
 		}
-		
+
 		JSONObject favoriteVegDishes = (JSONObject) favoriteDishes.get("veg");
 		for(Object key : favoriteVegDishes.keySet()) {
 			this.favoriteDishes.put((String) key, ((Long) favoriteVegDishes.get(key)).intValue());
 		}
-		
+
 		JSONObject favoriteDietDishes = (JSONObject) favoriteDishes.get("diet");
 		for(Object key : favoriteDietDishes.keySet()) {
 			this.favoriteDishes.put((String) key, ((Long) favoriteDietDishes.get(key)).intValue());
@@ -116,23 +116,23 @@ public class Student extends Agent {
 	protected void registerOnDF() {
 		DFAgentDescription dfd = new DFAgentDescription();
 		dfd.setName(getAID());
-		
+
 		ServiceDescription sd = new ServiceDescription();
 		sd.setType("student");
 		sd.setName(getLocalName());
-		
+
 		ServiceDescription sdFaculty = new ServiceDescription();
 		sdFaculty.setType(this.faculty);
 		sdFaculty.setName(getLocalName());
-		
+
 		ServiceDescription sdGroup = new ServiceDescription();
 		sdGroup.setType(this.faculty + "-Group" + this.groupID);
 		sdGroup.setName(getLocalName());
-		
+
 		ServiceDescription sdLunch = new ServiceDescription();
 		sdLunch.setType("hasnt-eaten");
 		sdLunch.setName(getLocalName());
-		
+
 		dfd.addServices(sd);
 		dfd.addServices(sdFaculty);
 		dfd.addServices(sdGroup);
@@ -147,7 +147,7 @@ public class Student extends Agent {
 	protected void canteensRating() {
 
 
-	
+
 	}
 
 	protected void canteenRating(String canteenName, double distance, HashMap<String, MealPair<String, Integer>> menu) {
@@ -167,57 +167,74 @@ public class Student extends Agent {
 		double heuristics = distance * 0.15 + average * 0.5;
 
 	}
-	
+
 	class HeuristicsBehaviour extends Behaviour {
 
 		int step = 0;
-		
+		int asked = 0;
+
 		@Override
 		public void action() {
 			switch(step) {
-			
+
 			case 0:
-				JSONObject canteensInfo = (JSONObject) studentInfo.get("past-experience");
-				Set<String> map = canteensInfo.keySet();
-				Iterator it = map.iterator();
-				
-				while(it.hasNext()) {
-					ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-					msg.setContent("Canteen Info");
-			
-					msg.addReceiver(new AID(it.next().toString(), AID.ISLOCALNAME));
-					send(msg);
-					
-					msg = receive();
-					if(msg != null && msg.getPerformative() == ACLMessage.INFORM && msg.getContent().contains("Canteen Info")) {
-						
-						try {
-							
-							double distance = Double.parseDouble(msg.getContent().split(":")[1]);
-							ArrayList<String> menu = (ArrayList<String>) msg.getContentObject();
-							
-							// TODO: calculate heuristic
-						
-						} catch (UnreadableException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+
+				if(asked == 0) {
+
+					asked = 1;
+
+					JSONObject canteensInfo = (JSONObject) studentInfo.get("past-experience");
+					Set<String> map = canteensInfo.keySet();
+					Iterator it = map.iterator();
+
+
+					for(int i = 0; i < canteens.length; i++) {
+
+						ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
+						msg.setContent("Canteen Info : " + faculty);
+
+						System.out.println("Send message to canteen: " + canteens[i].getName());
+						msg.addReceiver(canteens[i].getName());
+						send(msg);
+						msg = null;
+
+						msg = receive();
+						if(msg != null && msg.getPerformative() == ACLMessage.INFORM && msg.getContent().contains("Canteen Info")) {
+							System.out.println(msg);
+
+							try {
+
+								double distance = Double.parseDouble(msg.getContent().split(":")[1]);
+								System.out.println("Distance: " + distance);
+								ArrayList<String> menu = (ArrayList<String>) msg.getContentObject();
+
+								// TODO: calculate heuristic
+								break;
+
+							} catch (UnreadableException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+
+
+						} else {
+							block();
 						}
-						
-						
+
 					}
 				}
 
 				break;
-			
+
 			case 1:
-				
+
 				break;
-				
+
 			default:
 				break;
-		
+
 			}
-			
+
 		}
 
 		@Override
@@ -225,12 +242,12 @@ public class Student extends Agent {
 			// TODO Auto-generated method stub
 			return false;
 		}
-		
+
 	}
-	
+
 
 	class ProposalBehaviour extends Behaviour {
-		
+
 		int step = 0;
 		ACLMessage msg;
 		Timer timer;
@@ -281,6 +298,7 @@ public class Student extends Agent {
 
 				if (msg != null && msg.getSender().getLocalName().contains("FMUP") && didEat == 1) {
 
+					//TODO: Check if number of dishes is enough
 					String msgCnt = msg.getContent();
 					System.out.println("Resposta da cantina: " + msgCnt);
 					didEat = 2;
