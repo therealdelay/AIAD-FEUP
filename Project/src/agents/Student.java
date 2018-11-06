@@ -126,7 +126,7 @@ public class Student extends Agent {
 		sdFaculty.setName(getLocalName());
 		
 		ServiceDescription sdGroup = new ServiceDescription();
-		sdGroup.setType(this.groupID);
+		sdGroup.setType(this.faculty + "-Group" + this.groupID);
 		sdGroup.setName(getLocalName());
 		
 		ServiceDescription sdLunch = new ServiceDescription();
