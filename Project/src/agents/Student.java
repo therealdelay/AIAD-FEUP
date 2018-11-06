@@ -60,7 +60,7 @@ public class Student extends Agent {
 	protected void loadJSON() {
 		Object[] args = getArguments();
 		studentInfo = (JSONObject) args[0];
-		this.faculty = (String) studentInfo.get("name");
+		this.faculty = (String) studentInfo.get("current-university");
 		this.groupID = String.valueOf(studentInfo.get("groupID"));
 		this.pastExperiences = (JSONObject) studentInfo.get("past-experience");
 		this.favoriteDishes = new HashMap<String, Integer>();
@@ -112,6 +112,52 @@ public class Student extends Agent {
 			fe.printStackTrace();
 		}
 	}
+	
+	public void searchGroupStudents() {
+		DFAgentDescription template = new DFAgentDescription();
+		ServiceDescription sd = new ServiceDescription();
+		sd.setType(this.faculty + "-Group" + this.groupID);
+		template.addServices(sd);
+		try {
+			students = DFService.search(this, template);
+
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
+	
+	public void searchFacultyStudents() {
+		DFAgentDescription template = new DFAgentDescription();
+		ServiceDescription sd = new ServiceDescription();
+		sd.setType(this.faculty);
+		template.addServices(sd);
+		try {
+			students = DFService.search(this, template);
+			for(DFAgentDescription dfad : students) {
+				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
+			}
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
+	
+	public void searchFacultyStudentsWhoHaventEaten() {
+		DFAgentDescription template = new DFAgentDescription();
+		ServiceDescription sd1 = new ServiceDescription();
+		ServiceDescription sd2 = new ServiceDescription();
+		sd1.setType(this.faculty);
+		sd2.setType("hasnt-eaten");
+		template.addServices(sd1);
+		template.addServices(sd2);
+		try {
+			students = DFService.search(this, template);
+			for(DFAgentDescription dfad : students) {
+				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
+			}
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
 
 	protected void registerOnDF() {
 		DFAgentDescription dfd = new DFAgentDescription();
@@ -143,6 +189,8 @@ public class Student extends Agent {
 			fe.printStackTrace();
 		}
 	}
+	
+	
 
 	protected void canteensRating() {
 

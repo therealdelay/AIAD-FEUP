@@ -1,1 +1,1 @@
-http://192.168.1.65:7778/acc
+http://FEUP-B313D11.campus.up.pt:7778/acc
