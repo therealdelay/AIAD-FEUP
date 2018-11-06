@@ -22,6 +22,7 @@ import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
+import utils.CanteenAnswer;
 
 public class Student extends Agent {
 
@@ -113,6 +114,52 @@ public class Student extends Agent {
 		}
 	}
 
+	public void searchGroupStudents() {
+		DFAgentDescription template = new DFAgentDescription();
+		ServiceDescription sd = new ServiceDescription();
+		sd.setType(this.faculty + "-Group" + this.groupID);
+		template.addServices(sd);
+		try {
+			students = DFService.search(this, template);
+
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
+
+	public void searchFacultyStudents() {
+		DFAgentDescription template = new DFAgentDescription();
+		ServiceDescription sd = new ServiceDescription();
+		sd.setType(this.faculty);
+		template.addServices(sd);
+		try {
+			students = DFService.search(this, template);
+			for(DFAgentDescription dfad : students) {
+				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
+			}
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
+
+	public void searchFacultyStudentsWhoHaventEaten() {
+		DFAgentDescription template = new DFAgentDescription();
+		ServiceDescription sd1 = new ServiceDescription();
+		ServiceDescription sd2 = new ServiceDescription();
+		sd1.setType(this.faculty);
+		sd2.setType("hasnt-eaten");
+		template.addServices(sd1);
+		template.addServices(sd2);
+		try {
+			students = DFService.search(this, template);
+			for(DFAgentDescription dfad : students) {
+				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
+			}
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
+
 	protected void registerOnDF() {
 		DFAgentDescription dfd = new DFAgentDescription();
 		dfd.setName(getAID());
@@ -144,6 +191,8 @@ public class Student extends Agent {
 		}
 	}
 
+
+
 	protected void canteensRating() {
 
 
@@ -171,7 +220,7 @@ public class Student extends Agent {
 	class HeuristicsBehaviour extends Behaviour {
 
 		int step = 0;
-		int asked = 0;
+		int currentFaculty = 0;
 
 		@Override
 		public void action() {
@@ -179,68 +228,61 @@ public class Student extends Agent {
 
 			case 0:
 
-				if(asked == 0) {
-
-					asked = 1;
-
-					JSONObject canteensInfo = (JSONObject) studentInfo.get("past-experience");
-					Set<String> map = canteensInfo.keySet();
-					Iterator it = map.iterator();
-
-
-					for(int i = 0; i < canteens.length; i++) {
-
-						ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-						msg.setContent("Canteen Info : " + faculty);
-
-						System.out.println("Send message to canteen: " + canteens[i].getName());
-						msg.addReceiver(canteens[i].getName());
-						send(msg);
-						msg = null;
-
-						msg = receive();
-						if(msg != null && msg.getPerformative() == ACLMessage.INFORM && msg.getContent().contains("Canteen Info")) {
-							System.out.println(msg);
-
-							try {
-
-								double distance = Double.parseDouble(msg.getContent().split(":")[1]);
-								System.out.println("Distance: " + distance);
-								ArrayList<String> menu = (ArrayList<String>) msg.getContentObject();
-
-								// TODO: calculate heuristic
-								break;
-
-							} catch (UnreadableException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-
-
-						} else {
-							block();
-						}
-
-					}
+				if(currentFaculty >= canteens.length) {
+					return;
 				}
+
+				ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
+				msg.setContent("Canteen Info : " + faculty);
+
+				msg.addReceiver(canteens[currentFaculty].getName());
+				send(msg);
+				currentFaculty++;
+				step = 1;
 
 				break;
 
 			case 1:
 
+				ACLMessage answer = receive();
+
+				if(answer != null) {
+
+					if(answer.getPerformative() == ACLMessage.INFORM) {
+
+						try {
+							
+							CanteenAnswer info = (CanteenAnswer) answer.getContentObject();
+
+							double distance = info.getDistance();
+							ArrayList<String> menu = info.getDishes();
+
+							// TODO: calculate heuristic
+
+							step = 0;
+
+						} catch (UnreadableException e) {
+							return;
+						}
+
+
+					} 
+
+				} 
+
 				break;
 
 			default:
+
 				break;
 
 			}
-
 		}
 
 		@Override
 		public boolean done() {
 			// TODO Auto-generated method stub
-			return false;
+			return currentFaculty >= canteens.length;
 		}
 
 	}

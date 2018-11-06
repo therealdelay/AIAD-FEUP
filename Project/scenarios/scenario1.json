@@ -98,6 +98,55 @@
 					0.9
 				]
 			}
+		},
+		{
+			"name": "C",
+			"groupID": 1,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
 		}
 	],
 	"canteens": [

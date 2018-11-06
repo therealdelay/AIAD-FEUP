@@ -1,6 +1,7 @@
 package agents;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +17,8 @@ import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
+
+import utils.CanteenAnswer;
 
 public class Canteen extends Agent {
 	
@@ -200,15 +203,14 @@ public class Canteen extends Agent {
 					if(index == -1) {
 						return;
 					}
-					String studentFaculty = msg.getContent().substring(index + 1, msg.getContent().length()).trim();
-					
+					String studentFaculty = msg.getContent().split(":")[1].trim();
 					double distance = distances.get(studentFaculty);
 					
 					try {
 						
 						reply.setPerformative(ACLMessage.INFORM);
-						reply.setContent("Canteen Info:" + distance);
-						reply.setContentObject(getCanteenDishes());
+						CanteenAnswer answer = new CanteenAnswer(distance, getCanteenDishes());
+						reply.setContentObject((Serializable) answer);
 						System.out.println("Canteen answer");
 						send(reply);
 					
