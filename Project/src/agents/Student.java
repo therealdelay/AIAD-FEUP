@@ -29,7 +29,12 @@ public class Student extends Agent {
 	DFAgentDescription[] canteens = null;
 	DFAgentDescription[] students = null;
 	int canteenOption = -1;
+	
 	JSONObject studentInfo;
+	String faculty;
+	String groupID;
+	HashMap<String, Integer> favoriteDishes;	//string - nome do prato, integer - escala de 1 a 10 para "ordenar" os pratos favoritos
+	JSONObject pastExperiences;
 
 	HashMap<String, Double> canteenHeuristics;
 	//TODO: Hashmap with colleagues experience
@@ -55,7 +60,32 @@ public class Student extends Agent {
 	protected void loadJSON() {
 		Object[] args = getArguments();
 		studentInfo = (JSONObject) args[0];
-		// System.out.println("estudante: " + studentInfo.toJSONString());
+		this.faculty = (String) studentInfo.get("name");
+		this.groupID = String.valueOf(studentInfo.get("groupID"));
+		this.pastExperiences = (JSONObject) studentInfo.get("past-experience");
+		this.favoriteDishes = new HashMap<String, Integer>();
+		
+		JSONObject favoriteDishes = (JSONObject) studentInfo.get("favorite-dishes");
+		
+		JSONObject favoriteMeatDishes = (JSONObject) favoriteDishes.get("meat");
+		for(Object key : favoriteMeatDishes.keySet()) {
+			this.favoriteDishes.put((String) key, ((Long) favoriteMeatDishes.get(key)).intValue());
+		}
+		
+		JSONObject favoriteFishDishes = (JSONObject) favoriteDishes.get("fish");
+		for(Object key : favoriteFishDishes.keySet()) {
+			this.favoriteDishes.put((String) key, ((Long) favoriteFishDishes.get(key)).intValue());
+		}
+		
+		JSONObject favoriteVegDishes = (JSONObject) favoriteDishes.get("veg");
+		for(Object key : favoriteVegDishes.keySet()) {
+			this.favoriteDishes.put((String) key, ((Long) favoriteVegDishes.get(key)).intValue());
+		}
+		
+		JSONObject favoriteDietDishes = (JSONObject) favoriteDishes.get("diet");
+		for(Object key : favoriteDietDishes.keySet()) {
+			this.favoriteDishes.put((String) key, ((Long) favoriteDietDishes.get(key)).intValue());
+		}
 	}
 
 	protected void searchAllCanteens() {
@@ -86,10 +116,27 @@ public class Student extends Agent {
 	protected void registerOnDF() {
 		DFAgentDescription dfd = new DFAgentDescription();
 		dfd.setName(getAID());
+		
 		ServiceDescription sd = new ServiceDescription();
 		sd.setType("student");
 		sd.setName(getLocalName());
+		
+		ServiceDescription sdFaculty = new ServiceDescription();
+		sdFaculty.setType(this.faculty);
+		sdFaculty.setName(getLocalName());
+		
+		ServiceDescription sdGroup = new ServiceDescription();
+		sdGroup.setType(this.groupID);
+		sdGroup.setName(getLocalName());
+		
+		ServiceDescription sdLunch = new ServiceDescription();
+		sdLunch.setType("hasnt-eaten");
+		sdLunch.setName(getLocalName());
+		
 		dfd.addServices(sd);
+		dfd.addServices(sdFaculty);
+		dfd.addServices(sdGroup);
+		dfd.addServices(sdLunch);
 		try {
 			DFService.register(this, dfd);
 		} catch (FIPAException fe) {
