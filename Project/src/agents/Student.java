@@ -36,6 +36,7 @@ public class Student extends Agent {
 	String groupID;
 	HashMap<String, Integer> favoriteDishes;	//string - nome do prato, integer - escala de 1 a 10 para "ordenar" os pratos favoritos
 	JSONObject pastExperiences;
+	boolean hasEaten;
 
 	HashMap<String, Double> canteenHeuristics;
 
@@ -64,6 +65,7 @@ public class Student extends Agent {
 		this.faculty = (String) studentInfo.get("current-university");
 		this.groupID = String.valueOf(studentInfo.get("groupID"));
 		this.pastExperiences = (JSONObject) studentInfo.get("past-experience");
+		this.hasEaten = (boolean) studentInfo.get("hasEaten");
 		this.favoriteDishes = new HashMap<String, Integer>();
 
 		JSONObject favoriteDishes = (JSONObject) studentInfo.get("favorite-dishes");
@@ -177,7 +179,11 @@ public class Student extends Agent {
 		sdGroup.setName(getLocalName());
 
 		ServiceDescription sdLunch = new ServiceDescription();
-		sdLunch.setType("hasnt-eaten");
+		if(this.hasEaten) {
+			sdLunch.setType("has-eaten");
+		} else {
+			sdLunch.setType("hasnt-eaten");
+		}
 		sdLunch.setName(getLocalName());
 
 		dfd.addServices(sd);

@@ -1,1 +1,1 @@
-http://169.254.10.27:7778/acc
+http://feup-b303d20.campus.up.pt:7778/acc

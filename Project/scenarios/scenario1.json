@@ -3,6 +3,7 @@
 		{
 			"name": "A",
 			"groupID": 1,
+			"hasEaten": false,
 			"current-university": "FEUP",
 			"favorite-dishes": {
 				"meat": {
@@ -52,6 +53,7 @@
 		{
 			"name": "B",
 			"groupID": 1,
+			"hasEaten": false,
 			"current-university": "FEUP",
 			"favorite-dishes": {
 				"meat": {
@@ -102,6 +104,7 @@
 		{
 			"name": "C",
 			"groupID": 1,
+			"hasEaten": false,
 			"current-university": "FEP",
 			"favorite-dishes": {
 				"meat": {
