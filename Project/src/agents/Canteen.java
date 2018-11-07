@@ -21,9 +21,9 @@ import jade.lang.acl.ACLMessage;
 import utils.CanteenAnswer;
 
 public class Canteen extends Agent {
-	
+
 	String canteenName = "";
-	int quantity = 10;
+	int quantity = 100; // Change to total quantity of dishes in canteen
 	int day = 1;
 	HashMap<String, MealPair<String, Integer>> dayMenu = new HashMap<>();
 	HashMap<String, Double> distances = new HashMap<>();
@@ -178,25 +178,25 @@ public class Canteen extends Agent {
 	public HashMap<String, MealPair<String, Integer>> getDayMenu() {
 		return dayMenu;
 	}
-	
+
 	public void setDistances() {
 		canteenName = (String) canteenInfo.get("name");
-		
+
 		JSONObject distancesObj = (JSONObject) canteenInfo.get("distances");
 		for(Object key : distancesObj.keySet()) {
 			this.distances.put((String) key, (Double) distancesObj.get(key));
 		}
-		
+
 	}
 
 	class ListeningBehaviour extends CyclicBehaviour {
 
 		public void action() {
 			ACLMessage msg = receive();
-			
+
 			if (msg != null) {
 				ACLMessage reply = msg.createReply();
-				
+
 				if(msg.getPerformative() == ACLMessage.REQUEST && msg.getContent().contains("Canteen Info")) {
 
 					// Request from student to send distance and menu dishes					
@@ -205,26 +205,32 @@ public class Canteen extends Agent {
 						return;
 					}
 					String studentFaculty = msg.getContent().split(":")[1].trim();
+
 					double distance = distances.get(studentFaculty);
+
+					reply.setPerformative(ACLMessage.INFORM);
+					String answer = getCanteenDishes() + distance;
+
+					reply.setContent(answer);
+					send(reply);
+
+
+				} else if(msg.getPerformative() == ACLMessage.REQUEST) {
+
+					// Request from student to check if there are enough dishes				
 					
-					try {
-						
-						reply.setPerformative(ACLMessage.INFORM);
-						CanteenAnswer answer = new CanteenAnswer(distance, getCanteenDishes());
-						reply.setContentObject((Serializable) answer);
-						send(reply);
+					reply.setPerformative(ACLMessage.INFORM);
 					
-					} catch (IOException e) {
-						System.out.println("An error ocurred in getting canteen info");
-						return;
-					}
-					
+					//TODO: Get quantity from all the dishes in the canteen (get from JSON)
+					reply.setContent(""+ quantity);
+					send(reply);
+
 				} else {
 
 					reply.setPerformative(ACLMessage.INFORM);
-					
+
 					//TODO: make waiting line
-					
+
 					if (quantity > 0) {
 						reply.setContent("Cantina " + getLocalName() + " OK!");
 						quantity--;
@@ -233,22 +239,20 @@ public class Canteen extends Agent {
 
 				}
 
-				send(reply);
 			} else {
 				block();
 			}
 		}
 
 
-		public ArrayList<String> getCanteenDishes() {
-			ArrayList<String> dishes = new ArrayList();
+		public String getCanteenDishes() {
+			String dishes = "";
 
-			
 			for (Map.Entry<String, MealPair<String, Integer>> entry : dayMenu.entrySet()) {
-				
+
 				MealPair<String, Integer> obj = entry.getValue();
-				dishes.add(obj.getMenu());
-				
+				dishes += "" + obj.getMenu() + ":";
+
 			}
 
 			return dishes;

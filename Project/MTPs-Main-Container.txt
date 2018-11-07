@@ -1,1 +1,1 @@
-http://feup-b303d20.campus.up.pt:7778/acc
+http://margarida-pc:7778/acc
