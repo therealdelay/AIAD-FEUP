@@ -387,7 +387,7 @@ public class Student extends Agent {
 
 						ACLMessage proposal = new ACLMessage(ACLMessage.PROPOSE);
 
-						System.out.println("Reject Proposals " + rejectedProposals);
+						System.out.println("Student " + getLocalName() + " Reject Proposals " + rejectedProposals);
 
 
 						Map.Entry<String, Double> maxEntry = null;
@@ -495,8 +495,9 @@ public class Student extends Agent {
 								decided = true;
 								step = 2;
 
-							} else if (votes == students.length - 1) {
-
+							} else if (votes == students.length - 1 && votes_in_favor < students.length / 2) {
+								
+								System.out.println("ACCEPT Student " + getLocalName() + " didn't got enough votes for " + canteen);
 								discardCanteen(canteen, 0);
 
 							}
@@ -517,8 +518,9 @@ public class Student extends Agent {
 								decided = true;
 								step = 2;
 
-							} else if (votes == students.length - 1) {
-
+							} else if (votes == students.length - 1 && votes_in_favor < students.length / 2) {
+								
+								System.out.println("REJECT Student " + getLocalName() + " didn't got enough votes for " + canteen);
 								discardCanteen(canteen, 0);
 
 							}

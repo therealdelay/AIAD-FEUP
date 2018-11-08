@@ -249,7 +249,7 @@ public class Canteen extends Agent {
 						return;
 					}	
 					String studentFaculty = msg.getContent().split(":")[1].trim();
-
+ 
 					double distance = distances.get(studentFaculty);
 
 					reply.setPerformative(ACLMessage.INFORM);

@@ -1,0 +1,790 @@
+{
+	"students": [
+		{
+			"name": "A",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "B",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat2": 8,
+					"meat4": 10
+				},
+				"fish": {
+					"fish1": 5,
+					"fish2": 6
+				},
+				"veg": {
+					"veg2": 2
+				},
+				"diet": {
+					"diet2": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.6,
+					0.3
+				],
+				"ESE": [
+					0.7,
+					0.8,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.4
+				],
+				"FEP": [
+					0.3,
+					0.7
+				],
+				"ISEP": [
+					0.2,
+					0.7,
+					0.3
+				],
+				"FADEUP": [
+					0.1,
+					0.9
+				]
+			}
+		},
+		{
+			"name": "C",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "D",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "E",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat2": 8,
+					"meat4": 10
+				},
+				"fish": {
+					"fish1": 5,
+					"fish2": 6
+				},
+				"veg": {
+					"veg2": 2
+				},
+				"diet": {
+					"diet2": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.6,
+					0.3
+				],
+				"ESE": [
+					0.7,
+					0.8,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.4
+				],
+				"FEP": [
+					0.3,
+					0.7
+				],
+				"ISEP": [
+					0.2,
+					0.7,
+					0.3
+				],
+				"FADEUP": [
+					0.1,
+					0.9
+				]
+			}
+		},
+		{
+			"name": "F",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		}
+		{
+			"name": "G",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "H",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat2": 8,
+					"meat4": 10
+				},
+				"fish": {
+					"fish1": 5,
+					"fish2": 6
+				},
+				"veg": {
+					"veg2": 2
+				},
+				"diet": {
+					"diet2": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.6,
+					0.3
+				],
+				"ESE": [
+					0.7,
+					0.8,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.4
+				],
+				"FEP": [
+					0.3,
+					0.7
+				],
+				"ISEP": [
+					0.2,
+					0.7,
+					0.3
+				],
+				"FADEUP": [
+					0.1,
+					0.9
+				]
+			}
+		},
+		{
+			"name": "I",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		}
+		{
+			"name": "J",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "K",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"meat2": 8,
+					"meat4": 10
+				},
+				"fish": {
+					"fish1": 5,
+					"fish2": 6
+				},
+				"veg": {
+					"veg2": 2
+				},
+				"diet": {
+					"diet2": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.6,
+					0.3
+				],
+				"ESE": [
+					0.7,
+					0.8,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.4
+				],
+				"FEP": [
+					0.3,
+					0.7
+				],
+				"ISEP": [
+					0.2,
+					0.7,
+					0.3
+				],
+				"FADEUP": [
+					0.1,
+					0.9
+				]
+			}
+		},
+		{
+			"name": "L",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"meat1": 0,
+					"meat3": 6
+				},
+				"fish": {
+					"fish3": 7,
+					"fish5": 9
+				},
+				"veg": {
+					"veg1": 3
+				},
+				"diet": {
+					"diet3": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.7,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.8
+				],
+				"FMUP": [
+					0.8,
+					0.9
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.0,
+					0.1
+				],
+				"FADEUP": [
+					0.4,
+					0.7
+				]
+			}
+		}
+	],
+	"canteens": [
+		{
+			"name": "FEUP",
+			"distances": {
+				"FEUP": 0.0,
+				"ESE": 0.5,
+				"FMUP": 0.7,
+				"FEP": 0.7,
+				"ISEP": 1.2,
+				"FADEUP": 0.5
+			}
+		},
+		{
+			"name": "ESE",
+			"distances": {
+				"FEUP": 0.5,
+				"ESE": 0.0,
+				"FMUP": 0.5,
+				"FEP": 0.9,
+				"ISEP": 1.4,
+				"FADEUP": 0.6
+			}
+		},
+		{
+			"name": "FMUP",
+			"distances": {
+				"FEUP": 0.7,
+				"ESE": 0.5,
+				"FMUP": 0.0,
+				"FEP": 0.9,
+				"ISEP": 1.3,
+				"FADEUP": 0.5
+			}
+		},
+		{
+			"name": "FEP",
+			"distances": {
+				"FEUP": 0.7,
+				"ESE": 0.9,
+				"FMUP": 0.9,
+				"FEP": 0.0,
+				"ISEP": 0.9,
+				"FADEUP": 1.0
+			}
+		},
+		{
+			"name": "ISEP",
+			"distances": {
+				"FEUP": 1.2,
+				"ESE": 1.4,
+				"FMUP": 1.3,
+				"FEP": 0.9,
+				"ISEP": 0.0,
+				"FADEUP": 1.2
+			}
+		},
+		{
+			"name": "FADEUP",
+			"distances": {
+				"FEUP": 0.5,
+				"ESE": 0.6,
+				"FMUP": 0.6,
+				"FEP": 1.0,
+				"ISEP": 1.2,
+				"FADEUP": 0.0
+			}
+		}
+	],
+	"dishes": [
+		{
+			"meat": [
+				{
+					"dishname": "meat1",
+					"amount": 600
+				},
+				{
+					"dishname": "meat2",
+					"amount": 600
+				},
+				{
+					"dishname": "meat3",
+					"amount": 600
+				},
+				{
+					"dishname": "meat4",
+					"amount": 600
+				},
+				{
+					"dishname": "meat5",
+					"amount": 600
+				},
+				{
+					"dishname": "meat6",
+					"amount": 600
+				}
+			]
+		},
+		{
+			"fish": [
+				{
+					"dishname": "fish1",
+					"amount": 600
+				},
+				{
+					"dishname": "fish2",
+					"amount": 600
+				},
+				{
+					"dishname": "fish3",
+					"amount": 600
+				},
+				{
+					"dishname": "fish4",
+					"amount": 600
+				},
+				{
+					"dishname": "fish5",
+					"amount": 600
+				},
+				{
+					"dishname": "fish6",
+					"amount": 600
+				}
+			]
+		},
+		{
+			"veg": [
+				{
+					"dishname": "veg1",
+					"amount": 600
+				},
+				{
+					"dishname": "veg2",
+					"amount": 600
+				},
+				{
+					"dishname": "veg3",
+					"amount": 600
+				},
+				{
+					"dishname": "veg4",
+					"amount": 600
+				},
+				{
+					"dishname": "veg5",
+					"amount": 600
+				},
+				{
+					"dishname": "veg6",
+					"amount": 600
+				}
+			]
+		},
+		{
+			"diet": [
+				{
+					"dishname": "diet1",
+					"amount": 600
+				},
+				{
+					"dishname": "diet2",
+					"amount": 600
+				},
+				{
+					"dishname": "diet3",
+					"amount": 600
+				},
+				{
+					"dishname": "diet4",
+					"amount": 600
+				},
+				{
+					"dishname": "diet5",
+					"amount": 600
+				},
+				{
+					"dishname": "diet6",
+					"amount": 600
+				}
+			]
+		}
+	]
+}
