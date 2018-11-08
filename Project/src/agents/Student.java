@@ -367,6 +367,7 @@ public class Student extends Agent {
 		String chosenDish;
 
 		boolean sent_proposal = false;
+		boolean decided = false;
 		int votes_in_favor = 0;
 		int votes = 0;
 
@@ -489,8 +490,9 @@ public class Student extends Agent {
 
 						if(students != null) {
 
-							if (votes_in_favor >= students.length / 2) {
-
+							if (votes_in_favor >= students.length / 2 && !decided) {
+								
+								decided = true;
 								step = 2;
 
 							} else if (votes == students.length - 1) {
@@ -510,8 +512,9 @@ public class Student extends Agent {
 
 						if(students != null) {
 
-							if (votes_in_favor >= students.length / 2) {
-
+							if (votes_in_favor >= students.length / 2 && !decided) {
+								
+								decided = true;
 								step = 2;
 
 							} else if (votes == students.length - 1) {
@@ -562,6 +565,8 @@ public class Student extends Agent {
 				break;
 
 			case 2: 
+				
+				System.out.println("Checking if canteen " + canteen + " has enough dishes, by " + getLocalName());
 
 				// After everyone accepts proposal, see if canteen has enough dishes
 
@@ -668,6 +673,7 @@ public class Student extends Agent {
 				Thread.sleep(200);
 
 				sent_proposal = false;
+				decided = false;
 				votes = 0;
 				votes_in_favor = 0;
 				step = 0;
