@@ -282,14 +282,20 @@ public class Student extends Agent {
 							double distance = Double.parseDouble(infoArray[infoArray.length - 1]);
 							distance = 1 - distance / MAX_DISTANCE;
 							
+							int favoriteDishesCounter = 0;
 							int dishesHeuristics = 0;
+							
+							//System.out.println("Student " + this.getAgent().getAID().getLocalName() + " favorite dishes: " + favoriteDishes + ".\ncanteenDishes: " + info);
 														
 							for(int i = 0; i < infoArray.length - 1; i++) {
 								
 								if(favoriteDishes.containsKey(infoArray[i])) {
-									dishesHeuristics += favoriteDishes.get(infoArray[i])*0.1;
+									favoriteDishesCounter++;
+									//dishesHeuristics += favoriteDishes.get(infoArray[i])*0.1;
 								}
 							}
+							
+							dishesHeuristics = favoriteDishesCounter / (infoArray.length - 1);
 							
 							JSONArray canteenInfo = (JSONArray) ((JSONObject) studentInfo.get("past-experience"))
 									.get(currentFacultyName);
@@ -301,7 +307,9 @@ public class Student extends Agent {
 
 							pastExperienceHeuristic = pastExperienceHeuristic / canteenInfo.size();
 
-							double heuristic = distance*0.25 + dishesHeuristics*0.45 + pastExperienceHeuristic*0.3;
+							//System.out.println("distance: " + distance + "\ndishes: " + dishesHeuristics + "\npastExp: " + pastExperienceHeuristic + "\nnumFavDishes: " + favoriteDishesCounter);
+							
+							double heuristic = distance*0.15 + dishesHeuristics*0.20 + pastExperienceHeuristic*0.65;
 														
 							canteenHeuristics.put(currentFacultyName, heuristic);
 							
