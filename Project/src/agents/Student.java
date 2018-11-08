@@ -2,8 +2,13 @@ package agents;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
@@ -32,7 +37,7 @@ public class Student extends Agent {
 	DFAgentDescription[] canteens = null;
 	DFAgentDescription[] students = null;
 	int canteenOption = -1;
-	
+
 
 	//TODO: Put this variables in JSON
 	long TIMEOUT_WAITING = 5000;
@@ -283,8 +288,8 @@ public class Student extends Agent {
 						String[] infoArray = info.split(":");
 
 						double distance = Double.parseDouble(infoArray[infoArray.length - 1]);
-						canteenDishes.put(currentFacultyName, new ArrayList<String>(Arrays.asList(infoArray)))
-						;
+						canteenDishes.put(currentFacultyName, new ArrayList<String>(Arrays.asList(Arrays.copyOf(infoArray, infoArray.length-1))));
+												
 						distance = 1 - distance / MAX_DISTANCE;
 
 						int favoriteDishesCounter = 0;
@@ -435,7 +440,7 @@ public class Student extends Agent {
 				msg = receive();
 
 				if (msg != null) {
-					
+
 					if(msg.getPerformative() == ACLMessage.INFORM && msg.getSender().getLocalName().contains(canteen)) {
 
 						//After getting the majority of votes in favor, proposer asks canteen for it's quantity of dishes
@@ -524,7 +529,7 @@ public class Student extends Agent {
 
 						System.out.println("Student " + getLocalName() + " receives confirmation of canteen " + canteen);
 						
-						dishes = canteenDishes.get(canteen);
+						dishes = getDishesOrderedByRaking();
 						step = 4;
 
 
@@ -542,18 +547,18 @@ public class Student extends Agent {
 						// The student can eat the chosen dish at the canteen
 						System.out.println("Student " + getLocalName() + " eats " + chosenDish + " at " + canteen);
 						step = 5;
-						
+
 					} else if(msg.getPerformative() == ACLMessage.CANCEL) {
 
 						// The student cannot eat the chosen dish at the canteen
 						step = 4;
 						System.out.println("Student " + getLocalName() + " CANNOT eat " + chosenDish + " at " + canteen);
-						canteenDishes.remove(chosenDish);
-						
+						dishes.remove(chosenDish);
+
 					}
 
 				} 
-				
+
 				break;
 
 			case 2: 
@@ -586,8 +591,8 @@ public class Student extends Agent {
 				}
 
 				send(msg);
-				
-				dishes = canteenDishes.get(canteen);
+
+				dishes = getDishesOrderedByRaking();
 				step = 4;
 
 				break;
@@ -596,46 +601,35 @@ public class Student extends Agent {
 
 				// Ask canteen if it can eat the chosen dish
 
-				chosenDish = null;
-				
 				if(dishes.size() == 0) {
-					
+
 					step = 6;
-				
+
 				} else {
-					
-					for(int i = 0; i < dishes.size() ; i++) {
-						
-						if(favoriteDishes.containsKey(dishes.get(i))) {
-							chosenDish = dishes.get(i);
-						}
-					}
-					
-					if(chosenDish == null) {
-						chosenDish = dishes.get(0);
-					}
-					
+
+					chosenDish = dishes.get(0);
+
 					System.out.println("Student " + getLocalName() + " asking canteen " + canteen + " for dish " + chosenDish);
 					msg = new ACLMessage(ACLMessage.REQUEST);
 					msg.setContent("Eating:" + chosenDish);
 					msg.addReceiver(new AID(canteen, AID.ISLOCALNAME));
 					send(msg);
-					
+
 					step = 1;
-					
+
 				}
 
 
 				break;
-				
+
 			case 5:
-				
+
 				System.out.println("Student " + getLocalName() + " has finished eating!");
 				this.getAgent().removeBehaviour(this);
 				break;
-				
+
 			case 6:
-				
+
 				System.out.println("Student " + getLocalName() + " couldn't eat because the canteen have no available dishes");
 				this.getAgent().removeBehaviour(this);
 				break;
@@ -683,6 +677,55 @@ public class Student extends Agent {
 				e.printStackTrace();
 			}
 
+		}
+
+		public ArrayList<String> getDishesOrderedByRaking() {
+			
+			favoriteDishes = sortFavoriteDishes();
+			
+			System.out.println("Favourite Dishes " + getLocalName() + " : " + favoriteDishes);
+			
+			ArrayList<String> dishesOrdered = new ArrayList<>();
+			ArrayList<String> canteenDishesTmp = (ArrayList<String>) canteenDishes.get(canteen).clone();
+			
+			for(Map.Entry<String, Integer> entry : favoriteDishes.entrySet()) {
+
+				if(canteenDishesTmp.contains(entry.getKey())) {
+					dishesOrdered.add(entry.getKey());
+					canteenDishesTmp.remove(entry.getKey());
+				}
+			}
+			
+			for(int i = 0; i < canteenDishesTmp.size(); i++) {
+				dishesOrdered.add(canteenDishesTmp.get(i));
+			}
+			
+			System.out.println("Canteen Dishes " + getLocalName() + " : " + canteenDishes.get(canteen));
+			System.out.println("Dishes Ordered " + getLocalName() + " : " + dishesOrdered);
+			
+			return dishesOrdered;
+			
+
+
+		}
+
+		public HashMap<String, Integer> sortFavoriteDishes() {
+			List list = new LinkedList(favoriteDishes.entrySet());
+			
+			Collections.sort(list, new Comparator() {
+				public int compare(Object o1, Object o2) {
+					return ((Comparable) ((Map.Entry) (o2)).getValue())
+							.compareTo(((Map.Entry) (o1)).getValue());
+				}
+			});
+			
+			HashMap<String, Integer> sortedHashMap = new LinkedHashMap<>();
+			for (Iterator it = list.iterator(); it.hasNext();) {
+				Map.Entry entry = (Map.Entry) it.next();
+				sortedHashMap.put((String) entry.getKey(), (Integer) entry.getValue());
+			} 
+						
+			return sortedHashMap;
 		}
 
 		@Override
