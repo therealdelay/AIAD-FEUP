@@ -4,14 +4,17 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Random;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
+import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
+import jade.core.behaviours.TickerBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
@@ -34,6 +37,8 @@ public class Canteen extends Agent {
 	ArrayList<MealPair<String, Long>> lastWeekMenus = new ArrayList<>();
 	JSONObject canteenInfo;
 	JSONArray dishes;
+	LinkedList<AID> waitingQueue = new LinkedList<AID>();
+	boolean nextStudent = false;
 
 	protected void setup() {
 		loadJSON();
@@ -42,6 +47,7 @@ public class Canteen extends Agent {
 		setMenus();
 		setDayMenu();
 		addBehaviour(new ListeningBehaviour());
+		addBehaviour(new CanteenTickerBehaviour(this, 100));
 	}
 
 	protected void registerOnDF() {
@@ -64,8 +70,7 @@ public class Canteen extends Agent {
 		dishes = (JSONArray) args[1];
 	}
 
-	private void setMenus() { // se calhar depois de ter o parser feito vai receber um array com os pratos e é
-		// só fazer this.meatMnus = meatMenus, etc
+	private void setMenus() {
 
 		JSONArray meatDishes = (JSONArray) ((JSONObject) dishes.get(0)).get("meat");		// [0] -> meat
 		JSONArray fishDishes = (JSONArray) ((JSONObject) dishes.get(1)).get("fish");		// [1] -> fish
@@ -198,6 +203,36 @@ public class Canteen extends Agent {
 
 	}
 
+	class CanteenTickerBehaviour extends TickerBehaviour {
+
+		int ticks;
+
+		public CanteenTickerBehaviour(Agent a, long period) {
+			super(a, period);
+			ticks = 0;
+		}
+
+		@Override
+		protected void onTick() {
+			ticks++;
+
+			if(ticks == 10) {
+				if(waitingQueue.size() > 0) {
+					ACLMessage reply = new ACLMessage(ACLMessage.AGREE);
+					reply.setPerformative(ACLMessage.AGREE);
+					reply.addReceiver(waitingQueue.element());
+					reply.setContent("Cantina " + getLocalName() + " OK!");
+					send(reply);
+					System.out.println("Student " + waitingQueue.element().getLocalName() + " comeu");					
+					waitingQueue.removeFirst();
+				}
+				ticks = 0;
+			}
+
+		}
+
+	}
+
 	class ListeningBehaviour extends CyclicBehaviour {
 
 		public void action() {
@@ -233,23 +268,22 @@ public class Canteen extends Agent {
 
 						MealPair<String, Long> obj = entry.getValue();
 						if(requestedDish.equals(obj.getMenu()) && obj.getQuantity() > 0) {
-							
-							//Accepts student request
-							reply.setPerformative(ACLMessage.AGREE);
-							System.out.println("Canteen " + getLocalName() + " confirms request for " + requestedDish + " from student " + msg.getSender().getLocalName());
-							
-							//TODO: make waiting line
-							
-							reply.setContent("Cantina " + getLocalName() + " OK!");
-							send(reply);
-							quantity--;
 
+							//TODO: make waiting line
+							waitingQueue.add(msg.getSender());
+							System.out.println("Student " + msg.getSender().getLocalName() + " added to queue.");
+							System.out.println("Queue: ");
+							for(AID a : waitingQueue) {
+								System.out.print(a.getLocalName() + ", ");
+							}
+							System.out.println();
+							quantity--;
 							accepted = true;
 
 						}
 
 					}
-					
+
 					if(!accepted) {
 						// Denies student request
 						System.out.println("Canteen " + getLocalName() + " denies request for " + requestedDish + " from student " + msg.getSender().getLocalName());

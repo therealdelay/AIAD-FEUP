@@ -42,7 +42,7 @@ public class Student extends Agent {
 	//TODO: Put this variables in JSON
 	long TIMEOUT_WAITING = 5000;
 	double MAX_DISTANCE = 1.5; 
-	double DECISION_HEURISTIC = 0.9;
+	double DECISION_HEURISTIC = 0.5;
 
 	JSONObject studentInfo;
 	String faculty;
