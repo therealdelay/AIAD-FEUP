@@ -98,38 +98,6 @@ public class Canteen extends Agent {
 		}
 	}
 
-	private void decMeatMeals() {
-		String meatMenu = dayMenu.get("meat").getMenu();
-		long meatMeals = dayMenu.get("meat").getQuantity();
-		dayMenu.put("meat", new MealPair(meatMenu, meatMeals - 1));
-		quantity--;
-		System.out.println(dayMenu.get("meat"));
-	}
-
-	private void decFishMeals() {
-		String fishMenu = dayMenu.get("fish").getMenu();
-		long fishMeals = dayMenu.get("fish").getQuantity();
-		dayMenu.put("fish", new MealPair(fishMenu, fishMeals - 1));
-		quantity--;
-		System.out.println(dayMenu.get("fish"));
-	}
-
-	private void decVegMeals() {
-		String vegMenu = dayMenu.get("veg").getMenu();
-		long vegMeals = dayMenu.get("veg").getQuantity();
-		dayMenu.put("veg", new MealPair(vegMenu, vegMeals - 1));
-		quantity--;
-		System.out.println(dayMenu.get("veg"));
-	}
-
-	private void decDietMeals() {
-		String dietMenu = dayMenu.get("diet").getMenu();
-		long dietMeals = dayMenu.get("diet").getQuantity();
-		dayMenu.put("diet", new MealPair(dietMenu, dietMeals - 1));
-		quantity--;
-		System.out.println(dayMenu.get("diet"));
-	}
-
 	private void setDayMenu() {
 		Random r = new Random();
 
@@ -259,10 +227,11 @@ public class Canteen extends Agent {
 					send(reply);
 
 				} else if(msg.getPerformative() == ACLMessage.REQUEST && msg.getContent().contains("Eating")){
-
+					
 					//Student request to eat specific fish
 					String requestedDish = msg.getContent().split(":")[1].trim();
 					boolean accepted = false;
+					
 
 					for (Map.Entry<String, MealPair<String, Long>> entry : dayMenu.entrySet()) {
 
@@ -276,14 +245,15 @@ public class Canteen extends Agent {
 							for(AID a : waitingQueue) {
 								System.out.print(a.getLocalName() + ", ");
 							}
-							System.out.println();
+							
+							dayMenu.put(entry.getKey(), new MealPair<String, Long>(obj.getMenu(), obj.getQuantity() - 1));
 							quantity--;
 							accepted = true;
 
 						}
 
 					}
-
+					
 					if(!accepted) {
 						// Denies student request
 						System.out.println("Canteen " + getLocalName() + " denies request for " + requestedDish + " from student " + msg.getSender().getLocalName());
