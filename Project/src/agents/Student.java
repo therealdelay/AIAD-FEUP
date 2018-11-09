@@ -63,9 +63,8 @@ public class Student extends Agent {
 		searchGroupStudents();
 		canteenOption = 0;
 		canteenHeuristics = new HashMap<>();
-		addBehaviour(new HeuristicsBehaviour());
-		//addBehaviour(new WaitingForLunchBehaviour());
-
+		//addBehaviour(new HeuristicsBehaviour());
+		addBehaviour(new WaitingForLunchBehaviour());
 	}
 
 	protected int chooseCanteen() {
@@ -240,8 +239,10 @@ public class Student extends Agent {
 
 		@Override
 		public boolean done() {
-
-			return (System.currentTimeMillis() - startingTime >= TIMEOUT_WAITING*Integer.parseInt(groupID));
+			if(System.currentTimeMillis() - startingTime >= TIMEOUT_WAITING*(Integer.parseInt(groupID) - 1)) {
+				this.getAgent().addBehaviour(new HeuristicsBehaviour());
+			}
+			return (System.currentTimeMillis() - startingTime >= TIMEOUT_WAITING*(Integer.parseInt(groupID) - 1));
 		}
 
 
