@@ -21,8 +21,6 @@ import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 
-import utils.CanteenAnswer;
-
 public class Canteen extends Agent {
 
 	String canteenName = "";

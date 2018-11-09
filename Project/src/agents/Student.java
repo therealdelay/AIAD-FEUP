@@ -29,7 +29,6 @@ import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
-import utils.CanteenAnswer;
 
 public class Student extends Agent {
 
@@ -47,7 +46,7 @@ public class Student extends Agent {
 	JSONObject studentInfo;
 	String faculty;
 	String groupID;
-	HashMap<String, Integer> favoriteDishes;	//string - nome do prato, integer - escala de 1 a 10 para "ordenar" os pratos favoritos
+	HashMap<String, Integer> favoriteDishes;//string - nome do prato, integer - escala de 1 a 10 para "ordenar" os pratos favoritos
 	JSONObject pastExperiences;
 	boolean hasEaten;
 
@@ -433,7 +432,7 @@ public class Student extends Agent {
 			switch(step) {
 
 			case 0:
-
+				
 				Random timeout = new Random();
 				int timeoutTime = timeout.nextInt(1000);
 				timer = new Timer();
@@ -498,8 +497,8 @@ public class Student extends Agent {
 				msg = receive();
 
 				if (msg != null) {
-
-					if(msg.getPerformative() == ACLMessage.INFORM && msg.getSender().getLocalName().contains(canteen)) {
+					
+					if(msg.getPerformative() == ACLMessage.INFORM && canteen != null && msg.getSender().getLocalName().contains(canteen)) {
 
 						//After getting the majority of votes in favor, proposer asks canteen for it's quantity of dishes
 
