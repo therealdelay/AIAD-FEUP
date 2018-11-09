@@ -59,7 +59,8 @@ public class Student extends Agent {
 		loadJSON();
 		registerOnDF();
 		searchAllCanteens();
-		searchAllStudents();
+		//searchAllStudents();
+		searchGroupStudents();
 		canteenOption = 0;
 		canteenHeuristics = new HashMap<>();
 		addBehaviour(new HeuristicsBehaviour());
@@ -345,7 +346,11 @@ public class Student extends Agent {
 		public boolean done() {
 
 			if(currentFaculty >= canteens.length) {
-				System.out.println(getLocalName() + " HEURISTICS: "+ canteenHeuristics);
+				System.out.println("--------------------------------------------");
+				System.out.println("Agent " + getLocalName() + " from " + faculty + " Group " + groupID +
+						"\nCalculated heuristics: " + canteenHeuristics +
+						"\nFavorite dishes: " + favoriteDishes);
+				System.out.println("--------------------------------------------");
 				this.getAgent().addBehaviour(new ProposalBehaviour());
 			}
 
@@ -387,8 +392,8 @@ public class Student extends Agent {
 
 						ACLMessage proposal = new ACLMessage(ACLMessage.PROPOSE);
 
-						System.out.println("Student " + getLocalName() + " Reject Proposals " + rejectedProposals);
-
+						//System.out.println("Student " + getLocalName() + " Reject Proposals " + rejectedProposals);
+						System.out.println("Group " + groupID + " from " + faculty + " has already rejected " + rejectedProposals);
 
 						Map.Entry<String, Double> maxEntry = null;
 						for(Map.Entry<String, Double> entry : updatedCanteenHeuristics.entrySet()) {
@@ -412,9 +417,9 @@ public class Student extends Agent {
 
 						} else {
 
-							System.out.println("Proposer " + getLocalName() + " heuristics " + updatedCanteenHeuristics);
+							//System.out.println("Proposer " + getLocalName() + " heuristics " + updatedCanteenHeuristics);
 
-							System.out.println("Proposer " + getLocalName() + " proposes " + canteen);
+							System.out.println("Proposer " + getLocalName() + " PROPOSES " + canteen + " to " + faculty + " Group " + groupID);
 
 							proposal.setContent(canteen);
 
@@ -447,7 +452,7 @@ public class Student extends Agent {
 						//After getting the majority of votes in favor, proposer asks canteen for it's quantity of dishes
 
 						String msgCnt = msg.getContent();
-						System.out.println("Resposta da cantina: " + msgCnt);
+						//System.out.println("Resposta da cantina: " + msgCnt);
 
 						if(Integer.parseInt(msgCnt) >= students.length) {
 							step = 3;
@@ -470,12 +475,12 @@ public class Student extends Agent {
 						if(heuristic >= DECISION_HEURISTIC) {
 
 							reply.setPerformative(ACLMessage.ACCEPT_PROPOSAL);
-							System.out.println("Student " + getLocalName() + " accepts proposal");
+							System.out.println("Student " + getLocalName() + " ACCEPTS proposal from " + faculty + " group " + groupID);
 
 						} else {
 
 							reply.setPerformative(ACLMessage.REJECT_PROPOSAL);
-							System.out.println("Student " + getLocalName() + " rejects proposal");
+							System.out.println("Student " + getLocalName() + " REJECTS proposal from " + faculty + " group " + groupID);
 						}
 
 						send(reply);
@@ -503,7 +508,7 @@ public class Student extends Agent {
 							}
 						}
 
-						System.out.println("Student " + getLocalName() + " proposal has " + votes + " votes");
+						//System.out.println("Student " + getLocalName() + " proposal has " + votes + " votes");
 
 					} else if(msg.getPerformative() == ACLMessage.REJECT_PROPOSAL && sent_proposal) {
 
@@ -520,7 +525,7 @@ public class Student extends Agent {
 
 							} else if (votes == students.length - 1 && votes_in_favor < students.length / 2) {
 								
-								System.out.println("REJECT Student " + getLocalName() + " didn't got enough votes for " + canteen);
+								//System.out.println("REJECT Student " + getLocalName() + " didn't got enough votes for " + canteen);
 								discardCanteen(canteen, 0);
 
 							}
@@ -532,9 +537,9 @@ public class Student extends Agent {
 
 						canteen = msg.getContent().split("-")[1].trim();
 
-						System.out.println("Student " + getLocalName() + " receives confirmation of canteen " + canteen);
+						//System.out.println("Student " + getLocalName() + " receives confirmation of canteen " + canteen);
 						
-						dishes = getDishesOrderedByRaking();
+						dishes = getDishesOrderedByRanking();
 						step = 4;
 
 
@@ -568,7 +573,7 @@ public class Student extends Agent {
 
 			case 2: 
 				
-				System.out.println("Checking if canteen " + canteen + " has enough dishes, by " + getLocalName());
+				//System.out.println("Checking if canteen " + canteen + " has enough dishes, by " + getLocalName());
 
 				// After everyone accepts proposal, see if canteen has enough dishes
 
@@ -587,7 +592,7 @@ public class Student extends Agent {
 
 				// After getting the majority of votes in favor, the proposer send confirmation of the proposal
 
-				System.out.println("Student " + getLocalName() + " sending canteen choice confirmation!");
+				//System.out.println("Student " + getLocalName() + " sending canteen choice confirmation!");
 				ACLMessage msg = new ACLMessage(ACLMessage.CONFIRM);
 				msg.setContent("Chosen Canteen-" + canteen);
 
@@ -599,7 +604,7 @@ public class Student extends Agent {
 
 				send(msg);
 
-				dishes = getDishesOrderedByRaking();
+				dishes = getDishesOrderedByRanking();
 				step = 4;
 
 				break;
@@ -687,11 +692,11 @@ public class Student extends Agent {
 
 		}
 
-		public ArrayList<String> getDishesOrderedByRaking() {
+		public ArrayList<String> getDishesOrderedByRanking() {
 			
 			favoriteDishes = sortFavoriteDishes();
 			
-			System.out.println("Favourite Dishes " + getLocalName() + " : " + favoriteDishes);
+			//System.out.println("Favourite Dishes " + getLocalName() + " : " + favoriteDishes);
 			
 			ArrayList<String> dishesOrdered = new ArrayList<>();
 			ArrayList<String> canteenDishesTmp = (ArrayList<String>) canteenDishes.get(canteen).clone();
@@ -708,8 +713,8 @@ public class Student extends Agent {
 				dishesOrdered.add(canteenDishesTmp.get(i));
 			}
 			
-			System.out.println("Canteen Dishes " + getLocalName() + " : " + canteenDishes.get(canteen));
-			System.out.println("Dishes Ordered " + getLocalName() + " : " + dishesOrdered);
+			//System.out.println("Canteen Dishes " + getLocalName() + " : " + canteenDishes.get(canteen));
+			//System.out.println("Dishes Ordered " + getLocalName() + " : " + dishesOrdered);
 			
 			return dishesOrdered;
 			

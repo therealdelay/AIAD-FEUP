@@ -1,0 +1,1806 @@
+{
+	"students": [
+		{
+			"name": "Leonardo Oliveira",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.8,
+					0.7,
+					0.4,
+					0.6
+				],
+				"ESE": [
+					0.3,
+					0.8,
+					0.4,
+					0.5
+				],
+				"FMUP": [
+					0.8,
+					0.9,
+					0.5,
+					0.6
+				],
+				"FEP": [
+					0.5,
+					0.3,
+					0.8,
+					0.6
+				],
+				"ISEP": [
+					0.7,
+					0.5,
+					0.5,
+					0.6
+				],
+				"FADEUP": [
+					0.4,
+					0.7,
+					0.6,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Vitor Santos",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Lasanha de Carne": 5,
+					"Frango Assado": 2
+				},
+				"fish": {
+					"Polvo à Lagareiro": 4,
+					"Peixe Assado": 1
+				},
+				"veg": {
+					"Risotto de Cogumelos": 3
+				},
+				"diet": {
+					"Frango Assado com Batata Doce": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.9,
+					0.7,
+					1.0
+				],
+				"ESE": [
+					0.6,
+					0.7,
+					0.7,
+					0.6
+				],
+				"FMUP": [
+					0.4,
+					0.2,
+					0.5,
+					0.8
+				],
+				"FEP": [
+					0.4,
+					0.8,
+					0.7,
+					0.8
+				],
+				"ISEP": [
+					0.2,
+					0.9,
+					0.5,
+					0.1
+				],
+				"FADEUP": [
+					0.7,
+					0.5,
+					0.6,
+					0.6
+				]
+			}
+		},
+		{
+			"name": "António Araújo",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Arroz de Pato": 3,
+					"Feijoada à Portuguesa": 2
+				},
+				"fish": {
+					"Arroz de Tamboril": 5,
+					"Bacalhau com Natas": 1
+				},
+				"veg": {
+					"Ravioli de Espinafres": 4
+				},
+				"diet": {
+					"Frango Assado com Batata Doce": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.7,
+					0.4,
+					0.9
+				],
+				"ESE": [
+					0.1,
+					0.6,
+					0.8,
+					0.4
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.5,
+					0.4
+				],
+				"FEP": [
+					0.7,
+					0.2,
+					0.4,
+					0.1
+				],
+				"ISEP": [
+					0.4,
+					0.5,
+					0.3,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.3,
+					0.7,
+					0.6
+				]
+			}
+		},
+		{
+			"name": "José Dias",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Feijoada à Portuguesa": 3,
+					"Empadão de Carne": 2
+				},
+				"fish": {
+					"Bacalhau com Natas": 5,
+					"Peixe Assado": 1
+				},
+				"veg": {
+					"Beringela Recheada": 4
+				},
+				"diet": {
+					"Espargos Salteados": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.5,
+					0.7,
+					0.9,
+					0.4
+				],
+				"ESE": [
+					0.9,
+					0.7,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.1,
+					0.5,
+					1.0,
+					0.5
+				],
+				"FEP": [
+					0.4,
+					0.5,
+					0.4,
+					0.6
+				],
+				"ISEP": [
+					0.3,
+					0.7,
+					0.3,
+					0.6
+				],
+				"FADEUP": [
+					0.2,
+					0.7,
+					0.8,
+					0.4
+				]
+			}
+		},
+		{
+			"name": "Sara Silva",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Frango Assado": 3,
+					"Carne à Alentejana": 5
+				},
+				"fish": {
+					"Arroz de Marisco": 0,
+					"Polvo à Lagareiro": 4
+				},
+				"veg": {
+					"Ravioli de Espinafres": 2
+				},
+				"diet": {
+					"Salada de Frango": 1
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.9,
+					0.5,
+					0.4,
+					0.4
+				],
+				"ESE": [
+					0.8,
+					0.7,
+					0.6,
+					0.4
+				],
+				"FMUP": [
+					0.6,
+					0.9,
+					0.1,
+					0.7
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.7,
+					0.5
+				],
+				"ISEP": [
+					0.9,
+					0.6,
+					0.4,
+					0.4
+				],
+				"FADEUP": [
+					0.2,
+					0.3,
+					0.6,
+					1.0
+				]
+			}
+		},
+		{
+			"name": "Tânia Azevedo",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Arroz de Pato": 1,
+					"Frango Assado": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 2,
+					"Polvo à Lagareiro": 5
+				},
+				"veg": {
+					"Risotto de Cogumelos": 0
+				},
+				"diet": {
+					"Peru Assado": 3
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.5,
+					0.6,
+					1.0
+				],
+				"ESE": [
+					0.4,
+					0.9,
+					0.5,
+					0.4
+				],
+				"FMUP": [
+					0.6,
+					0.1,
+					0.1,
+					0.3
+				],
+				"FEP": [
+					0.5,
+					0.7,
+					0.4,
+					0.6
+				],
+				"ISEP": [
+					0.2,
+					0.7,
+					0.7,
+					0.8
+				],
+				"FADEUP": [
+					0.7,
+					0.1,
+					0.5,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Mariana Azevedo",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Lasanha de Carne": 1,
+					"Arroz de Pato": 4
+				},
+				"fish": {
+					"Arroz de Tamboril": 2,
+					"Polvo Cozido": 5
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 0
+				},
+				"diet": {
+					"Frango Assado com Batata Doce": 3
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.7,
+					0.9,
+					0.7
+				],
+				"ESE": [
+					0.7,
+					0.6,
+					0.4,
+					0.5
+				],
+				"FMUP": [
+					0.6,
+					0.6,
+					0.4,
+					0.4
+				],
+				"FEP": [
+					0.5,
+					0.7,
+					0.4,
+					0.6
+				],
+				"ISEP": [
+					0.1,
+					0.9,
+					0.6,
+					0.9
+				],
+				"FADEUP": [
+					0.2,
+					0.4,
+					0.1,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Júlia Carvalho",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Empadão de Carne": 2,
+					"Lasanha de Carne": 1
+				},
+				"fish": {
+					"Polvo à Lagareiro": 5,
+					"Bacalhau com Natas": 3
+				},
+				"veg": {
+					"Pizza de Vegetais": 0
+				},
+				"diet": {
+					"Frango Assado com Batata Doce": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.9,
+					0.3,
+					0.4
+				],
+				"ESE": [
+					0.4,
+					0.4,
+					0.6,
+					1.0
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.4,
+					0.1
+				],
+				"FEP": [
+					0.4,
+					0.7,
+					0.5,
+					0.7
+				],
+				"ISEP": [
+					0.6,
+					0.5,
+					0.4,
+					0.7
+				],
+				"FADEUP": [
+					0.4,
+					0.9,
+					0.4,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Diego Costa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Feijoada à Portuguesa": 3,
+					"Lasanha de Carne": 5
+				},
+				"fish": {
+					"Bacalhau com Natas": 4,
+					"Arroz de Tamboril": 2
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 1
+				},
+				"diet": {
+					"Espargos Salteados": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.4,
+					0.7,
+					0.5
+				],
+				"ESE": [
+					0.4,
+					0.6,
+					0.4,
+					0.7
+				],
+				"FMUP": [
+					0.5,
+					0.9,
+					0.4,
+					0.5
+				],
+				"FEP": [
+					0.5,
+					0.4,
+					0.4,
+					0.4
+				],
+				"ISEP": [
+					0.2,
+					0.6,
+					0.7,
+					0.9
+				],
+				"FADEUP": [
+					0.2,
+					0.6,
+					0.7,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Miguel Melo",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 3,
+					"Empadão de Carne": 5
+				},
+				"fish": {
+					"Peixe Assado": 4,
+					"Arroz de Marisco": 2
+				},
+				"veg": {
+					"Ravioli de Espinafres": 1
+				},
+				"diet": {
+					"Salada Primavera": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.6,
+					0.3,
+					0.6
+				],
+				"ESE": [
+					0.1,
+					1.0,
+					0.1,
+					0.8
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.7,
+					0.2
+				],
+				"FEP": [
+					0.7,
+					0.6,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.8,
+					0.4,
+					0.4,
+					1.0
+				],
+				"FADEUP": [
+					0.8,
+					0.9,
+					0.7,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Beatriz Pereira",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Lasanha de Carne": 0,
+					"Frango Assado": 3
+				},
+				"fish": {
+					"Polvo Cozido": 1,
+					"Bacalhau com Natas": 5
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Peru Assado": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.8,
+					0.6,
+					0.1,
+					0.2
+				],
+				"ESE": [
+					0.4,
+					0.3,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.5,
+					0.4,
+					0.4,
+					0.5
+				],
+				"FEP": [
+					0.7,
+					1.0,
+					0.6,
+					0.6
+				],
+				"ISEP": [
+					0.5,
+					0.3,
+					0.3,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.8,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Luís Costa",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Lasanha de Carne": 4,
+					"Frango Assado": 0
+				},
+				"fish": {
+					"Polvo Cozido": 2,
+					"Peixe Assado": 5
+				},
+				"veg": {
+					"Ravioli de Espinafres": 3
+				},
+				"diet": {
+					"Espetadas de Frango": 1
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.6,
+					0.5,
+					0.4
+				],
+				"ESE": [
+					0.3,
+					0.2,
+					0.8,
+					0.9
+				],
+				"FMUP": [
+					0.2,
+					0.7,
+					0.5,
+					0.7
+				],
+				"FEP": [
+					0.6,
+					0.4,
+					0.7,
+					0.5
+				],
+				"ISEP": [
+					0.6,
+					0.5,
+					0.4,
+					0.4
+				],
+				"FADEUP": [
+					0.7,
+					0.4,
+					0.3,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Mateus Castro",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 2,
+					"Empadão de Carne": 1
+				},
+				"fish": {
+					"Peixe Assado": 3,
+					"Arroz de Tamboril": 4
+				},
+				"veg": {
+					"Risotto de Cogumelos": 5
+				},
+				"diet": {
+					"Espetadas de Frango": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.7,
+					0.8,
+					0.7,
+					0.6
+				],
+				"ESE": [
+					0.1,
+					0.1,
+					0.5,
+					0.6
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.9,
+					0.5
+				],
+				"FEP": [
+					0.7,
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.1,
+					0.2,
+					0.9,
+					0.4
+				],
+				"FADEUP": [
+					0.9,
+					0.7,
+					0.6,
+					0.9
+				]
+			}
+		},
+		{
+			"name": "Matilde Costa",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Arroz de Pato": 4,
+					"Empadão de Carne": 1
+				},
+				"fish": {
+					"Peixe Assado": 0,
+					"Arroz de Tamboril": 2
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 3
+				},
+				"diet": {
+					"Salada Primavera": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.4,
+					0.6,
+					0.6
+				],
+				"ESE": [
+					0.4,
+					0.7,
+					0.6,
+					0.5
+				],
+				"FMUP": [
+					0.3,
+					0.4,
+					0.9,
+					0.2
+				],
+				"FEP": [
+					0.9,
+					0.4,
+					0.4,
+					0.4
+				],
+				"ISEP": [
+					0.7,
+					0.8,
+					0.2,
+					0.5
+				],
+				"FADEUP": [
+					0.5,
+					0.5,
+					0.6,
+					0.8
+				]
+			}
+		},
+		{
+			"name": "Tiago Rocha",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Feijoada à Portuguesa": 5,
+					"Carne à Alentejana": 2
+				},
+				"fish": {
+					"Arroz de Marisco": 3,
+					"Polvo à Lagareiro": 4
+				},
+				"veg": {
+					"Beringela Recheada": 1
+				},
+				"diet": {
+					"Espetadas de Frango": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.2,
+					0.4,
+					0.3
+				],
+				"ESE": [
+					0.1,
+					0.6,
+					0.6,
+					0.9
+				],
+				"FMUP": [
+					0.7,
+					1.0,
+					0.7,
+					0.9
+				],
+				"FEP": [
+					0.4,
+					0.6,
+					0.4,
+					0.7
+				],
+				"ISEP": [
+					0.3,
+					0.1,
+					0.6,
+					0.8
+				],
+				"FADEUP": [
+					0.4,
+					0.6,
+					0.5,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Luana Carvalho",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Lasanha de Carne": 2,
+					"Frango Assado": 5
+				},
+				"fish": {
+					"Peixe Assado": 4,
+					"Polvo Cozido": 1
+				},
+				"veg": {
+					"Ravioli de Espinafres": 3
+				},
+				"diet": {
+					"Salada de Frango": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.6,
+					0.5,
+					0.4
+				],
+				"ESE": [
+					0.5,
+					0.3,
+					0.4,
+					0.5
+				],
+				"FMUP": [
+					0.7,
+					0.4,
+					0.2,
+					0.6
+				],
+				"FEP": [
+					0.2,
+					0.1,
+					0.7,
+					0.5
+				],
+				"ISEP": [
+					0.6,
+					0.6,
+					0.4,
+					0.8
+				],
+				"FADEUP": [
+					0.9,
+					0.2,
+					0.5,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Letícia Costa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Lasanha de Carne": 0,
+					"Empadão de Carne": 3
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo à Lagareiro": 4
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 5
+				},
+				"diet": {
+					"Peru Assado": 2
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.5,
+					0.9,
+					0.6
+				],
+				"ESE": [
+					0.7,
+					0.9,
+					0.9,
+					0.7
+				],
+				"FMUP": [
+					0.6,
+					0.3,
+					0.6,
+					0.3
+				],
+				"FEP": [
+					0.4,
+					0.8,
+					0.6,
+					0.1
+				],
+				"ISEP": [
+					0.5,
+					0.7,
+					0.4,
+					0.5
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.2,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Eduardo Castro",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Feijoada à Portuguesa": 0,
+					"Empadão de Carne": 2
+				},
+				"fish": {
+					"Peixe Assado": 3,
+					"Polvo à Lagareiro": 1
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 5
+				},
+				"diet": {
+					"Espargos Salteados": 4
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.3,
+					0.4,
+					0.9,
+					1.0
+				],
+				"ESE": [
+					0.2,
+					0.8,
+					0.5,
+					0.6
+				],
+				"FMUP": [
+					0.7,
+					0.6,
+					0.2,
+					0.4
+				],
+				"FEP": [
+					0.3,
+					0.9,
+					0.4,
+					0.7
+				],
+				"ISEP": [
+					0.9,
+					0.9,
+					0.5,
+					0.5
+				],
+				"FADEUP": [
+					0.6,
+					0.5,
+					0.2,
+					0.6
+				]
+			}
+		},
+		{
+			"name": "David Rocha",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Arroz de Pato": 2,
+					"Empadão de Carne": 1
+				},
+				"fish": {
+					"Bacalhau com Natas": 3,
+					"Arroz de Tamboril": 4
+				},
+				"veg": {
+					"Beringela Recheada": 5
+				},
+				"diet": {
+					"Espargos Salteados": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					1.0,
+					0.7,
+					0.4
+				],
+				"ESE": [
+					0.5,
+					0.4,
+					0.9,
+					0.2
+				],
+				"FMUP": [
+					0.6,
+					0.7,
+					0.1,
+					0.5
+				],
+				"FEP": [
+					0.4,
+					0.8,
+					0.7,
+					0.3
+				],
+				"ISEP": [
+					0.2,
+					0.5,
+					0.8,
+					0.5
+				],
+				"FADEUP": [
+					0.5,
+					0.9,
+					0.7,
+					0.1
+				]
+			}
+		},
+		{
+			"name": "Rodrigo Rocha",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Feijoada à Portuguesa": 0,
+					"Lasanha de Carne": 1
+				},
+				"fish": {
+					"Bacalhau com Natas": 2,
+					"Arroz de Tamboril": 4
+				},
+				"veg": {
+					"Salada de 3 Feijões": 5
+				},
+				"diet": {
+					"Peru Assado": 3
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.5,
+					0.5,
+					0.5,
+					0.7
+				],
+				"ESE": [
+					0.8,
+					0.4,
+					0.7,
+					0.7
+				],
+				"FMUP": [
+					0.8,
+					0.7,
+					0.7,
+					0.7
+				],
+				"FEP": [
+					0.4,
+					1.0,
+					0.1,
+					0.6
+				],
+				"ISEP": [
+					1.0,
+					0.5,
+					0.6,
+					0.1
+				],
+				"FADEUP": [
+					0.5,
+					0.6,
+					0.3,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Carolina Martins",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 3,
+					"Lasanha de Carne": 2
+				},
+				"fish": {
+					"Peixe Assado": 1,
+					"Polvo Cozido": 5
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 4
+				},
+				"diet": {
+					"Salada Primavera": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					1.0,
+					0.1,
+					0.8,
+					0.5
+				],
+				"ESE": [
+					0.7,
+					0.3,
+					0.8,
+					0.2
+				],
+				"FMUP": [
+					0.7,
+					0.7,
+					0.6,
+					0.4
+				],
+				"FEP": [
+					0.6,
+					0.9,
+					0.1,
+					1.0
+				],
+				"ISEP": [
+					0.4,
+					0.4,
+					0.6,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.5,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Bianca Sousa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 4,
+					"Arroz de Pato": 0
+				},
+				"fish": {
+					"Arroz de Marisco": 5,
+					"Polvo à Lagareiro": 3
+				},
+				"veg": {
+					"Risotto de Cogumelos": 1
+				},
+				"diet": {
+					"Salada de Frango": 2
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					1.0,
+					0.1,
+					0.8,
+					0.5
+				],
+				"ESE": [
+					0.7,
+					0.3,
+					0.8,
+					0.2
+				],
+				"FMUP": [
+					0.7,
+					0.7,
+					0.6,
+					0.4
+				],
+				"FEP": [
+					0.6,
+					0.9,
+					0.1,
+					1.0
+				],
+				"ISEP": [
+					0.4,
+					0.4,
+					0.6,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.5,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Ana Gomes",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"Empadão de Carne": 0,
+					"Frango Assado": 4
+				},
+				"fish": {
+					"Polvo Cozido": 5,
+					"Arroz de Tamboril": 1
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Salada Primavera": 3
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.2,
+					0.5,
+					0.7
+				],
+				"ESE": [
+					0.7,
+					0.4,
+					0.1,
+					0.5
+				],
+				"FMUP": [
+					0.6,
+					0.6,
+					0.7,
+					0.6
+				],
+				"FEP": [
+					0.5,
+					0.1,
+					0.9,
+					0.4
+				],
+				"ISEP": [
+					1.0,
+					0.7,
+					0.5,
+					1.0
+				],
+				"FADEUP": [
+					0.6,
+					0.9,
+					1.0,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Rafael Sousa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ISEP",
+			"favorite-dishes": {
+				"meat": {
+					"Arroz de Pato": 0,
+					"Lasanha de Carne": 2
+				},
+				"fish": {
+					"Bacalhau com Natas": 1,
+					"Arroz de Marisco": 4
+				},
+				"veg": {
+					"Salada de 3 Feijões": 5
+				},
+				"diet": {
+					"Espetadas de Frango": 3
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.2,
+					0.6,
+					0.2,
+					0.4
+				],
+				"ESE": [
+					0.7,
+					0.7,
+					0.4,
+					0.4
+				],
+				"FMUP": [
+					0.2,
+					0.6,
+					0.4,
+					0.1
+				],
+				"FEP": [
+					0.9,
+					0.6,
+					1.0,
+					0.6
+				],
+				"ISEP": [
+					0.5,
+					0.4,
+					0.7,
+					0.3
+				],
+				"FADEUP": [
+					0.6,
+					0.7,
+					0.7,
+					0.8
+				]
+			}
+		},
+		{
+			"name": "Carlos Costa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ISEP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 5,
+					"Empadão de Carne": 3
+				},
+				"fish": {
+					"Polvo à Lagareiro": 1,
+					"Arroz de Marisco": 4
+				},
+				"veg": {
+					"Pizza de Vegetais": 2
+				},
+				"diet": {
+					"Espargos Salteados": 0
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.5,
+					0.8,
+					0.7
+				],
+				"ESE": [
+					0.2,
+					0.3,
+					0.6,
+					0.5
+				],
+				"FMUP": [
+					0.2,
+					0.1,
+					0.5,
+					0.6
+				],
+				"FEP": [
+					0.2,
+					0.6,
+					0.7,
+					0.8
+				],
+				"ISEP": [
+					0.7,
+					0.6,
+					0.5,
+					0.6
+				],
+				"FADEUP": [
+					0.2,
+					0.9,
+					0.5,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Diego Dias",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FADEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Arroz de Pato": 0,
+					"Lasanha de Carne": 5
+				},
+				"fish": {
+					"Peixe Assado": 2,
+					"Arroz de Tamboril": 3
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 4
+				},
+				"diet": {
+					"Espargos Salteados": 1
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.5,
+					0.7,
+					0.5,
+					0.2
+				],
+				"ESE": [
+					0.2,
+					0.6,
+					0.9,
+					0.4
+				],
+				"FMUP": [
+					0.7,
+					0.7,
+					0.7,
+					0.3
+				],
+				"FEP": [
+					0.5,
+					0.7,
+					0.1,
+					1.0
+				],
+				"ISEP": [
+					0.6,
+					0.6,
+					0.4,
+					0.5
+				],
+				"FADEUP": [
+					0.4,
+					0.3,
+					0.3,
+					0.8
+				]
+			}
+		},
+		{
+			"name": "Bruna Rocha",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FADEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Empadão de Carne": 1,
+					"Lasanha de Carne": 0
+				},
+				"fish": {
+					"Peixe Assado": 5,
+					"Polvo Cozido": 4
+				},
+				"veg": {
+					"Hambúrguer de Grão-de-Bico": 3
+				},
+				"diet": {
+					"Espetadas de Frango": 2
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.8,
+					0.2,
+					0.7,
+					0.8
+				],
+				"ESE": [
+					0.6,
+					0.6,
+					0.2,
+					1.0
+				],
+				"FMUP": [
+					0.1,
+					0.4,
+					0.3,
+					0.6
+				],
+				"FEP": [
+					0.5,
+					0.4,
+					0.7,
+					0.6
+				],
+				"ISEP": [
+					0.3,
+					0.8,
+					0.6,
+					0.7
+				],
+				"FADEUP": [
+					0.6,
+					0.4,
+					0.4,
+					0.4
+				]
+			}
+		}
+	],
+	"canteens": [
+		{
+			"name": "FEUP",
+			"distances": {
+				"FEUP": 0.0,
+				"ESE": 0.5,
+				"FMUP": 0.7,
+				"FEP": 0.7,
+				"ISEP": 1.2,
+				"FADEUP": 0.5
+			}
+		},
+		{
+			"name": "ESE",
+			"distances": {
+				"FEUP": 0.5,
+				"ESE": 0.0,
+				"FMUP": 0.5,
+				"FEP": 0.9,
+				"ISEP": 1.4,
+				"FADEUP": 0.6
+			}
+		},
+		{
+			"name": "FMUP",
+			"distances": {
+				"FEUP": 0.7,
+				"ESE": 0.5,
+				"FMUP": 0.0,
+				"FEP": 0.9,
+				"ISEP": 1.3,
+				"FADEUP": 0.5
+			}
+		},
+		{
+			"name": "FEP",
+			"distances": {
+				"FEUP": 0.7,
+				"ESE": 0.9,
+				"FMUP": 0.9,
+				"FEP": 0.0,
+				"ISEP": 0.9,
+				"FADEUP": 1.0
+			}
+		},
+		{
+			"name": "ISEP",
+			"distances": {
+				"FEUP": 1.2,
+				"ESE": 1.4,
+				"FMUP": 1.3,
+				"FEP": 0.9,
+				"ISEP": 0.0,
+				"FADEUP": 1.2
+			}
+		},
+		{
+			"name": "FADEUP",
+			"distances": {
+				"FEUP": 0.5,
+				"ESE": 0.6,
+				"FMUP": 0.6,
+				"FEP": 1.0,
+				"ISEP": 1.2,
+				"FADEUP": 0.0
+			}
+		}
+	],
+	"dishes": [
+		{
+			"meat": [
+				{
+					"dishname": "Arroz de Pato",
+					"amount": 100
+				},
+				{
+					"dishname": "Carne à Alentejana",
+					"amount": 100
+				},
+				{
+					"dishname": "Empadão de Carne",
+					"amount": 100
+				},
+				{
+					"dishname": "Feijoada à Portuguesa",
+					"amount": 100
+				},
+				{
+					"dishname": "Frango Assado",
+					"amount": 100
+				},
+				{
+					"dishname": "Lasanha de Carne",
+					"amount": 100
+				}
+			]
+		},
+		{
+			"fish": [
+				{
+					"dishname": "Polvo Cozido",
+					"amount": 100
+				},
+				{
+					"dishname": "Arroz de Tamboril",
+					"amount": 100
+				},
+				{
+					"dishname": "Polvo à Lagareiro",
+					"amount": 100
+				},
+				{
+					"dishname": "Arroz de Marisco",
+					"amount": 100
+				},
+				{
+					"dishname": "Bacalhau com Natas",
+					"amount": 100
+				},
+				{
+					"dishname": "Peixe Assado",
+					"amount": 100
+				}
+			]
+		},
+		{
+			"veg": [
+				{
+					"dishname": "Risotto de Cogumelos",
+					"amount": 100
+				},
+				{
+					"dishname": "Pizza de Vegetais",
+					"amount": 100
+				},
+				{
+					"dishname": "Ravioli de Espinafres",
+					"amount": 100
+				},
+				{
+					"dishname": "Hambúrguer de Grão-de-Bico",
+					"amount": 100
+				},
+				{
+					"dishname": "Beringela Recheada",
+					"amount": 100
+				},
+				{
+					"dishname": "Salada de 3 Feijões",
+					"amount": 100
+				}
+			]
+		},
+		{
+			"diet": [
+				{
+					"dishname": "Salada Primavera",
+					"amount": 100
+				},
+				{
+					"dishname": "Frango Assado com Batata Doce",
+					"amount": 100
+				},
+				{
+					"dishname": "Peru Assado",
+					"amount": 100
+				},
+				{
+					"dishname": "Espargos Salteados",
+					"amount": 100
+				},
+				{
+					"dishname": "Salada de Frango",
+					"amount": 100
+				},
+				{
+					"dishname": "Espetadas de Frango",
+					"amount": 100
+				}
+			]
+		}
+	]
+}

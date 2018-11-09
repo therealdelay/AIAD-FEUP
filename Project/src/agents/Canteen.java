@@ -191,8 +191,14 @@ public class Canteen extends Agent {
 					reply.addReceiver(waitingQueue.element());
 					reply.setContent("Cantina " + getLocalName() + " OK!");
 					send(reply);
-					System.out.println("Student " + waitingQueue.element().getLocalName() + " comeu");					
+					//System.out.println("Student " + waitingQueue.element().getLocalName() + " comeu");					
 					waitingQueue.removeFirst();
+					
+					System.out.print("\n" + canteenName + " Queue: ");
+					for(AID a : waitingQueue) {
+						System.out.print(a.getLocalName() + ", ");
+					}
+					System.out.print("\n");
 				}
 				ticks = 0;
 			}
@@ -240,11 +246,12 @@ public class Canteen extends Agent {
 
 							//TODO: make waiting line
 							waitingQueue.add(msg.getSender());
-							System.out.println("Student " + msg.getSender().getLocalName() + " added to queue.");
-							System.out.println("Queue: ");
+							//System.out.println("Student " + msg.getSender().getLocalName() + " added to " + canteenName + " queue.");
+							System.out.print("\n" + canteenName + " Queue: ");
 							for(AID a : waitingQueue) {
 								System.out.print(a.getLocalName() + ", ");
 							}
+							System.out.print("\n\n");
 							
 							dayMenu.put(entry.getKey(), new MealPair<String, Long>(obj.getMenu(), obj.getQuantity() - 1));
 							quantity--;
