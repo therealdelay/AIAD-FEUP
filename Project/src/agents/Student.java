@@ -63,8 +63,8 @@ public class Student extends Agent {
 		searchGroupStudents();
 		canteenOption = 0;
 		canteenHeuristics = new HashMap<>();
-		//addBehaviour(new HeuristicsBehaviour());
-		addBehaviour(new WaitingForLunchBehaviour());
+		addBehaviour(new HeuristicsBehaviour());
+		//addBehaviour(new WaitingForLunchBehaviour());
 	}
 
 	protected int chooseCanteen() {
@@ -149,9 +149,9 @@ public class Student extends Agent {
 		template.addServices(sd);
 		try {
 			students = DFService.search(this, template);
-			for(DFAgentDescription dfad : students) {
+			/* for(DFAgentDescription dfad : students) {
 				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
-			}
+			}*/
 		} catch (FIPAException fe) {
 			fe.printStackTrace();
 		}
@@ -167,9 +167,9 @@ public class Student extends Agent {
 		template.addServices(sd2);
 		try {
 			students = DFService.search(this, template);
-			for(DFAgentDescription dfad : students) {
+			/* for(DFAgentDescription dfad : students) {
 				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
-			}
+			}*/
 		} catch (FIPAException fe) {
 			fe.printStackTrace();
 		}
@@ -209,6 +209,50 @@ public class Student extends Agent {
 			fe.printStackTrace();
 		}
 	}
+	
+	protected void registerOnEaten() {
+		DFAgentDescription dfd = new DFAgentDescription();
+		dfd.setName(getAID());
+		
+		DFAgentDescription dfd1 = new DFAgentDescription();
+		dfd1.setName(getAID());
+
+		ServiceDescription sd = new ServiceDescription();
+		sd.setType("student");
+		sd.setName(getLocalName());
+
+		ServiceDescription sdFaculty = new ServiceDescription();
+		sdFaculty.setType(this.faculty);
+		sdFaculty.setName(getLocalName());
+
+		ServiceDescription sdGroup = new ServiceDescription();
+		sdGroup.setType(this.faculty + "-Group" + this.groupID);
+		sdGroup.setName(getLocalName());
+
+		ServiceDescription sdEaten = new ServiceDescription();
+		sdEaten.setType("has-eaten");
+		sdEaten.setName(getLocalName());
+		
+		ServiceDescription sdNotEaten = new ServiceDescription();
+		sdNotEaten.setType("hasnt-eaten");
+		sdNotEaten.setName(getLocalName());
+
+		dfd.addServices(sd);
+		dfd.addServices(sdFaculty);
+		dfd.addServices(sdGroup);
+		dfd.addServices(sdNotEaten);
+		
+		dfd1.addServices(sd);
+		dfd1.addServices(sdFaculty);
+		dfd1.addServices(sdGroup);
+		dfd1.addServices(sdEaten);
+		try {
+			DFService.deregister(this, dfd);
+			DFService.register(this, dfd1);
+		} catch (FIPAException fe) {
+			fe.printStackTrace();
+		}
+	}
 
 
 	class WaitingForLunchBehaviour extends Behaviour {
@@ -226,10 +270,16 @@ public class Student extends Agent {
 
 					//Today Experience:<Faculty Name>:<Rating>
 					String[] todayExperience = msg.getContent().split(":");
+					
+					System.out.println("Agent " + getLocalName() + " (" + faculty + " group " + groupID + ") received feedback '" + msg.getContent() + "' from " + msg.getSender().getLocalName());
 
+					//System.out.println("Agent " + getLocalName() + " previous heuristics " + canteenHeuristics);
+					
 					Double currentHeuristic = canteenHeuristics.get(todayExperience[1].trim());
 					Double newHeuristic = currentHeuristic*0.9 + Double.parseDouble(todayExperience[2].trim())*0.1;
 					canteenHeuristics.put(todayExperience[1].trim(), newHeuristic);
+					
+					//System.out.println("Agent " + getLocalName() + " new heuristics " + canteenHeuristics);
 
 				}
 
@@ -240,7 +290,7 @@ public class Student extends Agent {
 		@Override
 		public boolean done() {
 			if(System.currentTimeMillis() - startingTime >= TIMEOUT_WAITING*(Integer.parseInt(groupID) - 1)) {
-				this.getAgent().addBehaviour(new HeuristicsBehaviour());
+				this.getAgent().addBehaviour(new ProposalBehaviour());
 			}
 			return (System.currentTimeMillis() - startingTime >= TIMEOUT_WAITING*(Integer.parseInt(groupID) - 1));
 		}
@@ -352,7 +402,8 @@ public class Student extends Agent {
 						"\nCalculated heuristics: " + canteenHeuristics +
 						"\nFavorite dishes: " + favoriteDishes);
 				System.out.println("--------------------------------------------");
-				this.getAgent().addBehaviour(new ProposalBehaviour());
+				//this.getAgent().addBehaviour(new ProposalBehaviour());
+				this.getAgent().addBehaviour(new WaitingForLunchBehaviour());
 			}
 
 			return currentFaculty >= canteens.length;
@@ -581,7 +632,7 @@ public class Student extends Agent {
 				ACLMessage askCanteen = new ACLMessage(ACLMessage.REQUEST);
 
 				//TODO: Change to number of elements in group
-				askCanteen.setContent("3");
+				askCanteen.setContent(Integer.toString(students.length));
 				askCanteen.addReceiver(new AID(canteen, AID.ISLOCALNAME));
 				send(askCanteen);
 
@@ -638,6 +689,22 @@ public class Student extends Agent {
 			case 5:
 
 				System.out.println("Student " + getLocalName() + " has finished eating!");
+				hasEaten = true;
+				registerOnEaten();
+				//registerOnDF();
+				
+				students = null;
+				searchFacultyStudentsWhoHaventEaten();
+				
+				ACLMessage canteenReview = new ACLMessage(ACLMessage.INFORM);
+				canteenReview.setContent("Today Experience:" + canteen + ":0.4");
+				for (int i = 0; i < students.length; i++) {
+					if (!students[i].getName().getLocalName().equals(getLocalName())) {
+						canteenReview.addReceiver(students[i].getName());
+					}
+				}
+				send(canteenReview);
+				
 				this.getAgent().removeBehaviour(this);
 				break;
 
