@@ -426,6 +426,7 @@ public class Student extends Agent {
 		boolean decided = false;
 		int votes_in_favor = 0;
 		int votes = 0;
+		double canteenFeedback = 0.0;
 
 		@Override
 		public void action() {
@@ -606,6 +607,15 @@ public class Student extends Agent {
 					} else if(msg.getPerformative() == ACLMessage.AGREE) {
 
 						// The student can eat the chosen dish at the canteen
+						String[] parsedRating = msg.getContent().split(" ");
+						
+						//0.85 o servico, 0.15 se comeu o seu prato favorito
+						if (favoriteDishes.containsKey(chosenDish)) {
+							canteenFeedback = 0.85 * Double.parseDouble(parsedRating[3].trim()) + 0.15;
+						} else {
+							canteenFeedback = 0.85 * Double.parseDouble(parsedRating[3].trim());
+						}
+						
 						System.out.println("Student " + getLocalName() + " eats " + chosenDish + " at " + canteen);
 						step = 5;
 
@@ -696,7 +706,7 @@ public class Student extends Agent {
 				searchFacultyStudentsWhoHaventEaten();
 				
 				ACLMessage canteenReview = new ACLMessage(ACLMessage.INFORM);
-				canteenReview.setContent("Today Experience:" + canteen + ":0.4");
+				canteenReview.setContent("Today Experience:" + canteen + ":" + canteenFeedback);
 				for (int i = 0; i < students.length; i++) {
 					if (!students[i].getName().getLocalName().equals(getLocalName())) {
 						canteenReview.addReceiver(students[i].getName());

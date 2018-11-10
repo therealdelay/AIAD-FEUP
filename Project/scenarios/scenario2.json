@@ -1631,6 +1631,11 @@
 				"FEP": 0.7,
 				"ISEP": 1.2,
 				"FADEUP": 0.5
+			},
+			"service": {
+				"bad": 0.08,
+				"mediocre": 0.81,
+				"good": 1.0,
 			}
 		},
 		{
@@ -1642,6 +1647,11 @@
 				"FEP": 0.9,
 				"ISEP": 1.4,
 				"FADEUP": 0.6
+			},
+			"service": {
+				"bad": 0.09,
+				"mediocre": 0.82,
+				"good": 1.0,
 			}
 		},
 		{
@@ -1653,6 +1663,11 @@
 				"FEP": 0.9,
 				"ISEP": 1.3,
 				"FADEUP": 0.5
+			},
+			"service": {
+				"bad": 0.1,
+				"mediocre": 0.77,
+				"good": 1.0,
 			}
 		},
 		{
@@ -1664,6 +1679,11 @@
 				"FEP": 0.0,
 				"ISEP": 0.9,
 				"FADEUP": 1.0
+			},
+			"service": {
+				"bad": 0.12,
+				"mediocre": 0.9,
+				"good": 1.0,
 			}
 		},
 		{
@@ -1675,6 +1695,11 @@
 				"FEP": 0.9,
 				"ISEP": 0.0,
 				"FADEUP": 1.2
+			},
+			"service": {
+				"bad": 0.1,
+				"mediocre": 0.85,
+				"good": 1.0,
 			}
 		},
 		{
@@ -1686,6 +1711,11 @@
 				"FEP": 1.0,
 				"ISEP": 1.2,
 				"FADEUP": 0.0
+			},
+			"service": {
+				"bad": 0.12,
+				"mediocre": 0.87,
+				"good": 1.0,
 			}
 		}
 	],

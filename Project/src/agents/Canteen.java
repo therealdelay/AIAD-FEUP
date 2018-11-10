@@ -168,6 +168,39 @@ public class Canteen extends Agent {
 		}
 
 	}
+	
+	public double generateService() {
+		JSONObject serviceInfo = (JSONObject) canteenInfo.get("service");
+		
+		//mau servico -> valores [0.1, 0.3]
+		//mediocre -> [0.4, 0.7]
+		//bom -> [0.8, 1.0]
+		
+		double serviceValue = 0.0;
+		
+		double bad = (Double) serviceInfo.get("bad");
+		double mediocre = (Double) serviceInfo.get("mediocre");
+		double good = (Double) serviceInfo.get("good");
+		
+		Random r = new Random();
+		double serviceType = 0.0 + (1.0 - 0.0) * r.nextDouble();
+		
+		// ifs sao para decidir que tipo de servico foi e o que está dentro de cada if define o valor dentro dos intervalos acima
+		if (serviceType >= 0.0 && serviceType < bad) {
+			
+			serviceValue = 0.1 + (0.3 - 0.1) * r.nextDouble();
+			
+		} else if (serviceType >= bad && serviceType < mediocre) {
+			
+			serviceValue = 0.4 + (0.7 - 0.4) * r.nextDouble();
+			
+		} else if (serviceType >= mediocre && serviceType <= good) {
+			
+			serviceValue = 0.7 + (1.0 - 0.7) * r.nextDouble();
+			
+		}
+		return (double) Math.round(serviceValue * 10) / 10;
+	}
 
 	class CanteenTickerBehaviour extends TickerBehaviour {
 
@@ -187,7 +220,8 @@ public class Canteen extends Agent {
 					ACLMessage reply = new ACLMessage(ACLMessage.AGREE);
 					reply.setPerformative(ACLMessage.AGREE);
 					reply.addReceiver(waitingQueue.element());
-					reply.setContent("Cantina " + getLocalName() + " OK!");
+					//reply.setContent("Cantina " + getLocalName() + " OK!");
+					reply.setContent("Cantina " + getLocalName() + " service: " + generateService());
 					send(reply);
 					//System.out.println("Student " + waitingQueue.element().getLocalName() + " comeu");					
 					waitingQueue.removeFirst();
