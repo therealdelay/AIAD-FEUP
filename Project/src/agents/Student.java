@@ -131,8 +131,11 @@ public class Student extends Agent {
 	public void searchGroupStudents() {
 		DFAgentDescription template = new DFAgentDescription();
 		ServiceDescription sd = new ServiceDescription();
+		ServiceDescription sd2 = new ServiceDescription();
 		sd.setType(this.faculty + "-Group" + this.groupID);
+		sd2.setType("hasnt-eaten");
 		template.addServices(sd);
+		template.addServices(sd2);
 		try {
 			students = DFService.search(this, template);
 
@@ -610,11 +613,13 @@ public class Student extends Agent {
 						String[] parsedRating = msg.getContent().split(" ");
 						
 						//0.85 o servico, 0.15 se comeu o seu prato favorito
-						if (favoriteDishes.containsKey(chosenDish)) {
+						/*if (favoriteDishes.containsKey(chosenDish)) {
 							canteenFeedback = 0.85 * Double.parseDouble(parsedRating[3].trim()) + 0.15;
 						} else {
 							canteenFeedback = 0.85 * Double.parseDouble(parsedRating[3].trim());
-						}
+						}*/
+						
+						canteenFeedback = Double.parseDouble(parsedRating[3].trim());
 						
 						System.out.println("Student " + getLocalName() + " eats " + chosenDish + " at " + canteen);
 						step = 5;
