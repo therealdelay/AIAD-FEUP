@@ -11,15 +11,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import agents.Canteen.MealPair;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
@@ -28,8 +25,14 @@ import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.lang.acl.ACLMessage;
-import jade.lang.acl.UnreadableException;
 
+/**
+ * 
+ * Student class, that represents a student from a faculty and group, which main goal is to eat lunch at a canteen.
+ * The Student has favorite dishes, past experiences at canteens and different distances to each of them.
+ * He has to factor all this when discussing with its group about which canteen they will go to to have lunch.
+ *
+ */
 public class Student extends Agent {
 
 	int didEat = 0;
@@ -37,8 +40,6 @@ public class Student extends Agent {
 	DFAgentDescription[] students = null;
 	int canteenOption = -1;
 
-
-	//TODO: Put this variables in JSON
 	long TIMEOUT_WAITING = 5000;
 	double MAX_DISTANCE = 1.5; 
 	double DECISION_HEURISTIC = 0.5;
@@ -46,7 +47,9 @@ public class Student extends Agent {
 	JSONObject studentInfo;
 	String faculty;
 	String groupID;
-	HashMap<String, Integer> favoriteDishes;//string - nome do prato, integer - escala de 1 a 10 para "ordenar" os pratos favoritos
+
+	//String - Dish Name, Integer - 1-10 to rate dishes from most to least favorite
+	HashMap<String, Integer> favoriteDishes;
 	JSONObject pastExperiences;
 	boolean hasEaten;
 
@@ -58,17 +61,10 @@ public class Student extends Agent {
 		loadJSON();
 		registerOnDF();
 		searchAllCanteens();
-		//searchAllStudents();
 		searchGroupStudents();
 		canteenOption = 0;
 		canteenHeuristics = new HashMap<>();
 		addBehaviour(new HeuristicsBehaviour());
-		//addBehaviour(new WaitingForLunchBehaviour());
-	}
-
-	protected int chooseCanteen() {
-		Random r = new Random();
-		return r.nextInt(canteens.length);
 	}
 
 	protected void loadJSON() {
@@ -109,19 +105,8 @@ public class Student extends Agent {
 		sd.setType("canteen");
 		template.addServices(sd);
 		try {
+			
 			canteens = DFService.search(this, template);
-		} catch (FIPAException fe) {
-			fe.printStackTrace();
-		}
-	}
-
-	public void searchAllStudents() {
-		DFAgentDescription template = new DFAgentDescription();
-		ServiceDescription sd = new ServiceDescription();
-		sd.setType("student");
-		template.addServices(sd);
-		try {
-			students = DFService.search(this, template);
 
 		} catch (FIPAException fe) {
 			fe.printStackTrace();
@@ -137,6 +122,7 @@ public class Student extends Agent {
 		template.addServices(sd);
 		template.addServices(sd2);
 		try {
+
 			students = DFService.search(this, template);
 
 		} catch (FIPAException fe) {
@@ -150,10 +136,9 @@ public class Student extends Agent {
 		sd.setType(this.faculty);
 		template.addServices(sd);
 		try {
+
 			students = DFService.search(this, template);
-			/* for(DFAgentDescription dfad : students) {
-				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
-			}*/
+
 		} catch (FIPAException fe) {
 			fe.printStackTrace();
 		}
@@ -168,15 +153,19 @@ public class Student extends Agent {
 		template.addServices(sd1);
 		template.addServices(sd2);
 		try {
+
 			students = DFService.search(this, template);
-			/* for(DFAgentDescription dfad : students) {
-				System.out.println("AGENT " + this.getLocalName() + ": " + dfad.getName().getLocalName());
-			}*/
+
 		} catch (FIPAException fe) {
 			fe.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Registers on services, such as the student faculty, student group and if
+	 * it has already eaten.
+	 * 
+	 */
 	protected void registerOnDF() {
 		DFAgentDescription dfd = new DFAgentDescription();
 		dfd.setName(getAID());
@@ -212,10 +201,13 @@ public class Student extends Agent {
 		}
 	}
 	
+	/**
+	 * Updates the student services, when the student has finished having its meal.
+	 */
 	protected void registerOnEaten() {
 		DFAgentDescription dfd = new DFAgentDescription();
 		dfd.setName(getAID());
-		
+
 		DFAgentDescription dfd1 = new DFAgentDescription();
 		dfd1.setName(getAID());
 
@@ -234,7 +226,7 @@ public class Student extends Agent {
 		ServiceDescription sdEaten = new ServiceDescription();
 		sdEaten.setType("has-eaten");
 		sdEaten.setName(getLocalName());
-		
+
 		ServiceDescription sdNotEaten = new ServiceDescription();
 		sdNotEaten.setType("hasnt-eaten");
 		sdNotEaten.setName(getLocalName());
@@ -243,7 +235,7 @@ public class Student extends Agent {
 		dfd.addServices(sdFaculty);
 		dfd.addServices(sdGroup);
 		dfd.addServices(sdNotEaten);
-		
+
 		dfd1.addServices(sd);
 		dfd1.addServices(sdFaculty);
 		dfd1.addServices(sdGroup);
@@ -256,7 +248,14 @@ public class Student extends Agent {
 		}
 	}
 
-
+	
+	/**
+	 * 
+	 * WaitingForLunchBehaviour is a behavior responsible for listening to the opinions of other students who 
+	 * have already eaten, and updating the heuristics of the student according to said opinions. This behavior
+	 * is only active during a specific time period.
+	 *
+	 */
 	class WaitingForLunchBehaviour extends Behaviour {
 
 		long startingTime = System.currentTimeMillis();
@@ -272,17 +271,12 @@ public class Student extends Agent {
 
 					//Today Experience:<Faculty Name>:<Rating>
 					String[] todayExperience = msg.getContent().split(":");
-					
+
 					System.out.println("Agent " + getLocalName() + " (" + faculty + " group " + groupID + ") received feedback '" + msg.getContent() + "' from " + msg.getSender().getLocalName());
 
-					//System.out.println("Agent " + getLocalName() + " previous heuristics " + canteenHeuristics);
-					
 					Double currentHeuristic = canteenHeuristics.get(todayExperience[1].trim());
 					Double newHeuristic = currentHeuristic*0.9 + Double.parseDouble(todayExperience[2].trim())*0.1;
 					canteenHeuristics.put(todayExperience[1].trim(), newHeuristic);
-					
-					//System.out.println("Agent " + getLocalName() + " new heuristics " + canteenHeuristics);
-
 				}
 
 			}
@@ -301,7 +295,13 @@ public class Student extends Agent {
 
 	}
 
-
+	/**
+	 * 
+	 * HeuristicsBehavior is a behavior responsible for communicating with the canteens to get each daily Menu and distance to
+	 * and, with that information and with the past experiences of the student in the canteen, calculate the 
+	 * heuristic value for said canteen.
+	 *
+	 */
 	class HeuristicsBehaviour extends Behaviour {
 
 		int step = 0;
@@ -311,9 +311,9 @@ public class Student extends Agent {
 		@Override
 		public void action() {
 			switch(step) {
-
+			
 			case 0:
-
+				// Sends request to canteen to get its daily menu and distance to the student faculty
 				currentFaculty++;
 
 				if(currentFaculty >= canteens.length) {
@@ -331,9 +331,9 @@ public class Student extends Agent {
 				break;
 
 			case 1:
-
+				//Listens to canteen response and calculates heuristic
 				ACLMessage answer = receive();
-
+				
 				if(answer != null) {
 
 					if(answer.getPerformative() == ACLMessage.INFORM) {
@@ -343,19 +343,17 @@ public class Student extends Agent {
 
 						double distance = Double.parseDouble(infoArray[infoArray.length - 1]);
 						canteenDishes.put(currentFacultyName, new ArrayList<String>(Arrays.asList(Arrays.copyOf(infoArray, infoArray.length-1))));
-												
+
 						distance = 1 - distance / MAX_DISTANCE;
 
 						int favoriteDishesCounter = 0;
 						int dishesHeuristics = 0;
 
-						//System.out.println("Student " + this.getAgent().getAID().getLocalName() + " favorite dishes: " + favoriteDishes + ".\ncanteenDishes: " + info);
 
 						for(int i = 0; i < infoArray.length - 1; i++) {
 
 							if(favoriteDishes.containsKey(infoArray[i])) {
 								favoriteDishesCounter++;
-								//dishesHeuristics += favoriteDishes.get(infoArray[i])*0.1;
 							}
 						}
 
@@ -371,14 +369,11 @@ public class Student extends Agent {
 
 						pastExperienceHeuristic = pastExperienceHeuristic / canteenInfo.size();
 
-						//System.out.println("distance: " + distance + "\ndishes: " + dishesHeuristics + "\npastExp: " + pastExperienceHeuristic + "\nnumFavDishes: " + favoriteDishesCounter);
-
 						double heuristic = distance*0.15 + dishesHeuristics*0.20 + pastExperienceHeuristic*0.65;
 
 						canteenHeuristics.put(currentFacultyName, heuristic);
 
 						step = 0;
-
 					} 
 
 				} 
@@ -404,7 +399,6 @@ public class Student extends Agent {
 						"\nCalculated heuristics: " + canteenHeuristics +
 						"\nFavorite dishes: " + favoriteDishes);
 				System.out.println("--------------------------------------------");
-				//this.getAgent().addBehaviour(new ProposalBehaviour());
 				this.getAgent().addBehaviour(new WaitingForLunchBehaviour());
 			}
 
@@ -413,7 +407,20 @@ public class Student extends Agent {
 
 	}
 
-
+	/**
+	 * 
+	 * ProposalBehaviour is a behavior responsible for proposing or being proposed to a canteen in which to have lunch.
+	 * This behaviour starts with a student waiting a random number of time to make its proposal. If it doens't
+	 * receive a proposal in the meantime, the student will propose a canteen with the biggest heuristic value that
+	 * hasn't been rejected before. The other members of the group will agree or not, based on their own heuristics.
+	 * If the proposal is accepted, the proposer will verify if the chosen canteen has enough dishes for all and if so,
+	 * confirms the proposal to everyone on the group. If the proposal is rejected or there aren't enough dishes,
+	 * the proposal will be rejected and the cycle begins again.
+	 * Once the proposal is confirmed, each student will chose a dish of the daily meny(based on the student favorite 
+	 * dishes) and request the dish to the canteen. If the request is denied, the student will chose other dish.
+	 * If all canteen options are rejected, the first option to have been made will be the one chosen.
+	 *
+	 */
 	class ProposalBehaviour extends Behaviour {
 
 		int step = 0;
@@ -436,7 +443,7 @@ public class Student extends Agent {
 			switch(step) {
 
 			case 0:
-				
+				// Student creates timer to make a proposal
 				Random timeout = new Random();
 				int timeoutTime = timeout.nextInt(1000);
 				timer = new Timer();
@@ -447,7 +454,6 @@ public class Student extends Agent {
 
 						ACLMessage proposal = new ACLMessage(ACLMessage.PROPOSE);
 
-						//System.out.println("Student " + getLocalName() + " Reject Proposals " + rejectedProposals);
 						System.out.println("Group " + groupID + " from " + faculty + " has already rejected " + rejectedProposals);
 
 						Map.Entry<String, Double> maxEntry = null;
@@ -472,8 +478,6 @@ public class Student extends Agent {
 
 						} else {
 
-							//System.out.println("Proposer " + getLocalName() + " heuristics " + updatedCanteenHeuristics);
-
 							System.out.println("Proposer " + getLocalName() + " PROPOSES " + canteen + " to " + faculty + " Group " + groupID);
 
 							proposal.setContent(canteen);
@@ -497,17 +501,15 @@ public class Student extends Agent {
 				break;
 
 			case 1:
-
+				
 				msg = receive();
 
 				if (msg != null) {
-					
-					if(msg.getPerformative() == ACLMessage.INFORM && canteen != null && msg.getSender().getLocalName().contains(canteen)) {
 
+					if(msg.getPerformative() == ACLMessage.INFORM && canteen != null && msg.getSender().getLocalName().contains(canteen)) {
 						//After getting the majority of votes in favor, proposer asks canteen for it's quantity of dishes
 
 						String msgCnt = msg.getContent();
-						//System.out.println("Resposta da cantina: " + msgCnt);
 
 						if(Integer.parseInt(msgCnt) >= students.length) {
 							step = 3;
@@ -516,7 +518,6 @@ public class Student extends Agent {
 						}
 
 					} else if (msg.getPerformative() == ACLMessage.PROPOSE) {
-
 						// Students receives proposal
 
 						timer.cancel();
@@ -542,7 +543,6 @@ public class Student extends Agent {
 
 
 					} else if (msg.getPerformative() == ACLMessage.ACCEPT_PROPOSAL && sent_proposal) {
-
 						// Proposer receives a positive vote to its proposal
 
 						votes++;
@@ -551,22 +551,19 @@ public class Student extends Agent {
 						if(students != null) {
 
 							if (votes_in_favor >= students.length / 2 && !decided) {
-								
+
 								decided = true;
 								step = 2;
 
 							} else if (votes == students.length - 1 && votes_in_favor < students.length / 2) {
-								
-								System.out.println("ACCEPT Student " + getLocalName() + " didn't got enough votes for " + canteen);
+
 								discardCanteen(canteen, 0);
 
 							}
 						}
 
-						//System.out.println("Student " + getLocalName() + " proposal has " + votes + " votes");
 
 					} else if(msg.getPerformative() == ACLMessage.REJECT_PROPOSAL && sent_proposal) {
-
 						// Proposer receives a negative vote to its proposal
 
 						votes++;
@@ -574,32 +571,26 @@ public class Student extends Agent {
 						if(students != null) {
 
 							if (votes_in_favor >= students.length / 2 && !decided) {
-								
+
 								decided = true;
 								step = 2;
 
 							} else if (votes == students.length - 1 && votes_in_favor < students.length / 2) {
-								
-								//System.out.println("REJECT Student " + getLocalName() + " didn't got enough votes for " + canteen);
+
 								discardCanteen(canteen, 0);
 
 							}
 						}
 
 					} else if(msg.getPerformative() == ACLMessage.CONFIRM) {
-
 						// Other students of the group receive confirmation from the proposer that the proposal was accepted by the majority
 
 						canteen = msg.getContent().split("-")[1].trim();
-
-						//System.out.println("Student " + getLocalName() + " receives confirmation of canteen " + canteen);
-						
 						dishes = getDishesOrderedByRanking();
 						step = 4;
 
 
 					} else if(msg.getPerformative() == ACLMessage.DISCONFIRM) {
-
 						// Other students of the group receive confirmation from the proposer that the proposal was NOT accepted by the majority
 
 						String canteenDiscarded = msg.getContent().split("-")[1].trim();
@@ -608,44 +599,31 @@ public class Student extends Agent {
 						step = 1;
 
 					} else if(msg.getPerformative() == ACLMessage.AGREE) {
-
-						// The student can eat the chosen dish at the canteen
+						// The student eats the chosen dish at the canteen
+						
 						String[] parsedRating = msg.getContent().split(" ");
-						
-						//0.85 o servico, 0.15 se comeu o seu prato favorito
-						/*if (favoriteDishes.containsKey(chosenDish)) {
-							canteenFeedback = 0.85 * Double.parseDouble(parsedRating[3].trim()) + 0.15;
-						} else {
-							canteenFeedback = 0.85 * Double.parseDouble(parsedRating[3].trim());
-						}*/
-						
 						canteenFeedback = Double.parseDouble(parsedRating[3].trim());
-						
+
 						System.out.println("Student " + getLocalName() + " eats " + chosenDish + " at " + canteen);
 						step = 5;
 
 					} else if(msg.getPerformative() == ACLMessage.CANCEL) {
-
 						// The student cannot eat the chosen dish at the canteen
+						
 						step = 4;
 						System.out.println("Student " + getLocalName() + " CANNOT eat " + chosenDish + " at " + canteen);
 						dishes.remove(chosenDish);
 
 					}
-
 				} 
 
 				break;
 
 			case 2: 
-				
-				//System.out.println("Checking if canteen " + canteen + " has enough dishes, by " + getLocalName());
-
-				// After everyone accepts proposal, see if canteen has enough dishes
+				// After everyone accepts proposal, proposer sees if canteen has enough dishes
 
 				ACLMessage askCanteen = new ACLMessage(ACLMessage.REQUEST);
 
-				//TODO: Change to number of elements in group
 				askCanteen.setContent(Integer.toString(students.length));
 				askCanteen.addReceiver(new AID(canteen, AID.ISLOCALNAME));
 				send(askCanteen);
@@ -655,10 +633,8 @@ public class Student extends Agent {
 				break;
 
 			case 3:
-
 				// After getting the majority of votes in favor, the proposer send confirmation of the proposal
 
-				//System.out.println("Student " + getLocalName() + " sending canteen choice confirmation!");
 				ACLMessage msg = new ACLMessage(ACLMessage.CONFIRM);
 				msg.setContent("Chosen Canteen-" + canteen);
 
@@ -676,11 +652,9 @@ public class Student extends Agent {
 				break;
 
 			case 4:
-
-				// Ask canteen if it can eat the chosen dish
+				// Student asks canteen ifthe chosen dish is available
 
 				if(dishes.size() == 0) {
-
 					step = 6;
 
 				} else {
@@ -696,20 +670,17 @@ public class Student extends Agent {
 					step = 1;
 
 				}
-
-
 				break;
 
 			case 5:
-
+				// Student has finished eating and gives feedback about the canteen service to all students who haven't eaten 
 				System.out.println("Student " + getLocalName() + " has finished eating!");
 				hasEaten = true;
 				registerOnEaten();
-				//registerOnDF();
-				
+
 				students = null;
 				searchFacultyStudentsWhoHaventEaten();
-				
+
 				ACLMessage canteenReview = new ACLMessage(ACLMessage.INFORM);
 				canteenReview.setContent("Today Experience:" + canteen + ":" + canteenFeedback);
 				for (int i = 0; i < students.length; i++) {
@@ -718,12 +689,12 @@ public class Student extends Agent {
 					}
 				}
 				send(canteenReview);
-				
+
 				this.getAgent().removeBehaviour(this);
 				break;
 
 			case 6:
-
+				// It is impossible for the student to eat at any canteen
 				System.out.println("Student " + getLocalName() + " couldn't eat because the canteen have no available dishes");
 				this.getAgent().removeBehaviour(this);
 				break;
@@ -734,9 +705,13 @@ public class Student extends Agent {
 			}
 
 		}
-
+		
+		/*
+		 * Proposal wan't accepted, so the canteen option will be added to the rejected proposals and every 
+		 * variable needed for the cycle will be reseted. A message to all the group students will be sent,
+		 * informing them of the failure of the proposal.
+		 */
 		public void discardCanteen(String canteen, int phase) {
-
 
 			ACLMessage msg = new ACLMessage(ACLMessage.DISCONFIRM);
 
@@ -768,21 +743,25 @@ public class Student extends Agent {
 				step = 0;
 
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.err.println("An error occured in the discardCanteen function");
+				return;
 			}
 
 		}
-
+		
+		/**
+		 * Orders dishes available at the chosen canteen from most favorite to least favorite, according to the student
+		 * preferences.
+		 * 
+		 * @return dishes ordered from most favorite to least favorite
+		 */
 		public ArrayList<String> getDishesOrderedByRanking() {
-			
+
 			favoriteDishes = sortFavoriteDishes();
-			
-			//System.out.println("Favourite Dishes " + getLocalName() + " : " + favoriteDishes);
-			
+
 			ArrayList<String> dishesOrdered = new ArrayList<>();
 			ArrayList<String> canteenDishesTmp = (ArrayList<String>) canteenDishes.get(canteen).clone();
-			
+
 			for(Map.Entry<String, Integer> entry : favoriteDishes.entrySet()) {
 
 				if(canteenDishesTmp.contains(entry.getKey())) {
@@ -790,36 +769,33 @@ public class Student extends Agent {
 					canteenDishesTmp.remove(entry.getKey());
 				}
 			}
-			
+
 			for(int i = 0; i < canteenDishesTmp.size(); i++) {
 				dishesOrdered.add(canteenDishesTmp.get(i));
 			}
-			
-			//System.out.println("Canteen Dishes " + getLocalName() + " : " + canteenDishes.get(canteen));
-			//System.out.println("Dishes Ordered " + getLocalName() + " : " + dishesOrdered);
-			
+
 			return dishesOrdered;
-			
+
 
 
 		}
 
 		public HashMap<String, Integer> sortFavoriteDishes() {
 			List list = new LinkedList(favoriteDishes.entrySet());
-			
+
 			Collections.sort(list, new Comparator() {
 				public int compare(Object o1, Object o2) {
 					return ((Comparable) ((Map.Entry) (o2)).getValue())
 							.compareTo(((Map.Entry) (o1)).getValue());
 				}
 			});
-			
+
 			HashMap<String, Integer> sortedHashMap = new LinkedHashMap<>();
 			for (Iterator it = list.iterator(); it.hasNext();) {
 				Map.Entry entry = (Map.Entry) it.next();
 				sortedHashMap.put((String) entry.getKey(), (Integer) entry.getValue());
 			} 
-						
+
 			return sortedHashMap;
 		}
 
