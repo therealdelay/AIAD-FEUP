@@ -1,606 +1,1622 @@
 {
 	"students": [
 		{
-			"name": "A",
+			"name": "Leonardo Oliveira",
 			"groupID": 1,
 			"hasEaten": false,
 			"current-university": "FEUP",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
-					0.3,
+					0.8,
 					0.7,
-					0.2
+					0.4,
+					0.6
 				],
 				"ESE": [
-					0.2,
-					0.8
+					0.3,
+					0.8,
+					0.4,
+					0.5
 				],
 				"FMUP": [
 					0.8,
-					0.9
+					0.9,
+					0.5,
+					0.6
 				],
 				"FEP": [
-					0.1,
-					0.2,
-					0.3
+					0.5,
+					0.3,
+					0.8,
+					0.6
 				],
 				"ISEP": [
-					0.0,
-					0.1
+					0.7,
+					0.5,
+					0.5,
+					0.6
 				],
 				"FADEUP": [
 					0.4,
+					0.7,
+					0.6,
 					0.7
 				]
 			}
 		},
 		{
-			"name": "B",
+			"name": "Vitor Santos",
 			"groupID": 1,
 			"hasEaten": false,
 			"current-university": "FEUP",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.9,
+					0.7,
+					1.0
+				],
+				"ESE": [
+					0.6,
+					0.7,
+					0.7,
+					0.6
+				],
+				"FMUP": [
+					0.4,
+					0.2,
+					0.5,
+					0.8
+				],
+				"FEP": [
+					0.4,
+					0.8,
+					0.7,
+					0.8
+				],
+				"ISEP": [
+					0.2,
+					0.9,
+					0.5,
+					0.1
+				],
+				"FADEUP": [
+					0.7,
+					0.5,
+					0.6,
+					0.6
+				]
+			}
+		},
+		{
+			"name": "António Araújo",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.7,
+					0.4,
+					0.9
+				],
+				"ESE": [
+					0.1,
+					0.6,
+					0.8,
+					0.4
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.5,
+					0.4
+				],
+				"FEP": [
+					0.7,
+					0.2,
+					0.4,
+					0.1
+				],
+				"ISEP": [
+					0.4,
+					0.5,
+					0.3,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.3,
+					0.7,
+					0.6
+				]
+			}
+		},
+		{
+			"name": "José Dias",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.5,
+					0.7,
+					0.9,
+					0.4
+				],
+				"ESE": [
+					0.9,
+					0.7,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.1,
+					0.5,
+					1.0,
+					0.5
+				],
+				"FEP": [
+					0.4,
+					0.5,
+					0.4,
+					0.6
+				],
+				"ISEP": [
+					0.3,
+					0.7,
+					0.3,
+					0.6
+				],
+				"FADEUP": [
+					0.2,
+					0.7,
+					0.8,
+					0.4
+				]
+			}
+		},
+		{
+			"name": "Sara Silva",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.9,
+					0.5,
+					0.4,
+					0.4
+				],
+				"ESE": [
+					0.8,
+					0.7,
+					0.6,
+					0.4
+				],
+				"FMUP": [
+					0.6,
+					0.9,
+					0.1,
+					0.7
+				],
+				"FEP": [
+					0.1,
+					0.2,
+					0.7,
+					0.5
+				],
+				"ISEP": [
+					0.9,
+					0.6,
+					0.4,
+					0.4
+				],
+				"FADEUP": [
+					0.2,
+					0.3,
+					0.6,
+					1.0
+				]
+			}
+		},
+		{
+			"name": "Tânia Azevedo",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.1,
+					0.5,
+					0.6,
+					1.0
+				],
+				"ESE": [
+					0.4,
+					0.9,
+					0.5,
+					0.4
+				],
+				"FMUP": [
+					0.6,
+					0.1,
+					0.1,
+					0.3
+				],
+				"FEP": [
+					0.5,
+					0.7,
+					0.4,
+					0.6
+				],
+				"ISEP": [
+					0.2,
+					0.7,
+					0.7,
+					0.8
+				],
+				"FADEUP": [
+					0.7,
+					0.1,
+					0.5,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Mariana Azevedo",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.7,
+					0.9,
+					0.7
+				],
+				"ESE": [
+					0.7,
+					0.6,
+					0.4,
+					0.5
+				],
+				"FMUP": [
+					0.6,
+					0.6,
+					0.4,
+					0.4
+				],
+				"FEP": [
+					0.5,
+					0.7,
+					0.4,
+					0.6
+				],
+				"ISEP": [
+					0.1,
+					0.9,
+					0.6,
+					0.9
+				],
+				"FADEUP": [
+					0.2,
+					0.4,
+					0.1,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Júlia Carvalho",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.9,
+					0.3,
+					0.4
+				],
+				"ESE": [
+					0.4,
+					0.4,
+					0.6,
+					1.0
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.4,
+					0.1
+				],
+				"FEP": [
+					0.4,
+					0.7,
+					0.5,
+					0.7
+				],
+				"ISEP": [
+					0.6,
+					0.5,
+					0.4,
+					0.7
+				],
+				"FADEUP": [
+					0.4,
+					0.9,
+					0.4,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Diego Costa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.4,
+					0.7,
+					0.5
+				],
+				"ESE": [
+					0.4,
+					0.6,
+					0.4,
+					0.7
+				],
+				"FMUP": [
+					0.5,
+					0.9,
+					0.4,
+					0.5
+				],
+				"FEP": [
+					0.5,
+					0.4,
+					0.4,
+					0.4
+				],
+				"ISEP": [
+					0.2,
+					0.6,
+					0.7,
+					0.9
+				],
+				"FADEUP": [
+					0.2,
+					0.6,
+					0.7,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Miguel Melo",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.6,
+					0.3,
+					0.6
+				],
+				"ESE": [
+					0.1,
+					1.0,
+					0.1,
+					0.8
+				],
+				"FMUP": [
+					0.5,
+					0.2,
+					0.7,
+					0.2
+				],
+				"FEP": [
+					0.7,
+					0.6,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.8,
+					0.4,
+					0.4,
+					1.0
+				],
+				"FADEUP": [
+					0.8,
+					0.9,
+					0.7,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Beatriz Pereira",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.8,
+					0.6,
+					0.1,
+					0.2
+				],
+				"ESE": [
+					0.4,
+					0.3,
+					0.9,
+					0.5
+				],
+				"FMUP": [
+					0.5,
+					0.4,
+					0.4,
+					0.5
+				],
+				"FEP": [
+					0.7,
+					1.0,
+					0.6,
+					0.6
+				],
+				"ISEP": [
+					0.5,
+					0.3,
+					0.3,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.8,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Luís Costa",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
 					0.1,
 					0.6,
-					0.3
+					0.5,
+					0.4
 				],
 				"ESE": [
+					0.3,
+					0.2,
+					0.8,
+					0.9
+				],
+				"FMUP": [
+					0.2,
+					0.7,
+					0.5,
+					0.7
+				],
+				"FEP": [
+					0.6,
+					0.4,
+					0.7,
+					0.5
+				],
+				"ISEP": [
+					0.6,
+					0.5,
+					0.4,
+					0.4
+				],
+				"FADEUP": [
+					0.7,
+					0.4,
+					0.3,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Mateus Castro",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "ESE",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
 					0.7,
 					0.8,
+					0.7,
+					0.6
+				],
+				"ESE": [
+					0.1,
+					0.1,
+					0.5,
+					0.6
+				],
+				"FMUP": [
+					0.5,
+					0.2,
 					0.9,
 					0.5
 				],
-				"FMUP": [
+				"FEP": [
+					0.7,
+					0.1,
+					0.2,
+					0.3
+				],
+				"ISEP": [
+					0.1,
+					0.2,
+					0.9,
 					0.4
 				],
-				"FEP": [
-					0.3,
-					0.7
-				],
-				"ISEP": [
-					0.2,
-					0.7,
-					0.3
-				],
 				"FADEUP": [
-					0.1,
+					0.9,
+					0.7,
+					0.6,
 					0.9
 				]
 			}
 		},
 		{
-			"name": "C",
-			"groupID": 1,
+			"name": "Matilde Costa",
+			"groupID": 3,
 			"hasEaten": false,
-			"current-university": "FEP",
+			"current-university": "ESE",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
-					0.3,
-					0.7,
-					0.2
+					0.6,
+					0.4,
+					0.6,
+					0.6
 				],
 				"ESE": [
-					0.2,
-					0.8
+					0.4,
+					0.7,
+					0.6,
+					0.5
 				],
 				"FMUP": [
+					0.3,
+					0.4,
+					0.9,
+					0.2
+				],
+				"FEP": [
+					0.9,
+					0.4,
+					0.4,
+					0.4
+				],
+				"ISEP": [
+					0.7,
 					0.8,
+					0.2,
+					0.5
+				],
+				"FADEUP": [
+					0.5,
+					0.5,
+					0.6,
+					0.8
+				]
+			}
+		},
+		{
+			"name": "Tiago Rocha",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.2,
+					0.4,
+					0.3
+				],
+				"ESE": [
+					0.1,
+					0.6,
+					0.6,
+					0.9
+				],
+				"FMUP": [
+					0.7,
+					1.0,
+					0.7,
 					0.9
 				],
 				"FEP": [
-					0.1,
-					0.2,
-					0.3
+					0.4,
+					0.6,
+					0.4,
+					0.7
 				],
 				"ISEP": [
-					0.0,
-					0.1
+					0.3,
+					0.1,
+					0.6,
+					0.8
 				],
 				"FADEUP": [
 					0.4,
+					0.6,
+					0.5,
 					0.7
 				]
 			}
 		},
 		{
-			"name": "D",
+			"name": "Luana Carvalho",
 			"groupID": 1,
 			"hasEaten": false,
-			"current-university": "FEUP",
+			"current-university": "FMUP",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
-					0.3,
-					0.7,
-					0.2
+					0.4,
+					0.6,
+					0.5,
+					0.4
 				],
 				"ESE": [
-					0.2,
-					0.8
+					0.5,
+					0.3,
+					0.4,
+					0.5
 				],
 				"FMUP": [
-					0.8,
-					0.9
+					0.7,
+					0.4,
+					0.2,
+					0.6
 				],
 				"FEP": [
-					0.1,
 					0.2,
-					0.3
+					0.1,
+					0.7,
+					0.5
 				],
 				"ISEP": [
-					0.0,
-					0.1
+					0.6,
+					0.6,
+					0.4,
+					0.8
 				],
 				"FADEUP": [
-					0.4,
-					0.7
+					0.9,
+					0.2,
+					0.5,
+					0.3
 				]
 			}
 		},
 		{
-			"name": "E",
+			"name": "Letícia Costa",
 			"groupID": 1,
 			"hasEaten": false,
-			"current-university": "FEUP",
+			"current-university": "FMUP",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
-					0.1,
+					0.6,
+					0.5,
+					0.9,
+					0.6
+				],
+				"ESE": [
+					0.7,
+					0.9,
+					0.9,
+					0.7
+				],
+				"FMUP": [
+					0.6,
+					0.3,
 					0.6,
 					0.3
 				],
-				"ESE": [
-					0.7,
-					0.8,
-					0.9,
-					0.5
-				],
-				"FMUP": [
-					0.4
-				],
 				"FEP": [
-					0.3,
-					0.7
-				],
-				"ISEP": [
-					0.2,
-					0.7,
-					0.3
-				],
-				"FADEUP": [
-					0.1,
-					0.9
-				]
-			}
-		},
-		{
-			"name": "F",
-			"groupID": 1,
-			"hasEaten": false,
-			"current-university": "FEP",
-			"favorite-dishes": {
-				"meat": {
-					"meat1": 10,
-					"meat3": 2
-				},
-				"fish": {
-					"fish3": 3,
-					"fish5": 4
-				},
-				"veg": {
-					"veg1": 5
-				},
-				"diet": {
-					"diet3": 4
-				}
-			},
-			"past-experience": {
-				"FEUP": [
-					0.3,
-					0.7,
-					0.2
-				],
-				"ESE": [
-					0.2,
-					0.8
-				],
-				"FMUP": [
-					0.8,
-					0.9
-				],
-				"FEP": [
-					0.1,
-					0.2,
-					0.3
-				],
-				"ISEP": [
-					0.0,
-					0.1
-				],
-				"FADEUP": [
 					0.4,
-					0.7
-				]
-			}
-		}
-		{
-			"name": "G",
-			"groupID": 1,
-			"hasEaten": false,
-			"current-university": "FEUP",
-			"favorite-dishes": {
-				"meat": {
-					"meat1": 10,
-					"meat3": 2
-				},
-				"fish": {
-					"fish3": 3,
-					"fish5": 4
-				},
-				"veg": {
-					"veg1": 5
-				},
-				"diet": {
-					"diet3": 4
-				}
-			},
-			"past-experience": {
-				"FEUP": [
-					0.3,
-					0.7,
-					0.2
-				],
-				"ESE": [
-					0.2,
-					0.8
-				],
-				"FMUP": [
 					0.8,
-					0.9
-				],
-				"FEP": [
-					0.1,
-					0.2,
-					0.3
-				],
-				"ISEP": [
-					0.0,
-					0.1
-				],
-				"FADEUP": [
-					0.4,
-					0.7
-				]
-			}
-		},
-		{
-			"name": "H",
-			"groupID": 1,
-			"hasEaten": false,
-			"current-university": "FEUP",
-			"favorite-dishes": {
-				"meat": {
-					"meat1": 10,
-					"meat3": 2
-				},
-				"fish": {
-					"fish3": 3,
-					"fish5": 4
-				},
-				"veg": {
-					"veg1": 5
-				},
-				"diet": {
-					"diet3": 4
-				}
-			},
-			"past-experience": {
-				"FEUP": [
-					0.1,
 					0.6,
-					0.3
+					0.1
 				],
-				"ESE": [
+				"ISEP": [
+					0.5,
 					0.7,
-					0.8,
-					0.9,
+					0.4,
 					0.5
 				],
-				"FMUP": [
-					0.4
-				],
-				"FEP": [
-					0.3,
-					0.7
-				],
-				"ISEP": [
-					0.2,
-					0.7,
-					0.3
-				],
 				"FADEUP": [
 					0.1,
-					0.9
+					0.4,
+					0.2,
+					0.5
 				]
 			}
 		},
 		{
-			"name": "I",
-			"groupID": 1,
+			"name": "Eduardo Castro",
+			"groupID": 2,
 			"hasEaten": false,
-			"current-university": "FEP",
+			"current-university": "FMUP",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
 					0.3,
-					0.7,
-					0.2
+					0.4,
+					0.9,
+					1.0
 				],
 				"ESE": [
 					0.2,
-					0.8
+					0.8,
+					0.5,
+					0.6
 				],
 				"FMUP": [
-					0.8,
-					0.9
-				],
-				"FEP": [
-					0.1,
-					0.2,
-					0.3
-				],
-				"ISEP": [
-					0.0,
-					0.1
-				],
-				"FADEUP": [
-					0.4,
-					0.7
-				]
-			}
-		}
-		{
-			"name": "J",
-			"groupID": 1,
-			"hasEaten": false,
-			"current-university": "FEUP",
-			"favorite-dishes": {
-				"meat": {
-					"meat1": 10,
-					"meat3": 2
-				},
-				"fish": {
-					"fish3": 3,
-					"fish5": 4
-				},
-				"veg": {
-					"veg1": 5
-				},
-				"diet": {
-					"diet3": 4
-				}
-			},
-			"past-experience": {
-				"FEUP": [
-					0.3,
 					0.7,
-					0.2
-				],
-				"ESE": [
-					0.2,
-					0.8
-				],
-				"FMUP": [
-					0.8,
-					0.9
-				],
-				"FEP": [
-					0.1,
-					0.2,
-					0.3
-				],
-				"ISEP": [
-					0.0,
-					0.1
-				],
-				"FADEUP": [
-					0.4,
-					0.7
-				]
-			}
-		},
-		{
-			"name": "K",
-			"groupID": 1,
-			"hasEaten": false,
-			"current-university": "FEUP",
-			"favorite-dishes": {
-				"meat": {
-					"meat1": 10,
-					"meat3": 2
-				},
-				"fish": {
-					"fish3": 3,
-					"fish5": 4
-				},
-				"veg": {
-					"veg1": 5
-				},
-				"diet": {
-					"diet3": 4
-				}
-			},
-			"past-experience": {
-				"FEUP": [
-					0.1,
 					0.6,
-					0.3
-				],
-				"ESE": [
-					0.7,
-					0.8,
-					0.9,
-					0.5
-				],
-				"FMUP": [
+					0.2,
 					0.4
 				],
 				"FEP": [
 					0.3,
+					0.9,
+					0.4,
 					0.7
 				],
 				"ISEP": [
-					0.2,
-					0.7,
-					0.3
+					0.9,
+					0.9,
+					0.5,
+					0.5
 				],
 				"FADEUP": [
-					0.1,
-					0.9
+					0.6,
+					0.5,
+					0.2,
+					0.6
 				]
 			}
 		},
 		{
-			"name": "L",
+			"name": "David Rocha",
+			"groupID": 2,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					1.0,
+					0.7,
+					0.4
+				],
+				"ESE": [
+					0.5,
+					0.4,
+					0.9,
+					0.2
+				],
+				"FMUP": [
+					0.6,
+					0.7,
+					0.1,
+					0.5
+				],
+				"FEP": [
+					0.4,
+					0.8,
+					0.7,
+					0.3
+				],
+				"ISEP": [
+					0.2,
+					0.5,
+					0.8,
+					0.5
+				],
+				"FADEUP": [
+					0.5,
+					0.9,
+					0.7,
+					0.1
+				]
+			}
+		},
+		{
+			"name": "Rodrigo Rocha",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.5,
+					0.5,
+					0.5,
+					0.7
+				],
+				"ESE": [
+					0.8,
+					0.4,
+					0.7,
+					0.7
+				],
+				"FMUP": [
+					0.8,
+					0.7,
+					0.7,
+					0.7
+				],
+				"FEP": [
+					0.4,
+					1.0,
+					0.1,
+					0.6
+				],
+				"ISEP": [
+					1.0,
+					0.5,
+					0.6,
+					0.1
+				],
+				"FADEUP": [
+					0.5,
+					0.6,
+					0.3,
+					0.5
+				]
+			}
+		},
+		{
+			"name": "Carolina Martins",
+			"groupID": 3,
+			"hasEaten": false,
+			"current-university": "FMUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					1.0,
+					0.1,
+					0.8,
+					0.5
+				],
+				"ESE": [
+					0.7,
+					0.3,
+					0.8,
+					0.2
+				],
+				"FMUP": [
+					0.7,
+					0.7,
+					0.6,
+					0.4
+				],
+				"FEP": [
+					0.6,
+					0.9,
+					0.1,
+					1.0
+				],
+				"ISEP": [
+					0.4,
+					0.4,
+					0.6,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.5,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Bianca Sousa",
 			"groupID": 1,
 			"hasEaten": false,
 			"current-university": "FEP",
 			"favorite-dishes": {
 				"meat": {
-					"meat1": 10,
-					"meat3": 2
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
 				},
 				"fish": {
-					"fish3": 3,
-					"fish5": 4
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
 				},
 				"veg": {
-					"veg1": 5
+					"Beringela Recheada": 2
 				},
 				"diet": {
-					"diet3": 4
+					"Espargos Salteados": 5
 				}
 			},
 			"past-experience": {
 				"FEUP": [
-					0.3,
+					1.0,
+					0.1,
+					0.8,
+					0.5
+				],
+				"ESE": [
 					0.7,
+					0.3,
+					0.8,
+					0.2
+				],
+				"FMUP": [
+					0.7,
+					0.7,
+					0.6,
+					0.4
+				],
+				"FEP": [
+					0.6,
+					0.9,
+					0.1,
+					1.0
+				],
+				"ISEP": [
+					0.4,
+					0.4,
+					0.6,
+					0.7
+				],
+				"FADEUP": [
+					0.1,
+					0.4,
+					0.5,
+					0.3
+				]
+			}
+		},
+		{
+			"name": "Ana Gomes",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FEP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.6,
+					0.2,
+					0.5,
+					0.7
+				],
+				"ESE": [
+					0.7,
+					0.4,
+					0.1,
+					0.5
+				],
+				"FMUP": [
+					0.6,
+					0.6,
+					0.7,
+					0.6
+				],
+				"FEP": [
+					0.5,
+					0.1,
+					0.9,
+					0.4
+				],
+				"ISEP": [
+					1.0,
+					0.7,
+					0.5,
+					1.0
+				],
+				"FADEUP": [
+					0.6,
+					0.9,
+					1.0,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Rafael Sousa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ISEP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.2,
+					0.6,
+					0.2,
+					0.4
+				],
+				"ESE": [
+					0.7,
+					0.7,
+					0.4,
+					0.4
+				],
+				"FMUP": [
+					0.2,
+					0.6,
+					0.4,
+					0.1
+				],
+				"FEP": [
+					0.9,
+					0.6,
+					1.0,
+					0.6
+				],
+				"ISEP": [
+					0.5,
+					0.4,
+					0.7,
+					0.3
+				],
+				"FADEUP": [
+					0.6,
+					0.7,
+					0.7,
+					0.8
+				]
+			}
+		},
+		{
+			"name": "Carlos Costa",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "ISEP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.4,
+					0.5,
+					0.8,
+					0.7
+				],
+				"ESE": [
+					0.2,
+					0.3,
+					0.6,
+					0.5
+				],
+				"FMUP": [
+					0.2,
+					0.1,
+					0.5,
+					0.6
+				],
+				"FEP": [
+					0.2,
+					0.6,
+					0.7,
+					0.8
+				],
+				"ISEP": [
+					0.7,
+					0.6,
+					0.5,
+					0.6
+				],
+				"FADEUP": [
+					0.2,
+					0.9,
+					0.5,
+					0.7
+				]
+			}
+		},
+		{
+			"name": "Diego Dias",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FADEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.5,
+					0.7,
+					0.5,
 					0.2
 				],
 				"ESE": [
 					0.2,
-					0.8
+					0.6,
+					0.9,
+					0.4
 				],
 				"FMUP": [
-					0.8,
-					0.9
-				],
-				"FEP": [
-					0.1,
-					0.2,
+					0.7,
+					0.7,
+					0.7,
 					0.3
 				],
+				"FEP": [
+					0.5,
+					0.7,
+					0.1,
+					1.0
+				],
 				"ISEP": [
-					0.0,
-					0.1
+					0.6,
+					0.6,
+					0.4,
+					0.5
 				],
 				"FADEUP": [
 					0.4,
+					0.3,
+					0.3,
+					0.8
+				]
+			}
+		},
+		{
+			"name": "Bruna Rocha",
+			"groupID": 1,
+			"hasEaten": false,
+			"current-university": "FADEUP",
+			"favorite-dishes": {
+				"meat": {
+					"Carne à Alentejana": 0,
+					"Feijoada à Portuguesa": 4
+				},
+				"fish": {
+					"Arroz de Marisco": 1,
+					"Polvo Cozido": 3
+				},
+				"veg": {
+					"Beringela Recheada": 2
+				},
+				"diet": {
+					"Espargos Salteados": 5
+				}
+			},
+			"past-experience": {
+				"FEUP": [
+					0.8,
+					0.2,
+					0.7,
+					0.8
+				],
+				"ESE": [
+					0.6,
+					0.6,
+					0.2,
+					1.0
+				],
+				"FMUP": [
+					0.1,
+					0.4,
+					0.3,
+					0.6
+				],
+				"FEP": [
+					0.5,
+					0.4,
+					0.7,
+					0.6
+				],
+				"ISEP": [
+					0.3,
+					0.8,
+					0.6,
 					0.7
+				],
+				"FADEUP": [
+					0.6,
+					0.4,
+					0.4,
+					0.4
 				]
 			}
 		}
@@ -707,112 +1723,112 @@
 		{
 			"meat": [
 				{
-					"dishname": "meat1",
-					"amount": 600
+					"dishname": "Arroz de Pato",
+					"amount": 100
 				},
 				{
-					"dishname": "meat2",
-					"amount": 600
+					"dishname": "Carne à Alentejana",
+					"amount": 100
 				},
 				{
-					"dishname": "meat3",
-					"amount": 600
+					"dishname": "Empadão de Carne",
+					"amount": 100
 				},
 				{
-					"dishname": "meat4",
-					"amount": 600
+					"dishname": "Feijoada à Portuguesa",
+					"amount": 100
 				},
 				{
-					"dishname": "meat5",
-					"amount": 600
+					"dishname": "Frango Assado",
+					"amount": 100
 				},
 				{
-					"dishname": "meat6",
-					"amount": 600
+					"dishname": "Lasanha de Carne",
+					"amount": 100
 				}
 			]
 		},
 		{
 			"fish": [
 				{
-					"dishname": "fish1",
-					"amount": 600
+					"dishname": "Polvo Cozido",
+					"amount": 100
 				},
 				{
-					"dishname": "fish2",
-					"amount": 600
+					"dishname": "Arroz de Tamboril",
+					"amount": 100
 				},
 				{
-					"dishname": "fish3",
-					"amount": 600
+					"dishname": "Polvo à Lagareiro",
+					"amount": 100
 				},
 				{
-					"dishname": "fish4",
-					"amount": 600
+					"dishname": "Arroz de Marisco",
+					"amount": 100
 				},
 				{
-					"dishname": "fish5",
-					"amount": 600
+					"dishname": "Bacalhau com Natas",
+					"amount": 100
 				},
 				{
-					"dishname": "fish6",
-					"amount": 600
+					"dishname": "Peixe Assado",
+					"amount": 100
 				}
 			]
 		},
 		{
 			"veg": [
 				{
-					"dishname": "veg1",
-					"amount": 600
+					"dishname": "Risotto de Cogumelos",
+					"amount": 100
 				},
 				{
-					"dishname": "veg2",
-					"amount": 600
+					"dishname": "Pizza de Vegetais",
+					"amount": 100
 				},
 				{
-					"dishname": "veg3",
-					"amount": 600
+					"dishname": "Ravioli de Espinafres",
+					"amount": 100
 				},
 				{
-					"dishname": "veg4",
-					"amount": 600
+					"dishname": "Hambúrguer de Grão-de-Bico",
+					"amount": 100
 				},
 				{
-					"dishname": "veg5",
-					"amount": 600
+					"dishname": "Beringela Recheada",
+					"amount": 100
 				},
 				{
-					"dishname": "veg6",
-					"amount": 600
+					"dishname": "Salada de 3 Feijões",
+					"amount": 100
 				}
 			]
 		},
 		{
 			"diet": [
 				{
-					"dishname": "diet1",
-					"amount": 600
+					"dishname": "Salada Primavera",
+					"amount": 100
 				},
 				{
-					"dishname": "diet2",
-					"amount": 600
+					"dishname": "Frango Assado com Batata Doce",
+					"amount": 100
 				},
 				{
-					"dishname": "diet3",
-					"amount": 600
+					"dishname": "Peru Assado",
+					"amount": 100
 				},
 				{
-					"dishname": "diet4",
-					"amount": 600
+					"dishname": "Espargos Salteados",
+					"amount": 100
 				},
 				{
-					"dishname": "diet5",
-					"amount": 600
+					"dishname": "Salada de Frango",
+					"amount": 100
 				},
 				{
-					"dishname": "diet6",
-					"amount": 600
+					"dishname": "Espetadas de Frango",
+					"amount": 100
 				}
 			]
 		}
