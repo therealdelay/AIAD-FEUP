@@ -55,10 +55,17 @@ public class Student extends Agent {
 
 	HashMap<String, Double> canteenHeuristics;
 	HashMap<String, ArrayList<String>> canteenDishes = new HashMap<>();
+	HashMap<String, Double> canteenDistances = new HashMap<>();
 	ArrayList<String> rejectedProposals = new ArrayList<>();
+	
+	long startTime = 0;
+	long endTime = 0;
+	long goingCanteenTime = 0;
+	int votes_in_favor_stats = 0;
 
 	protected void setup() {
 		loadJSON();
+		startTime = System.nanoTime();
 		registerOnDF();
 		searchAllCanteens();
 		searchGroupStudents();
@@ -323,7 +330,7 @@ public class Student extends Agent {
 				msg.setContent("Canteen Info : " + faculty);
 				msg.addReceiver(canteens[currentFaculty].getName());
 				send(msg);
-
+				
 				currentFacultyName = canteens[currentFaculty].getName().getLocalName();
 
 				step = 1;
@@ -343,7 +350,8 @@ public class Student extends Agent {
 
 						double distance = Double.parseDouble(infoArray[infoArray.length - 1]);
 						canteenDishes.put(currentFacultyName, new ArrayList<String>(Arrays.asList(Arrays.copyOf(infoArray, infoArray.length-1))));
-
+						canteenDistances.put(currentFacultyName, distance);
+						
 						distance = 1 - distance / MAX_DISTANCE;
 
 						int favoriteDishesCounter = 0;
@@ -584,8 +592,11 @@ public class Student extends Agent {
 
 					} else if(msg.getPerformative() == ACLMessage.CONFIRM) {
 						// Other students of the group receive confirmation from the proposer that the proposal was accepted by the majority
-
-						canteen = msg.getContent().split("-")[1].trim();
+						String[] arr = msg.getContent().split("-");
+						canteen = arr[1].trim();
+						
+						votes_in_favor_stats = Integer.parseInt(arr[3].trim());
+						
 						dishes = getDishesOrderedByRanking();
 						step = 4;
 
@@ -636,7 +647,8 @@ public class Student extends Agent {
 				// After getting the majority of votes in favor, the proposer send confirmation of the proposal
 
 				ACLMessage msg = new ACLMessage(ACLMessage.CONFIRM);
-				msg.setContent("Chosen Canteen-" + canteen);
+				msg.setContent("Chosen Canteen-" + canteen + "-votes-" + votes_in_favor);
+				votes_in_favor_stats = votes_in_favor;
 
 				for (int i = 0; i < students.length; i++) {
 					if (!students[i].getName().getLocalName().equals(getLocalName())) {
@@ -652,29 +664,45 @@ public class Student extends Agent {
 				break;
 
 			case 4:
-				// Student asks canteen ifthe chosen dish is available
-
-				if(dishes.size() == 0) {
-					step = 6;
-
-				} else {
-
-					chosenDish = dishes.get(0);
-
-					System.out.println("Student " + getLocalName() + " asking canteen " + canteen + " for dish " + chosenDish);
-					msg = new ACLMessage(ACLMessage.REQUEST);
-					msg.setContent("Eating:" + chosenDish);
-					msg.addReceiver(new AID(canteen, AID.ISLOCALNAME));
-					send(msg);
-
-					step = 1;
-
+				// Student asks canteen if the chosen dish is available
+				
+				try {
+					
+					//Student walks to canteen - waiting distance
+					Thread.sleep(Math.round(canteenDistances.get(canteen) * 100));
+					
+					if(dishes.size() == 0) {
+						step = 6;
+						
+					} else {
+						
+						chosenDish = dishes.get(0);
+						
+						goingCanteenTime = System.nanoTime();
+						System.out.println("Student " + getLocalName() + " asking canteen " + canteen + " for dish " + chosenDish);
+						msg = new ACLMessage(ACLMessage.REQUEST);
+						msg.setContent("Eating:" + chosenDish);
+						msg.addReceiver(new AID(canteen, AID.ISLOCALNAME));
+						send(msg);
+						
+						step = 1;
+						
+					}
+					break;
+					
+				} catch (InterruptedException e) {
+					System.out.println("Error walking to canteen!");
 				}
-				break;
+
 
 			case 5:
 				// Student has finished eating and gives feedback about the canteen service to all students who haven't eaten 
 				System.out.println("Student " + getLocalName() + " has finished eating!");
+				
+				// Get data
+				endTime = System.nanoTime() - startTime;
+				//TODO: Write to file: votes_in_favor_stats, distance to canteen, time
+				
 				hasEaten = true;
 				registerOnEaten();
 
