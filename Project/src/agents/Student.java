@@ -1,5 +1,9 @@
 package agents;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -57,21 +61,32 @@ public class Student extends Agent {
 	HashMap<String, ArrayList<String>> canteenDishes = new HashMap<>();
 	HashMap<String, Double> canteenDistances = new HashMap<>();
 	ArrayList<String> rejectedProposals = new ArrayList<>();
-	
+
 	long startTime = 0;
 	long endTime = 0;
 	long goingCanteenTime = 0;
 	int votes_in_favor_stats = 0;
 
+	FileWriter dataFile = null;
+
 	protected void setup() {
-		loadJSON();
-		startTime = System.nanoTime();
-		registerOnDF();
-		searchAllCanteens();
-		searchGroupStudents();
-		canteenOption = 0;
-		canteenHeuristics = new HashMap<>();
-		addBehaviour(new HeuristicsBehaviour());
+
+		try {
+
+			dataFile = new FileWriter("data.csv", true);
+			loadJSON();
+			startTime = System.nanoTime();
+			registerOnDF();
+			searchAllCanteens();
+			searchGroupStudents();
+			canteenOption = 0;
+			canteenHeuristics = new HashMap<>();
+			addBehaviour(new HeuristicsBehaviour());
+
+		} catch (IOException e) {
+			System.err.println("Error getting data file: " + e.getMessage());
+		}
+
 	}
 
 	protected void loadJSON() {
@@ -112,7 +127,7 @@ public class Student extends Agent {
 		sd.setType("canteen");
 		template.addServices(sd);
 		try {
-			
+
 			canteens = DFService.search(this, template);
 
 		} catch (FIPAException fe) {
@@ -167,7 +182,7 @@ public class Student extends Agent {
 			fe.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Registers on services, such as the student faculty, student group and if
 	 * it has already eaten.
@@ -207,7 +222,7 @@ public class Student extends Agent {
 			fe.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Updates the student services, when the student has finished having its meal.
 	 */
@@ -255,7 +270,7 @@ public class Student extends Agent {
 		}
 	}
 
-	
+
 	/**
 	 * 
 	 * WaitingForLunchBehaviour is a behavior responsible for listening to the opinions of other students who 
@@ -318,7 +333,7 @@ public class Student extends Agent {
 		@Override
 		public void action() {
 			switch(step) {
-			
+
 			case 0:
 				// Sends request to canteen to get its daily menu and distance to the student faculty
 				currentFaculty++;
@@ -330,7 +345,7 @@ public class Student extends Agent {
 				msg.setContent("Canteen Info : " + faculty);
 				msg.addReceiver(canteens[currentFaculty].getName());
 				send(msg);
-				
+
 				currentFacultyName = canteens[currentFaculty].getName().getLocalName();
 
 				step = 1;
@@ -340,7 +355,7 @@ public class Student extends Agent {
 			case 1:
 				//Listens to canteen response and calculates heuristic
 				ACLMessage answer = receive();
-				
+
 				if(answer != null) {
 
 					if(answer.getPerformative() == ACLMessage.INFORM) {
@@ -351,7 +366,7 @@ public class Student extends Agent {
 						double distance = Double.parseDouble(infoArray[infoArray.length - 1]);
 						canteenDishes.put(currentFacultyName, new ArrayList<String>(Arrays.asList(Arrays.copyOf(infoArray, infoArray.length-1))));
 						canteenDistances.put(currentFacultyName, distance);
-						
+
 						distance = 1 - distance / MAX_DISTANCE;
 
 						int favoriteDishesCounter = 0;
@@ -509,7 +524,7 @@ public class Student extends Agent {
 				break;
 
 			case 1:
-				
+
 				msg = receive();
 
 				if (msg != null) {
@@ -594,9 +609,9 @@ public class Student extends Agent {
 						// Other students of the group receive confirmation from the proposer that the proposal was accepted by the majority
 						String[] arr = msg.getContent().split("-");
 						canteen = arr[1].trim();
-						
+
 						votes_in_favor_stats = Integer.parseInt(arr[3].trim());
-						
+
 						dishes = getDishesOrderedByRanking();
 						step = 4;
 
@@ -611,7 +626,7 @@ public class Student extends Agent {
 
 					} else if(msg.getPerformative() == ACLMessage.AGREE) {
 						// The student eats the chosen dish at the canteen
-						
+
 						String[] parsedRating = msg.getContent().split(" ");
 						canteenFeedback = Double.parseDouble(parsedRating[3].trim());
 
@@ -620,7 +635,7 @@ public class Student extends Agent {
 
 					} else if(msg.getPerformative() == ACLMessage.CANCEL) {
 						// The student cannot eat the chosen dish at the canteen
-						
+
 						step = 4;
 						System.out.println("Student " + getLocalName() + " CANNOT eat " + chosenDish + " at " + canteen);
 						dishes.remove(chosenDish);
@@ -647,8 +662,8 @@ public class Student extends Agent {
 				// After getting the majority of votes in favor, the proposer send confirmation of the proposal
 
 				ACLMessage msg = new ACLMessage(ACLMessage.CONFIRM);
-				msg.setContent("Chosen Canteen-" + canteen + "-votes-" + votes_in_favor);
-				votes_in_favor_stats = votes_in_favor;
+				votes_in_favor_stats = votes_in_favor + 1;
+				msg.setContent("Chosen Canteen-" + canteen + "-votes-" + votes_in_favor_stats);
 
 				for (int i = 0; i < students.length; i++) {
 					if (!students[i].getName().getLocalName().equals(getLocalName())) {
@@ -665,31 +680,33 @@ public class Student extends Agent {
 
 			case 4:
 				// Student asks canteen if the chosen dish is available
-				
+
 				try {
-					
+
 					//Student walks to canteen - waiting distance
 					Thread.sleep(Math.round(canteenDistances.get(canteen) * 100));
 					
 					if(dishes.size() == 0) {
 						step = 6;
-						
+
 					} else {
-						
+
 						chosenDish = dishes.get(0);
 						
+						endTime = System.nanoTime() - startTime;
+
 						goingCanteenTime = System.nanoTime();
 						System.out.println("Student " + getLocalName() + " asking canteen " + canteen + " for dish " + chosenDish);
 						msg = new ACLMessage(ACLMessage.REQUEST);
 						msg.setContent("Eating:" + chosenDish);
 						msg.addReceiver(new AID(canteen, AID.ISLOCALNAME));
 						send(msg);
-						
+
 						step = 1;
-						
+
 					}
 					break;
-					
+
 				} catch (InterruptedException e) {
 					System.out.println("Error walking to canteen!");
 				}
@@ -698,11 +715,61 @@ public class Student extends Agent {
 			case 5:
 				// Student has finished eating and gives feedback about the canteen service to all students who haven't eaten 
 				System.out.println("Student " + getLocalName() + " has finished eating!");
-				
+
 				// Get data
-				endTime = System.nanoTime() - startTime;
-				//TODO: Write to file: votes_in_favor_stats, distance to canteen, time
 				
+				ArrayList<String> facultiesNames = new ArrayList<String>(Arrays.asList("FEUP", "ESE", "FMUP", "FEP", "ISEP", "FADEUP"));
+				
+				double endTimeD = (double) endTime / 1_000_000_000.0;
+				double timeSpentInCanteen = (System.nanoTime() - goingCanteenTime)/ 1_000_000_000.0; 
+				double perc_votes = (double) votes_in_favor_stats/students.length;
+				
+				int isFavoriteDish = 0;
+				if(favoriteDishes.containsKey(chosenDish)) {
+					isFavoriteDish = 1;
+				}
+
+				JSONArray canteenInfo = (JSONArray) ((JSONObject) studentInfo.get("past-experience"))
+						.get(canteen);
+
+				double pastExperienceHeuristic = 0;
+				for(int i = 0; i < canteenInfo.size(); i++) {
+					pastExperienceHeuristic += (Double) canteenInfo.get(i);
+				}
+				pastExperienceHeuristic = pastExperienceHeuristic/canteenInfo.size();
+
+				StringBuilder sb = new StringBuilder();
+				try {
+					
+					sb.append(String.format("%.02f", perc_votes));
+					sb.append(",");
+					sb.append(canteenDistances.get(canteen));
+					sb.append(",");
+					sb.append(isFavoriteDish);
+					sb.append(",");
+					sb.append(endTimeD);
+					sb.append(",");
+					sb.append(groupID);
+					sb.append(",");
+					sb.append(timeSpentInCanteen);
+					sb.append(",");
+					sb.append(pastExperienceHeuristic);
+					sb.append(",");
+					sb.append(canteenFeedback);
+					sb.append(",");
+					sb.append(facultiesNames.indexOf(canteen));
+					sb.append("\n");
+					dataFile.write(sb.toString());
+					dataFile.flush();
+					
+					System.out.println(String.format("%.02f", perc_votes) + "," + canteenDistances.get(canteen) + "," 
+							+ isFavoriteDish + "," + endTimeD + "," + groupID + "," + timeSpentInCanteen + "," + pastExperienceHeuristic + "," 
+							+ canteenFeedback + "," + canteen);
+
+				} catch (IOException e) {
+					System.err.println("Error writing to data file: " + e.getMessage());
+				}
+
 				hasEaten = true;
 				registerOnEaten();
 
@@ -733,7 +800,7 @@ public class Student extends Agent {
 			}
 
 		}
-		
+
 		/*
 		 * Proposal wan't accepted, so the canteen option will be added to the rejected proposals and every 
 		 * variable needed for the cycle will be reseted. A message to all the group students will be sent,
@@ -776,7 +843,7 @@ public class Student extends Agent {
 			}
 
 		}
-		
+
 		/**
 		 * Orders dishes available at the chosen canteen from most favorite to least favorite, according to the student
 		 * preferences.
@@ -833,7 +900,4 @@ public class Student extends Agent {
 		}
 
 	}
-
-
-
 }
