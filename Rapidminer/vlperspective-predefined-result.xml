@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<VLDocking version="2.1">
+<DockingDesktop name="default">
+<DockingPanel>
+<Split orientation="1" location="0.7996845425867508">
+<Dockable>
+<Key dockName="result"/>
+</Dockable>
+<Dockable>
+<Key dockName="repository_browser"/>
+</Dockable>
+</Split>
+</DockingPanel>
+<TabGroups>
+<TabGroup>
+<Dockable>
+<Key dockName="result"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_0"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_process_1"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_1"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_2"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_process_2"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_3"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_4"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_5"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_6"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_7"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_8"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_9"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_10"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_11"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_12"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_13"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_14"/>
+</Dockable>
+</TabGroup>
+</TabGroups>
+</DockingDesktop>
+</VLDocking>

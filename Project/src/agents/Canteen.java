@@ -43,9 +43,9 @@ public class Canteen extends Agent {
 	LinkedList<AID> waitingQueue = new LinkedList<AID>();
 	JSONObject canteenInfo;
 	JSONArray dishes;
-	
 
 	protected void setup() {
+
 		loadJSON();
 		registerOnDF();
 		setDistances();
@@ -53,8 +53,9 @@ public class Canteen extends Agent {
 		setDayMenu();
 		addBehaviour(new ListeningBehaviour());
 		addBehaviour(new CanteenTickerBehaviour(this, 100));
+
 	}
-	
+
 
 	protected void registerOnDF() {
 		DFAgentDescription dfd = new DFAgentDescription();
@@ -75,8 +76,8 @@ public class Canteen extends Agent {
 		canteenInfo = (JSONObject) args[0];
 		dishes = (JSONArray) args[1];
 	}
-	
-	
+
+
 	/**
 	 * Accesses JSON Object in JSON file and get all information about the dishes of the canteens.
 	 */
@@ -107,8 +108,8 @@ public class Canteen extends Agent {
 			this.dietMenus.add(new MealPair((String) currDish.get("dishname"), currDish.get("amount")));
 		}
 	}
-	
-	
+
+
 	/**
 	 * Chose 4 dishes, one for each type (meat, fish, vegetarian and diet). Each dish is chosen randomly.
 	 */
@@ -174,7 +175,7 @@ public class Canteen extends Agent {
 	public HashMap<String, MealPair<String, Long>> getDayMenu() {
 		return dayMenu;
 	}
-	
+
 	/**
 	 * Get from JSON object the distances to every other canteen.
 	 */
@@ -187,7 +188,7 @@ public class Canteen extends Agent {
 		}
 
 	}
-	
+
 	/**
 	 * Generates a random service value of the canteen, which corresponds to the quality of service and
 	 * overral happiness  of the students with the meal and service of the canteen.
@@ -201,33 +202,33 @@ public class Canteen extends Agent {
 	 */
 	public double generateService() {
 		JSONObject serviceInfo = (JSONObject) canteenInfo.get("service");
-		
+
 		double serviceValue = 0.0;
-		
+
 		double bad = (Double) serviceInfo.get("bad");
 		double mediocre = (Double) serviceInfo.get("mediocre");
 		double good = (Double) serviceInfo.get("good");
-		
+
 		Random r = new Random();
 		double serviceType = 0.0 + (1.0 - 0.0) * r.nextDouble();
-		
+
 		if (serviceType >= 0.0 && serviceType < bad) {
-			
+
 			serviceValue = 0.1 + (0.3 - 0.1) * r.nextDouble();
-			
+
 		} else if (serviceType >= bad && serviceType < mediocre) {
-			
+
 			serviceValue = 0.4 + (0.7 - 0.4) * r.nextDouble();
-			
+
 		} else if (serviceType >= mediocre && serviceType <= good) {
-			
+
 			serviceValue = 0.7 + (1.0 - 0.7) * r.nextDouble();
-			
+
 		}
 		return (double) Math.round(serviceValue * 10) / 10;
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * CanteenTickerBehaviour is a behaviour responsible for removing the first element of the waiting queue
@@ -256,7 +257,7 @@ public class Canteen extends Agent {
 					reply.setContent("Cantina " + getLocalName() + " service: " + generateService());
 					send(reply);
 					waitingQueue.removeFirst();
-					
+
 					System.out.print("\n" + canteenName + " Queue: ");
 					for(AID a : waitingQueue) {
 						System.out.print(a.getLocalName() + ", ");
@@ -269,7 +270,7 @@ public class Canteen extends Agent {
 		}
 
 	}
-	
+
 	/**
 	 * 
 	 * ListenningBehaviour is a behavior responsible for three actions:
@@ -296,7 +297,7 @@ public class Canteen extends Agent {
 						return;
 					}	
 					String studentFaculty = msg.getContent().split(":")[1].trim();
- 
+
 					double distance = distances.get(studentFaculty);
 
 					reply.setPerformative(ACLMessage.INFORM);
@@ -306,24 +307,30 @@ public class Canteen extends Agent {
 					send(reply);
 
 				} else if(msg.getPerformative() == ACLMessage.REQUEST && msg.getContent().contains("Eating")){
-					
+
 					//Student request to eat specific fish
 					String requestedDish = msg.getContent().split(":")[1].trim();
 					boolean accepted = false;
-					
+
 
 					for (Map.Entry<String, MealPair<String, Long>> entry : dayMenu.entrySet()) {
 
 						MealPair<String, Long> obj = entry.getValue();
 						if(requestedDish.equals(obj.getMenu()) && obj.getQuantity() > 0) {
 
+							ACLMessage replyMsg = msg.createReply();
+							replyMsg.setPerformative(ACLMessage.INFORM_IF);
+							replyMsg.setContent("Num Student: " + waitingQueue.size());
+							send(replyMsg);
+							
 							waitingQueue.add(msg.getSender());
+							
 							System.out.print("\n" + canteenName + " Queue: ");
 							for(AID a : waitingQueue) {
 								System.out.print(a.getLocalName() + ", ");
 							}
 							System.out.print("\n\n");
-							
+
 							dayMenu.put(entry.getKey(), new MealPair<String, Long>(obj.getMenu(), obj.getQuantity() - 1));
 							quantity--;
 							accepted = true;
@@ -331,7 +338,7 @@ public class Canteen extends Agent {
 						}
 
 					}
-					
+
 					if(!accepted) {
 						// Denies student request
 						System.out.println("Canteen " + getLocalName() + " denies request for " + requestedDish + " from student " + msg.getSender().getLocalName());
@@ -346,7 +353,6 @@ public class Canteen extends Agent {
 				} else if(msg.getPerformative() == ACLMessage.REQUEST) {
 
 					// Request from student to check if there are enough dishes				
-
 					reply.setPerformative(ACLMessage.INFORM);
 					reply.setContent(""+ quantity);
 					send(reply);

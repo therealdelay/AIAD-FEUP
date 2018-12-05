@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><usageStatistics closed-at="2018-12-05T12:55:48.756Z[Europe/Lisbon]" initial-setup="2018-11-14T10:55:59.037Z[Europe/Lisbon]" jvm-max-heap="5888" last-reset="2018-12-05T12:55:47.442Z[Europe/Lisbon]" lid="e876e54d-fa96-41e3-b8eb-385d1515e7e7" next-transmission="2018-12-05T13:55:48.755Z[Europe/Lisbon]" os-cores="8" os-memory="7827" os-name="Linux" os-version="4.18.20-1-MANJARO" random-key="DUEXDJKDFQZNQZFI" rapidminer-version="9.0.003">
+  <action-statistics os-name="Linux" os-version="4.18.20-1-MANJARO">
+    <action>
+      <type>progress-thread</type>
+      <value>transmit_usagestats</value>
+      <arg>runtime_MAX</arg>
+      <count>1314</count>
+    </action>
+    <action>
+      <type>progress-thread</type>
+      <value>transmit_usagestats</value>
+      <arg>completed</arg>
+      <count>1</count>
+    </action>
+    <action>
+      <type>progress-thread</type>
+      <value>transmit_usagestats</value>
+      <arg>runtime_MIN</arg>
+      <count>1314</count>
+    </action>
+    <action>
+      <type>progress-thread</type>
+      <value>transmit_usagestats</value>
+      <arg>runtime_COUNT</arg>
+      <count>1</count>
+    </action>
+    <action>
+      <type>progress-thread</type>
+      <value>transmit_usagestats</value>
+      <arg>runtime</arg>
+      <count>1314</count>
+    </action>
+    <action>
+      <type>progress-thread</type>
+      <value>transmit_usagestats</value>
+      <arg>started</arg>
+      <count>1</count>
+    </action>
+  </action-statistics>
+</usageStatistics>

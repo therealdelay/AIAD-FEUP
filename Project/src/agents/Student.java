@@ -459,6 +459,7 @@ public class Student extends Agent {
 		boolean decided = false;
 		int votes_in_favor = 0;
 		int votes = 0;
+		int numStudentQueue = 0;
 		double canteenFeedback = 0.0;
 
 		@Override
@@ -539,6 +540,11 @@ public class Student extends Agent {
 						} else {
 							discardCanteen(canteen, 1);							
 						}
+
+					} else if(msg.getPerformative() == ACLMessage.INFORM_IF && canteen != null && msg.getSender().getLocalName().contains(canteen)) {
+						//Getting number of students in front of him in the queue 
+
+						numStudentQueue = Integer.parseInt(msg.getContent().split(":")[1].trim());
 
 					} else if (msg.getPerformative() == ACLMessage.PROPOSE) {
 						// Students receives proposal
@@ -724,9 +730,12 @@ public class Student extends Agent {
 				double timeSpentInCanteen = (System.nanoTime() - goingCanteenTime)/ 1_000_000_000.0; 
 				double perc_votes = (double) votes_in_favor_stats/students.length;
 				
-				int isFavoriteDish = 0;
-				if(favoriteDishes.containsKey(chosenDish)) {
-					isFavoriteDish = 1;
+				int hasFavoriteDish = 0;
+				ArrayList<String> chosenCanteenDishes = canteenDishes.get(canteen);
+				for(int i = 0; i < chosenCanteenDishes.size(); i++) {
+					if(favoriteDishes.containsKey(chosenCanteenDishes.get(i))) {
+						hasFavoriteDish = 1;
+					}
 				}
 
 				JSONArray canteenInfo = (JSONArray) ((JSONObject) studentInfo.get("past-experience"))
@@ -745,15 +754,17 @@ public class Student extends Agent {
 					sb.append(",");
 					sb.append(canteenDistances.get(canteen));
 					sb.append(",");
-					sb.append(isFavoriteDish);
+					sb.append(hasFavoriteDish);
 					sb.append(",");
-					sb.append(endTimeD);
+					sb.append(String.format("%.02f", endTimeD));
 					sb.append(",");
 					sb.append(groupID);
 					sb.append(",");
-					sb.append(timeSpentInCanteen);
+					sb.append(numStudentQueue);
 					sb.append(",");
-					sb.append(pastExperienceHeuristic);
+					sb.append(String.format("%.02f", timeSpentInCanteen));
+					sb.append(",");
+					sb.append(String.format("%.02f", pastExperienceHeuristic));
 					sb.append(",");
 					sb.append(canteenFeedback);
 					sb.append(",");
@@ -763,7 +774,7 @@ public class Student extends Agent {
 					dataFile.flush();
 					
 					System.out.println(String.format("%.02f", perc_votes) + "," + canteenDistances.get(canteen) + "," 
-							+ isFavoriteDish + "," + endTimeD + "," + groupID + "," + timeSpentInCanteen + "," + pastExperienceHeuristic + "," 
+							+ hasFavoriteDish + "," + endTimeD + "," + groupID + "," + numStudentQueue + "," + timeSpentInCanteen + "," + pastExperienceHeuristic + "," 
 							+ canteenFeedback + "," + canteen);
 
 				} catch (IOException e) {

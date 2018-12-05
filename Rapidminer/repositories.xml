@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><repositories>
+  <localRepository>
+    <file>/home/margarida/.RapidMiner/repositories/AIAD</file>
+    <alias>AIAD</alias>
+  </localRepository>
+  <localRepository>
+    <file>/home/margarida/.RapidMiner/repositories/AIAD_PROJ</file>
+    <alias>AIAD_PROJ</alias>
+  </localRepository>
+  <localRepository>
+    <file>/home/margarida/.RapidMiner/repositories/Local Repository</file>
+    <alias>Local Repository</alias>
+  </localRepository>
+</repositories>
