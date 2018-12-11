@@ -2,14 +2,9 @@
 <VLDocking version="2.1">
 <DockingDesktop name="default">
 <DockingPanel>
-<Split orientation="1" location="0.7996845425867508">
 <Dockable>
 <Key dockName="result"/>
 </Dockable>
-<Dockable>
-<Key dockName="repository_browser"/>
-</Dockable>
-</Split>
 </DockingPanel>
 <TabGroups>
 <TabGroup>
@@ -66,6 +61,18 @@
 </Dockable>
 <Dockable>
 <Key dockName="result_dynamic_14"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_15"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_process_3"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_16"/>
+</Dockable>
+<Dockable>
+<Key dockName="result_dynamic_17"/>
 </Dockable>
 </TabGroup>
 </TabGroups>

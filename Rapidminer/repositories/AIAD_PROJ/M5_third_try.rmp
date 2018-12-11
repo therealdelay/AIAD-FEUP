@@ -12,11 +12,11 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="retrieve" compatibility="9.0.003" expanded="true" height="68" name="Retrieve data_new_updated" width="90" x="112" y="85">
-        <parameter key="repository_entry" value="data_new_updated"/>
+      <operator activated="true" class="retrieve" compatibility="9.0.003" expanded="true" height="68" name="Retrieve data_better" width="90" x="112" y="34">
+        <parameter key="repository_entry" value="data_better"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.0.003" expanded="true" height="68" name="Retrieve data_new_updated_time" width="90" x="179" y="187">
-        <parameter key="repository_entry" value="data_new_updated_time"/>
+      <operator activated="true" class="retrieve" compatibility="9.0.003" expanded="true" height="68" name="Retrieve data_better_2000" width="90" x="112" y="136">
+        <parameter key="repository_entry" value="data_better_2000"/>
       </operator>
       <operator activated="true" class="split_validation" compatibility="9.0.003" expanded="true" height="124" name="Validation" width="90" x="380" y="34">
         <parameter key="create_complete_model" value="false"/>
@@ -50,7 +50,7 @@
             <list key="application_parameters"/>
             <parameter key="create_view" value="false"/>
           </operator>
-          <operator activated="true" class="performance_regression" compatibility="9.0.003" expanded="true" height="82" name="Performance" width="90" x="246" y="289">
+          <operator activated="true" class="performance_regression" compatibility="9.0.003" expanded="true" height="82" name="Performance" width="90" x="313" y="136">
             <parameter key="main_criterion" value="first"/>
             <parameter key="root_mean_squared_error" value="true"/>
             <parameter key="absolute_error" value="false"/>
@@ -79,7 +79,7 @@
           <portSpacing port="sink_averagable 2" spacing="0"/>
         </process>
       </operator>
-      <connect from_op="Retrieve data_new_updated_time" from_port="output" to_op="Validation" to_port="training"/>
+      <connect from_op="Retrieve data_better_2000" from_port="output" to_op="Validation" to_port="training"/>
       <connect from_op="Validation" from_port="model" to_port="result 1"/>
       <connect from_op="Validation" from_port="averagable 1" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>

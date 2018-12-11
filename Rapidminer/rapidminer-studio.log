@@ -1,552 +1,652 @@
-Dec 05, 2018 11:44:16 AM com.rapidminer.gui.RapidMinerGUI run
+Dec 11, 2018 5:11:43 PM com.rapidminer.gui.RapidMinerGUI run
 INFO: Launching RapidMiner 9.0.003, platform ANY
-Dec 05, 2018 11:44:16 AM com.rapidminer.tools.I18N <clinit>
+Dec 11, 2018 5:11:43 PM com.rapidminer.tools.I18N <clinit>
 INFO: Set locale to en.
-Dec 05, 2018 11:44:17 AM com.rapidminer.core.license.ProductConstraintManager initialize
+Dec 11, 2018 5:11:43 PM com.rapidminer.core.license.ProductConstraintManager initialize
 INFO: Initializing license manager.
-Dec 05, 2018 11:44:17 AM com.rapidminer.core.license.ProductConstraintManager initialize
+Dec 11, 2018 5:11:43 PM com.rapidminer.core.license.ProductConstraintManager initialize
 INFO: Using default license location.
-Dec 05, 2018 11:44:17 AM com.rapidminer.core.license.ProductConstraintManager initialize
+Dec 11, 2018 5:11:43 PM com.rapidminer.core.license.ProductConstraintManager initialize
 INFO: Registering default product.
-Dec 05, 2018 11:44:17 AM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
+Dec 11, 2018 5:11:44 PM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
 INFO: Global Search category repository registered.
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Model Simulator
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Advanced File Connectors
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Concurrency
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Productivity
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Cloud Connectivity
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Cloud Execution
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Time Series
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Process Scheduling
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: H2O
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Operator Recommender
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Data Editor
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Legacy Result Access
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: JDBC Connectors
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Remote Repository
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Professional
-Dec 05, 2018 11:44:18 AM com.rapidminer.tools.plugin.Plugin registerPlugins
+Dec 11, 2018 5:11:44 PM com.rapidminer.tools.plugin.Plugin registerPlugins
 INFO: Register plugin: Social Media
-Dec 05, 2018 11:44:20 AM com.rapidminer.tools.config.ConfigurationManager register
+Dec 11, 2018 5:11:46 PM com.rapidminer.tools.config.ConfigurationManager register
 INFO: Registered configurator Twitter Connection.
-Dec 05, 2018 11:44:20 AM com.rapidminer.tools.config.ConfigurationManager register
+Dec 11, 2018 5:11:46 PM com.rapidminer.tools.config.ConfigurationManager register
 INFO: Registered configurator Salesforce Connection.
-Dec 05, 2018 11:44:20 AM com.rapidminer.tools.config.ConfigurationManager register
+Dec 11, 2018 5:11:46 PM com.rapidminer.tools.config.ConfigurationManager register
 INFO: Registered configurator Amazon S3 Connection.
-Dec 05, 2018 11:44:20 AM com.rapidminer.tools.config.ConfigurationManager register
+Dec 11, 2018 5:11:46 PM com.rapidminer.tools.config.ConfigurationManager register
 INFO: Registered configurator Azure Blob Storage Connection.
-Dec 05, 2018 11:44:20 AM com.rapidminer.tools.config.ConfigurationManager register
+Dec 11, 2018 5:11:46 PM com.rapidminer.tools.config.ConfigurationManager register
 INFO: Registered configurator Google Cloud Storage Connection.
-Dec 05, 2018 11:44:20 AM com.rapidminer.tools.config.ConfigurationManager register
+Dec 11, 2018 5:11:46 PM com.rapidminer.tools.config.ConfigurationManager register
 INFO: Registered configurator Dropbox Connection.
-Dec 05, 2018 11:44:20 AM com.rapidminer.extension.jdbc.tools.jdbc.JDBCProperties <init>
+Dec 11, 2018 5:11:47 PM com.rapidminer.extension.jdbc.tools.jdbc.JDBCProperties <init>
 WARNING: Missing database driver class name for ODBC Bridge (e.g. Access)
-Dec 05, 2018 11:44:20 AM com.rapidminer.extension.jdbc.tools.jdbc.JDBCProperties <init>
+Dec 11, 2018 5:11:47 PM com.rapidminer.extension.jdbc.tools.jdbc.JDBCProperties <init>
 WARNING: Missing database driver class name for Ingres
-Dec 05, 2018 11:44:21 AM com.rapidminer.repository.RepositoryManager registerExtensionSamples
+Dec 11, 2018 5:11:48 PM com.rapidminer.repository.RepositoryManager registerExtensionSamples
 INFO: Registered 'Time Series' as sample folder.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Process Scheduling was loaded in 126ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Data Editor was loaded in 126ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Productivity was loaded in 128ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Remote Repository was loaded in 135ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Operator Recommender was loaded in 135ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Concurrency was loaded in 138ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Social Media was loaded in 165ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Legacy Result Access was loaded in 174ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Professional was loaded in 177ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Model Simulator was loaded in 190ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Advanced File Connectors was loaded in 255ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Time Series was loaded in 259ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension JDBC Connectors was loaded in 267ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension H2O was loaded in 440ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Cloud Execution was loaded in 449ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.tools.plugin.Plugin initAll
-INFO: Extension Cloud Connectivity was loaded in 803ms.
-Dec 05, 2018 11:44:22 AM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Productivity was loaded in 125ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Professional was loaded in 127ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Data Editor was loaded in 129ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Operator Recommender was loaded in 132ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Concurrency was loaded in 141ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Remote Repository was loaded in 141ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Legacy Result Access was loaded in 166ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Social Media was loaded in 175ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Cloud Execution was loaded in 180ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Advanced File Connectors was loaded in 246ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Model Simulator was loaded in 283ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension JDBC Connectors was loaded in 289ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Time Series was loaded in 327ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Process Scheduling was loaded in 362ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension H2O was loaded in 527ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.tools.plugin.Plugin initAll
+INFO: Extension Cloud Connectivity was loaded in 776ms.
+Dec 11, 2018 5:11:48 PM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
 INFO: Global Search category operator registered.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Load configuration for Amazon S3 Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
 INFO: No configuration file found for Amazon S3 Connection
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Loaded configurations for 0 objects of type Amazon S3 Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Load configuration for Azure Blob Storage Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
 INFO: No configuration file found for Azure Blob Storage Connection
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Loaded configurations for 0 objects of type Azure Blob Storage Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Load configuration for Dropbox Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
 INFO: No configuration file found for Dropbox Connection
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Loaded configurations for 0 objects of type Dropbox Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Load configuration for Salesforce Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
 INFO: No configuration file found for Salesforce Connection
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Loaded configurations for 0 objects of type Salesforce Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Load configuration for Google Cloud Storage Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
 INFO: No configuration file found for Google Cloud Storage Connection
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Loaded configurations for 0 objects of type Google Cloud Storage Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Load configuration for Twitter Connection.
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ClientConfigurationManager loadAllParameters
 INFO: No configuration file found for Twitter Connection
-Dec 05, 2018 11:44:28 AM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
+Dec 11, 2018 5:11:54 PM com.rapidminer.tools.config.ConfigurationManager loadConfiguration
 INFO: Loaded configurations for 0 objects of type Twitter Connection.
-Dec 05, 2018 11:44:29 AM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
+Dec 11, 2018 5:11:56 PM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
 INFO: Global Search category actions registered.
-Dec 05, 2018 11:44:32 AM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
+Dec 11, 2018 5:11:59 PM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
 INFO: Global Search GUI provider added for category operator.
-Dec 05, 2018 11:44:32 AM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
+Dec 11, 2018 5:11:59 PM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
 INFO: Global Search GUI provider added for category repository.
-Dec 05, 2018 11:44:32 AM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
+Dec 11, 2018 5:11:59 PM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
 INFO: Global Search GUI provider added for category actions.
-Dec 05, 2018 11:44:33 AM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
+Dec 11, 2018 5:11:59 PM com.rapidminer.search.GlobalSearchRegistry registerSearchCategory
 INFO: Global Search category marketplace registered.
-Dec 05, 2018 11:44:33 AM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
+Dec 11, 2018 5:11:59 PM com.rapidminer.gui.search.GlobalSearchGUIRegistry registerSearchVisualizationProvider
 INFO: Global Search GUI provider added for category marketplace.
-Dec 05, 2018 11:45:26 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 5:11:59 PM com.rapidminer.deployment.update.client.MarketplaceUpdateManager$1 run
+INFO: Checking for updates.
+Dec 11, 2018 5:12:01 PM com.rapidminer.deployment.update.client.MarketplaceUpdateManager$1 run
+INFO: No updates since 12/7/18 2:41 PM.
+Dec 11, 2018 5:15:05 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:45:26 AM com.rapidminer.Process execute
+Dec 11, 2018 5:15:05 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:45:26 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 5:15:05 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:45:26 AM com.rapidminer.Process saveResults
+Dec 11, 2018 5:15:05 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:45:26 AM com.rapidminer.Process execute
+Dec 11, 2018 5:15:05 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:45:46 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 5:17:09 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:45:46 AM com.rapidminer.Process execute
+Dec 11, 2018 5:17:09 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:45:46 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 5:17:09 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:45:47 AM com.rapidminer.Process saveResults
+Dec 11, 2018 5:17:09 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:45:47 AM com.rapidminer.Process execute
+Dec 11, 2018 5:17:09 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:45:55 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 5:17:51 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:45:55 AM com.rapidminer.Process execute
+Dec 11, 2018 5:17:52 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:45:55 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 5:17:52 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:45:55 AM com.rapidminer.Process saveResults
+Dec 11, 2018 5:17:52 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:45:55 AM com.rapidminer.Process execute
+Dec 11, 2018 5:17:52 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:46:04 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 5:19:40 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:46:04 AM com.rapidminer.Process execute
+Dec 11, 2018 5:19:40 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:46:04 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 5:19:40 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:46:04 AM com.rapidminer.Process saveResults
+Dec 11, 2018 5:19:40 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:46:04 AM com.rapidminer.Process execute
+Dec 11, 2018 5:19:40 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:46:12 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 5:20:06 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:46:12 AM com.rapidminer.Process execute
+Dec 11, 2018 5:20:06 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:46:12 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 5:20:07 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:46:12 AM com.rapidminer.Process saveResults
+Dec 11, 2018 5:20:07 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:46:12 AM com.rapidminer.Process execute
+Dec 11, 2018 5:20:07 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:48:28 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 5:20:40 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:48:28 AM com.rapidminer.Process execute
+Dec 11, 2018 5:20:40 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:48:28 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 5:20:40 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread run
-SEVERE: Process failed: The operator Linear Regression does not have sufficient capabilities for the given data set: polynominal attributes not supported
-com.rapidminer.operator.UserError: The operator Linear Regression does not have sufficient capabilities for the given data set: polynominal attributes not supported
-	at com.rapidminer.operator.learner.CapabilityCheck.checkLearnerCapabilities(CapabilityCheck.java:63)
-	at com.rapidminer.operator.learner.AbstractLearner.doWork(AbstractLearner.java:149)
-	at com.rapidminer.operator.Operator.execute(Operator.java:1025)
-	at com.rapidminer.operator.execution.SimpleUnitExecutor.execute(SimpleUnitExecutor.java:77)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:812)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:807)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.rapidminer.operator.ExecutionUnit.execute(ExecutionUnit.java:807)
-	at com.rapidminer.operator.validation.ValidationChain.executeLearner(ValidationChain.java:224)
-	at com.rapidminer.operator.validation.ValidationChain.learn(ValidationChain.java:318)
-	at com.rapidminer.operator.validation.SplitValidationOperator.estimatePerformance(SplitValidationOperator.java:166)
-	at com.rapidminer.operator.validation.ValidationChain.doWork(ValidationChain.java:285)
-	at com.rapidminer.operator.Operator.execute(Operator.java:1025)
-	at com.rapidminer.operator.execution.SimpleUnitExecutor.execute(SimpleUnitExecutor.java:77)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:812)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:807)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.rapidminer.operator.ExecutionUnit.execute(ExecutionUnit.java:807)
-	at com.rapidminer.operator.OperatorChain.doWork(OperatorChain.java:428)
-	at com.rapidminer.operator.Operator.execute(Operator.java:1025)
-	at com.rapidminer.Process.execute(Process.java:1322)
-	at com.rapidminer.Process.run(Process.java:1297)
-	at com.rapidminer.Process.run(Process.java:1183)
-	at com.rapidminer.Process.run(Process.java:1136)
-	at com.rapidminer.Process.run(Process.java:1131)
-	at com.rapidminer.Process.run(Process.java:1121)
-	at com.rapidminer.gui.ProcessThread.run(ProcessThread.java:65)
-
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE: Here: 
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:           Process[1] (Process)
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:            subprocess 'Main Process'
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:              +- Retrieve data_1400_no_endTime[1] (Retrieve)
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:              +- Validation[1] (Split Validation)
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:            subprocess 'Training'
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:        ==>      |  +- Linear Regression[1] (Linear Regression)
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:            subprocess 'Testing'
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:                    +- Apply Model (2)[0] (Apply Model)
-Dec 05, 2018 11:48:28 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:                    +- Performance[0] (Performance (Regression))
-Dec 05, 2018 11:49:13 AM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:49:13 AM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:49:13 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread run
-SEVERE: Process failed: The operator Linear Regression does not have sufficient capabilities for the given data set: polynominal attributes not supported
-com.rapidminer.operator.UserError: The operator Linear Regression does not have sufficient capabilities for the given data set: polynominal attributes not supported
-	at com.rapidminer.operator.learner.CapabilityCheck.checkLearnerCapabilities(CapabilityCheck.java:63)
-	at com.rapidminer.operator.learner.AbstractLearner.doWork(AbstractLearner.java:149)
-	at com.rapidminer.operator.Operator.execute(Operator.java:1025)
-	at com.rapidminer.operator.execution.SimpleUnitExecutor.execute(SimpleUnitExecutor.java:77)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:812)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:807)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.rapidminer.operator.ExecutionUnit.execute(ExecutionUnit.java:807)
-	at com.rapidminer.operator.validation.ValidationChain.executeLearner(ValidationChain.java:224)
-	at com.rapidminer.operator.validation.ValidationChain.learn(ValidationChain.java:318)
-	at com.rapidminer.operator.validation.SplitValidationOperator.estimatePerformance(SplitValidationOperator.java:166)
-	at com.rapidminer.operator.validation.ValidationChain.doWork(ValidationChain.java:285)
-	at com.rapidminer.operator.Operator.execute(Operator.java:1025)
-	at com.rapidminer.operator.execution.SimpleUnitExecutor.execute(SimpleUnitExecutor.java:77)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:812)
-	at com.rapidminer.operator.ExecutionUnit$2.run(ExecutionUnit.java:807)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.rapidminer.operator.ExecutionUnit.execute(ExecutionUnit.java:807)
-	at com.rapidminer.operator.OperatorChain.doWork(OperatorChain.java:428)
-	at com.rapidminer.operator.Operator.execute(Operator.java:1025)
-	at com.rapidminer.Process.execute(Process.java:1322)
-	at com.rapidminer.Process.run(Process.java:1297)
-	at com.rapidminer.Process.run(Process.java:1183)
-	at com.rapidminer.Process.run(Process.java:1136)
-	at com.rapidminer.Process.run(Process.java:1131)
-	at com.rapidminer.Process.run(Process.java:1121)
-	at com.rapidminer.gui.ProcessThread.run(ProcessThread.java:65)
-
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE: Here: 
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:           Process[1] (Process)
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:            subprocess 'Main Process'
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:              +- Retrieve data_no_endTime[1] (Retrieve)
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:              +- Validation[1] (Split Validation)
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:            subprocess 'Training'
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:        ==>      |  +- Linear Regression[1] (Linear Regression)
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:            subprocess 'Testing'
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:                    +- Apply Model (2)[0] (Apply Model)
-Dec 05, 2018 11:49:13 AM com.rapidminer.gui.ProcessThread logProcessTreeList
-SEVERE:                    +- Performance[0] (Performance (Regression))
-Dec 05, 2018 11:50:05 AM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:50:05 AM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:50:05 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:50:05 AM com.rapidminer.Process saveResults
+Dec 11, 2018 5:20:40 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:50:05 AM com.rapidminer.Process execute
+Dec 11, 2018 5:20:40 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:50:16 AM com.rapidminer.RepositoryProcessLocation store
+Dec 11, 2018 5:20:58 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:20:58 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:20:58 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:20:59 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:20:59 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:21:12 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:21:12 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:21:12 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:21:12 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:21:12 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:21:21 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:21:21 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:21:21 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:21:21 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:21:21 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:22:39 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:22:39 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:22:39 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:22:39 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:22:39 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:22:48 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:22:48 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:22:48 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:22:48 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:22:48 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:34:10 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:34:10 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:34:10 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:34:10 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:34:10 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:36:07 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:36:07 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:36:07 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:36:08 PM com.rapidminer.operator.performance.SimpleCriterion countExample
+WARNING: SimpleCriterion: Deviation of Performance was NaN!
+Dec 11, 2018 5:36:08 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:36:08 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:45:01 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:45:01 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:45:01 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:45:01 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:45:01 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:50:17 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:50:17 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:50:17 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:50:17 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:50:17 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:50:29 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:50:29 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:50:29 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:50:29 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:50:29 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:52:28 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:52:28 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:52:28 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:52:28 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:52:28 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:52:36 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:52:36 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:52:36 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:52:36 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:52:36 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:55:03 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:55:03 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:55:03 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:55:04 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:55:04 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 5:57:26 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 5:57:26 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 5:57:26 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 5:57:26 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 5:57:26 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 6:06:08 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:06:08 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 6:06:08 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:06:08 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:06:08 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
+Dec 11, 2018 6:17:45 PM com.rapidminer.RepositoryProcessLocation store
 INFO: Saved process definition at //AIAD_PROJ/M5_third_try.
-Dec 05, 2018 11:55:31 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:18:15 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:18:47 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:19:11 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:19:16 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:19:17 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:55:31 AM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:55:31 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:19:17 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:19:17 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:55:31 AM com.rapidminer.Process saveResults
+Dec 11, 2018 6:19:17 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:55:31 AM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 11:58:48 AM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:19:17 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:19:57 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:19:58 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 11:58:48 AM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 11:58:48 AM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:19:58 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:19:58 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 11:58:49 AM com.rapidminer.Process saveResults
+Dec 11, 2018 6:19:58 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 11:58:49 AM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:26:06 PM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:19:58 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:21:31 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:26:06 PM com.rapidminer.Process execute
+Dec 11, 2018 6:21:31 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:26:06 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:21:31 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:26:06 PM com.rapidminer.Process saveResults
+Dec 11, 2018 6:21:31 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 12:26:06 PM com.rapidminer.Process execute
+Dec 11, 2018 6:21:31 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:26:43 PM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:21:43 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:26:43 PM com.rapidminer.Process execute
+Dec 11, 2018 6:21:43 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:26:43 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:21:43 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:26:43 PM com.rapidminer.Process saveResults
+Dec 11, 2018 6:21:44 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 12:26:43 PM com.rapidminer.Process execute
+Dec 11, 2018 6:21:44 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:28:23 PM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:21:53 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:28:23 PM com.rapidminer.Process execute
+Dec 11, 2018 6:21:53 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:28:23 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:21:53 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:28:23 PM com.rapidminer.Process saveResults
+Dec 11, 2018 6:21:53 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 12:28:23 PM com.rapidminer.Process execute
+Dec 11, 2018 6:21:53 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:28:48 PM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:22:00 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:28:48 PM com.rapidminer.Process execute
+Dec 11, 2018 6:22:00 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:28:48 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:22:00 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:28:48 PM com.rapidminer.Process saveResults
+Dec 11, 2018 6:22:00 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 12:28:48 PM com.rapidminer.Process execute
+Dec 11, 2018 6:22:00 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:29:54 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:29:54 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:29:54 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:29:54 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:29:54 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:29:54 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:29:54 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:29:54 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:29:54 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:29:54 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:30:22 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:30:22 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:30:22 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:30:23 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:30:23 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:30:23 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:30:23 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:30:23 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:30:23 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:30:23 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:31:27 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:31:27 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:31:27 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:31:27 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:31:27 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:31:27 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:31:27 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:31:27 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:31:27 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:31:27 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:32:59 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:32:59 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:32:59 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:32:59 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:32:59 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:32:59 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:32:59 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:32:59 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:32:59 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:32:59 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:53:17 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:53:17 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:53:17 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.operator.performance.SimpleCriterion countExample
-WARNING: SimpleCriterion: Deviation of Performance was NaN!
-Dec 05, 2018 12:53:17 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:53:17 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:54:04 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:54:04 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:54:04 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:54:04 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:54:04 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:54:34 PM com.rapidminer.tools.ResultService init
-INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:54:34 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:54:34 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
-WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:54:34 PM com.rapidminer.Process saveResults
-INFO: Saving results.
-Dec 05, 2018 12:54:34 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:54:59 PM com.rapidminer.RepositoryProcessLocation store
+Dec 11, 2018 6:22:05 PM com.rapidminer.RepositoryProcessLocation store
 INFO: Saved process definition at //AIAD_PROJ/M5_third_try.
-Dec 05, 2018 12:55:05 PM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:22:23 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:55:05 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:55:05 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:22:23 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:22:23 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:55:05 PM com.rapidminer.Process saveResults
+Dec 11, 2018 6:22:23 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 12:55:05 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:55:12 PM com.rapidminer.tools.ResultService init
+Dec 11, 2018 6:22:23 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:22:33 PM com.rapidminer.tools.ResultService init
 INFO: No filename given for result file, using stdout for logging results!
-Dec 05, 2018 12:55:12 PM com.rapidminer.Process execute
-INFO: Process //AIAD_PROJ/M5_third_try starts
-Dec 05, 2018 12:55:12 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+Dec 11, 2018 6:22:33 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:22:33 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
 WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
-Dec 05, 2018 12:55:12 PM com.rapidminer.Process saveResults
+Dec 11, 2018 6:22:33 PM com.rapidminer.Process saveResults
 INFO: Saving results.
-Dec 05, 2018 12:55:12 PM com.rapidminer.Process execute
+Dec 11, 2018 6:22:33 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:22:40 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:22:40 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:22:40 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:22:40 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:22:40 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:22:48 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:31:48 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:31:48 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_third_try starts
+Dec 11, 2018 6:31:48 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:31:48 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:31:48 PM com.rapidminer.Process execute
 INFO: Process //AIAD_PROJ/M5_third_try finished successfully after 0 s
-Dec 05, 2018 12:55:47 PM com.rapidminer.RepositoryProcessLocation store
+Dec 11, 2018 6:31:59 PM com.rapidminer.RepositoryProcessLocation store
 INFO: Saved process definition at //AIAD_PROJ/M5_third_try.
-Dec 05, 2018 12:55:47 PM com.rapidminer.gui.RapidMinerGUI$ShutdownHook run
+Dec 11, 2018 6:32:14 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:32:14 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:32:14 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:32:15 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:32:15 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:32:24 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:44:35 PM com.rapidminer.gui.plotter.charts.AbstractPieChartPlotter updatePlotter
+INFO: Too many columns (1,566), this chart is only able to plot up to 50 different categories.
+Dec 11, 2018 6:44:35 PM com.rapidminer.gui.plotter.charts.AbstractPieChartPlotter updatePlotter
+INFO: Too many columns (1,566), this chart is only able to plot up to 50 different categories.
+Dec 11, 2018 6:46:48 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:46:48 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:46:48 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:46:48 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:46:48 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:47:43 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:47:43 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:47:43 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:47:43 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:47:43 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:48:10 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:48:10 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:48:10 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:48:10 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:48:10 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:48:21 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:48:21 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:48:21 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:48:21 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:48:21 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:48:43 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:48:43 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:48:43 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:48:43 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:48:43 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:48:51 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:48:51 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:48:51 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:48:51 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:48:51 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:48:59 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:48:59 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:48:59 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:48:59 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:48:59 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:49:18 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:50:41 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:50:41 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:50:41 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:50:41 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:50:41 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:50:53 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:50:53 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:50:53 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:50:53 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:50:53 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:51:09 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:51:09 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:51:09 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:51:10 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:51:10 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:51:24 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:51:24 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:51:24 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:51:24 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:51:24 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:51:42 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:51:42 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:51:42 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:51:42 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:51:42 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:51:50 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:51:50 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:51:50 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:51:50 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:51:50 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:52:03 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:52:03 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:52:03 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:52:03 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:52:03 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:52:19 PM com.rapidminer.tools.ResultService init
+INFO: No filename given for result file, using stdout for logging results!
+Dec 11, 2018 6:52:19 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try starts
+Dec 11, 2018 6:52:19 PM com.rapidminer.tools.WrapperLoggingHandler logWarning
+WARNING: Example set has no nominal label: using shuffled partition instead of stratified partition
+Dec 11, 2018 6:52:19 PM com.rapidminer.Process saveResults
+INFO: Saving results.
+Dec 11, 2018 6:52:19 PM com.rapidminer.Process execute
+INFO: Process //AIAD_PROJ/M5_4_try finished successfully after 0 s
+Dec 11, 2018 6:52:35 PM com.rapidminer.RepositoryProcessLocation store
+INFO: Saved process definition at //AIAD_PROJ/M5_4_try.
+Dec 11, 2018 6:53:25 PM com.rapidminer.gui.RapidMinerGUI$ShutdownHook run
 INFO: Running shutdown sequence.
-Dec 05, 2018 12:55:48 PM com.rapidminer.tools.usagestats.CallToActionScheduler shutdown
+Dec 11, 2018 6:53:26 PM com.rapidminer.tools.usagestats.CallToActionScheduler shutdown
 INFO: Shutting down CTA scheduler.
